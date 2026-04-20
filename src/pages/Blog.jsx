@@ -94,7 +94,7 @@ const BlogPage = () => {
       <motion.section {...sectionMotionProps} className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-4xl font-bold text-gray-900 mb-12 text-center">
-            Latest <span className="text-[#dc2626]">Articles</span>
+            Latest <span className="text-blue-600">Articles</span>
           </h2>
 
           <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-3">
@@ -109,7 +109,7 @@ const BlogPage = () => {
                     alt={post.title}
                     className="w-full h-64 object-cover"
                   />
-                  <div className="absolute top-4 left-4 bg-gradient-to-r from-[#dc2626] to-[#b91c1c] text-white px-3 py-1 rounded-full text-xs font-semibold shadow-lg">
+                  <div className="absolute top-4 left-4 bg-gradient-to-r from-blue-600 to-blue-700 text-white px-3 py-1 rounded-full text-xs font-semibold shadow-lg">
                     {post.category}
                   </div>
                 </div>
@@ -120,7 +120,7 @@ const BlogPage = () => {
                     <span>{post.date}</span>
                   </div>
 
-                  <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-[#b91c1c] transition-colors duration-300">
+                  <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors duration-300">
                     {post.title}
                   </h3>
 
@@ -136,7 +136,7 @@ const BlogPage = () => {
       <motion.section {...sectionMotionProps} className="py-20 bg-blue-50">
         <div className="max-w-6xl mx-auto text-center px-4 sm:px-6 lg:px-8">
           <h2 className="text-4xl font-bold text-gray-900 mb-6">
-            Browse by <span className="text-[#dc2626]">Topics</span>
+            Browse by <span className="text-blue-600">Topics</span>
           </h2>
 
           <p className="text-gray-600 mb-10">
@@ -147,7 +147,7 @@ const BlogPage = () => {
             {categories.map((cat, i) => (
               <div
                 key={i}
-                className="px-6 py-3 bg-gradient-to-r from-[#fed7d7] to-[#fecaca] rounded-full cursor-pointer text-[#dc2626] font-semibold hover:scale-105 hover:from-[#dc2626] hover:to-[#b91c1c] hover:text-white transition-all duration-300"
+                className="px-6 py-3 bg-gradient-to-r from-blue-100 to-blue-200 rounded-full cursor-pointer text-blue-600 font-semibold hover:scale-105 hover:from-blue-600 hover:to-blue-700 hover:text-white transition-all duration-300"
               >
                 {cat}
               </div>
@@ -160,7 +160,7 @@ const BlogPage = () => {
       <motion.section {...sectionMotionProps} className="py-20 bg-gray-100">
         <div className="max-w-7xl mx-auto text-center px-4 sm:px-6 lg:px-8">
           <h2 className="text-4xl font-bold text-gray-900 mb-6">
-            Our <span className="text-[#dc2626]">Clients</span>
+            Our <span className="text-blue-600">Clients</span>
           </h2>
 
           <p className="text-gray-600 mb-12">
@@ -185,7 +185,7 @@ const BlogPage = () => {
       {/* CTA */}
       <motion.section
         {...sectionMotionProps}
-        className="py-20 bg-gradient-to-r from-[#dc2626] to-[#b91c1c] text-center text-white">
+        className="py-20 bg-gradient-to-r from-blue-600 to-blue-700 text-center text-white">
         <h2 className="text-4xl font-bold mb-6">
           Stay Updated with Our Insights
         </h2>
@@ -198,14 +198,14 @@ const BlogPage = () => {
         <div className="flex flex-col sm:flex-row gap-6 justify-center">
           <Link
             to="/contact-us"
-            className="px-8 py-4 bg-white text-[#dc2626] font-semibold rounded-xl hover:bg-gray-100 transition-all duration-300"
+            className="px-8 py-4 bg-white text-blue-600 font-semibold rounded-xl hover:bg-gray-100 transition-all duration-300"
           >
             Contact Us
           </Link>
 
           <Link
             to="/blog"
-            className="px-8 py-4 border-2 border-white text-white font-semibold rounded-xl hover:bg-white hover:text-[#dc2626] transition-all duration-300"
+            className="px-8 py-4 border-2 border-white text-white font-semibold rounded-xl hover:bg-white hover:text-blue-600 transition-all duration-300"
           >
             Explore More Articles
           </Link>

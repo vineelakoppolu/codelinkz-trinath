@@ -48,7 +48,7 @@ const DevOpsSolutions = () => {
     },
     {
       name: "AWS",
-      icon: <FaAws className="text-[#dc2626] w-10 h-10" />,
+      icon: <FaAws className="text-blue-600 w-10 h-10" />,
       description:
         "Comprehensive cloud services platform for scalable, secure, and high-performance applications.",
       features: ["EC2", "S3", "Lambda", "CloudFormation"],
@@ -155,8 +155,8 @@ const DevOpsSolutions = () => {
             transition={{ duration: 0.6 }}
             className="space-y-6"
           >
-            <h2 className="text-4xl font-bold text-[#2B2B2B] mb-4">
-              Efficient <span className="text-[#dc2626]">DevOps Solutions</span>
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+              Efficient <span className="text-blue-600">DevOps Solutions</span>
             </h2>
             <p className="text-lg text-gray-600 leading-relaxed">
               We deliver scalable, automated, and high-performing DevOps
@@ -173,7 +173,7 @@ const DevOpsSolutions = () => {
                   transition={{ duration: 0.4, delay: idx * 0.1 }}
                   className="flex items-start space-x-3"
                 >
-                  <CheckCircle className="w-6 h-6 text-[#dc2626] mt-1 flex-shrink-0" />
+                  <CheckCircle className="w-6 h-6 text-blue-600 mt-1 flex-shrink-0" />
                   <span className="text-gray-700">{feature}</span>
                 </motion.div>
               ))}
@@ -181,7 +181,7 @@ const DevOpsSolutions = () => {
 
             <Link
               to="/contact"
-              className="inline-flex items-center px-8 py-4 bg-[#dc2626] text-white font-semibold rounded-xl hover:bg-[#b91c1c] transform hover:scale-105 transition-all duration-300 shadow-lg mt-6"
+              className="inline-flex items-center px-8 py-4 bg-blue-600 text-white font-semibold rounded-xl hover:bg-blue-700 transform hover:scale-105 transition-all duration-300 shadow-lg mt-6"
             >
               Start Your Project
               <ArrowRight className="w-5 h-5 ml-2" />
@@ -203,7 +203,7 @@ const DevOpsSolutions = () => {
               />
 
               <div className="absolute bottom-6 left-6 bg-white p-6 rounded-xl shadow-lg flex flex-col items-center">
-                <span className="text-3xl font-bold text-[#dc2626]">15+</span>
+                <span className="text-3xl font-bold text-blue-600">15+</span>
                 <span className="text-sm text-gray-600">
                   Years DevOps Experience
                 </span>
@@ -219,7 +219,7 @@ const DevOpsSolutions = () => {
 
         <div className="max-w-7xl mx-auto px-6 text-center relative z-10">
           <h2 className="text-4xl font-bold mb-6">
-            Our <span className="text-[#dc2626]">DevOps Services</span>
+            Our <span className="text-blue-600">DevOps Services</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             We provide end-to-end DevOps services ensuring faster and reliable
@@ -242,13 +242,13 @@ const DevOpsSolutions = () => {
                   transition-all duration-300
                 "
               >
-                <div className="absolute -top-6 -right-6 w-24 h-24 rounded-full bg-[#dc2626]/10 blur-2xl group-hover:bg-[#dc2626]/20 transition-all"></div>
+                <div className="absolute -top-6 -right-6 w-24 h-24 rounded-full bg-blue-600/10 blur-2xl group-hover:bg-blue-600/20 transition-all"></div>
 
                 <div
-                  className="w-20 h-20 mx-auto rounded-2xl bg-[#dc2626]/10 flex items-center justify-center mb-6 
-                          group-hover:bg-[#dc2626]/20 transition-all"
+                  className="w-20 h-20 mx-auto rounded-2xl bg-blue-600/10 flex items-center justify-center mb-6 
+                          group-hover:bg-blue-600/20 transition-all"
                 >
-                  <service.icon className="w-10 h-10 text-[#dc2626]" />
+                  <service.icon className="w-10 h-10 text-blue-600" />
                 </div>
 
                 <h3 className="text-2xl font-semibold text-gray-900 mb-3">
@@ -259,7 +259,7 @@ const DevOpsSolutions = () => {
                   {service.description}
                 </p>
 
-                <div className="h-1 w-0 bg-[#dc2626] mt-6 mx-auto rounded-full group-hover:w-24 transition-all duration-300"></div>
+                <div className="h-1 w-0 bg-blue-600 mt-6 mx-auto rounded-full group-hover:w-24 transition-all duration-300"></div>
               </motion.div>
             ))}
           </div>
@@ -270,7 +270,7 @@ const DevOpsSolutions = () => {
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-16">
           <h2 className="text-4xl font-bold mb-6">
-            DevOps <span className="text-[#dc2626]">Technologies</span>
+            DevOps <span className="text-blue-600">Technologies</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             Click on a technology to explore features, use cases, and projects.
@@ -290,14 +290,14 @@ const DevOpsSolutions = () => {
             >
               <div className="flex items-center mb-4">
                 <div className="text-3xl mr-4">{tech.icon}</div>
-                <h4 className="text-xl font-bold text-[#2B2B2B] group-hover:text-[#b91c1c] transition-colors duration-300">
+                <h4 className="text-xl font-bold text-gray-900 group-hover:text-blue-600 transition-colors duration-300">
                   {tech.name}
                 </h4>
               </div>
               <p className="text-gray-600 mb-4 line-clamp-2">
                 {tech.description}
               </p>
-              <div className="flex items-center text-[#dc2626] font-medium group-hover:translate-x-2 transition-transform duration-300">
+              <div className="flex items-center text-blue-600 font-medium group-hover:translate-x-2 transition-transform duration-300">
                 Learn More <ArrowRight className="w-4 h-4 ml-2" />
               </div>
             </motion.div>
@@ -308,8 +308,8 @@ const DevOpsSolutions = () => {
       {/* Section 4: Why Choose Us */}
       <section className="py-20 bg-[#F9FAFB]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-12">
-          <h2 className="text-4xl font-bold text-[#2B2B2B] mb-6">
-            Why <span className="text-[#dc2626]">Choose Us</span>
+          <h2 className="text-4xl font-bold text-gray-900 mb-6">
+            Why <span className="text-blue-600">Choose Us</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-12">
             Our expertise, modern tech stack, and commitment to quality ensure
@@ -326,9 +326,9 @@ const DevOpsSolutions = () => {
                 className="bg-white p-8 rounded-2xl shadow-lg"
               >
                 <div className="flex justify-center mb-4">
-                  <item.icon className="text-[#dc2626] w-10 h-10" />
+                  <item.icon className="text-blue-600 w-10 h-10" />
                 </div>
-                <h4 className="text-xl font-bold text-[#dc2626] mb-4">
+                <h4 className="text-xl font-bold text-blue-600 mb-4">
                   {item.title}
                 </h4>
                 <p className="text-gray-600">{item.description}</p>
@@ -345,7 +345,7 @@ const DevOpsSolutions = () => {
             <div className="flex items-center mb-6">
               <div className="text-4xl mr-4">{selectedTech.icon}</div>
               <div>
-                <h2 className="text-3xl font-bold text-[#2B2B2B] mb-2">
+                <h2 className="text-3xl font-bold text-gray-900 mb-2">
                   {selectedTech.name}
                 </h2>
                 <p className="text-gray-600">{selectedTech.description}</p>
@@ -357,7 +357,7 @@ const DevOpsSolutions = () => {
                 <h3 className="text-xl font-bold mb-4">Key Features</h3>
                 {selectedTech.features.map((f, i) => (
                   <div key={i} className="flex items-center mb-2">
-                    <CheckCircle className="text-[#dc2626] mr-2" /> {f}
+                    <CheckCircle className="text-blue-600 mr-2" /> {f}
                   </div>
                 ))}
               </div>
@@ -365,7 +365,7 @@ const DevOpsSolutions = () => {
                 <h3 className="text-xl font-bold mb-4">Use Cases</h3>
                 {selectedTech.useCases.map((u, i) => (
                   <div key={i} className="flex items-center mb-2">
-                    <Star className="text-[#dc2626] mr-2" /> {u}
+                    <Star className="text-blue-600 mr-2" /> {u}
                   </div>
                 ))}
               </div>
@@ -375,7 +375,7 @@ const DevOpsSolutions = () => {
               <h3 className="text-xl font-bold mb-4">Advantages</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {selectedTech.advantages.map((a, i) => (
-                  <div key={i} className="bg-[#F3F6FA] p-4 rounded-lg">
+                  <div key={i} className="bg-blue-50 p-4 rounded-lg">
                     {a}
                   </div>
                 ))}
@@ -385,7 +385,7 @@ const DevOpsSolutions = () => {
             <div className="mt-8 text-center">
               <Link
                 to="/contact"
-                className="inline-flex items-center px-8 py-4 bg-[#dc2626] text-white font-semibold rounded-xl hover:bg-[#b91c1c] transform hover:scale-105 transition-all duration-300 shadow-lg"
+                className="inline-flex items-center px-8 py-4 bg-blue-600 text-white font-semibold rounded-xl hover:bg-blue-700 transform hover:scale-105 transition-all duration-300 shadow-lg"
               >
                 Start a Project with {selectedTech.name}{" "}
                 <ArrowRight className="w-5 h-5 ml-2" />

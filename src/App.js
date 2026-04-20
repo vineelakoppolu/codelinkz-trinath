@@ -7,6 +7,7 @@ import PricingContactSection from "./components/pricingContact";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Services from "./pages/Services";
+import Collaboration from "./pages/Collaboration";
 import CustomerSoftware from "./pages/ALL-Service/Customer-Software";
 import MobileApp from "./pages/ALL-Service/Mobile-App";
 import WebApp from "./pages/ALL-Service/Web-App";
@@ -49,6 +50,7 @@ function AppContent() {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/services" element={<Services />} />
+        <Route path="/collaboration" element={<Collaboration />} />
         <Route path="/services/software" element={<CustomerSoftware />} />
         <Route path="/services/mobileApp" element={<MobileApp />} />
         <Route path="/services/webApp" element={<WebApp />} />

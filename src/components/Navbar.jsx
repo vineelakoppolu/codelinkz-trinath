@@ -182,6 +182,14 @@ const Navbar = () => {
             </Link>
 
             <Link
+              to="/collaboration"
+              className={`text-gray-700 hover:text-blue-600 font-medium ${
+                isActive("/collaboration") ? "text-blue-600" : ""
+              }`}>
+              Collaboration
+            </Link>
+
+            <Link
               to="/career"
               className={`text-gray-700 hover:text-blue-600 font-medium ${
                 isActive("/career") ? "text-blue-600" : ""

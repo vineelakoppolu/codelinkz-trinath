@@ -339,6 +339,17 @@ const Home = () => {
         </div>
       </motion.section>
 
+      {/* Trust Section */}
+      <motion.section {...sectionMotionProps} className="py-12 bg-blue-50 border-t border-b border-blue-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center">
+            <p className="text-xl font-semibold text-gray-900">
+              ✓ Trusted by startups, SMEs, and enterprises for digital transformation and product engineering.
+            </p>
+          </div>
+        </div>
+      </motion.section>
+
       {/* Services Section */}
       <motion.section {...sectionMotionProps} className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -378,7 +389,36 @@ const Home = () => {
         </div>
       </motion.section>
 
+      {/* Key Highlights */}
       <motion.section {...sectionMotionProps} className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+              Why Choose Us
+            </h2>
+            <p className="text-xl text-gray-600">
+              Key Highlights of Our Expertise
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {[
+              { icon: '⭐', title: '10+ Scalable SaaS Products', desc: 'Built and deployed enterprise-grade solutions' },
+              { icon: '🌍', title: 'Multi-Industry Expertise', desc: 'Serving healthcare, retail, logistics, and more' },
+              { icon: '☁️', title: 'Cloud-Ready Solutions', desc: 'AWS, Azure, and Docker integrated' },
+              { icon: '🤖', title: 'AI-Integrated Platforms', desc: 'OpenAI, TensorFlow, and ML-powered systems' }
+            ].map((highlight, index) => (
+              <Card key={index} className="p-8 bg-gradient-to-br from-blue-50 to-blue-100 hover:shadow-xl transition-all duration-300 border border-blue-200">
+                <div className="text-4xl mb-4">{highlight.icon}</div>
+                <h3 className="text-lg font-semibold text-gray-900 mb-2">{highlight.title}</h3>
+                <p className="text-gray-600 text-sm">{highlight.desc}</p>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </motion.section>
+
+      <motion.section {...sectionMotionProps} className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">
@@ -436,14 +476,38 @@ const Home = () => {
         </div>
       </motion.section>
 
-      <motion.section
-        {...sectionMotionProps}
-        className="py-20 bg-gradient-to-br from-blue-50 via-white to-blue-50 text-gray-900">
+      {/* Why Codelink Solution */}
+      <motion.section {...sectionMotionProps} className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4">Product Ecosystem</h2>
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">Why Codelink Solution</h2>
             <p className="text-xl text-gray-600">
-              Revolutionary platforms transforming industries
+              What sets us apart in digital transformation
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {[
+              { title: 'Faster Time to Market', icon: '⚡' },
+              { title: 'Scalable Architecture', icon: '📈' },
+              { title: 'Cost-Effective Development', icon: '💰' },
+              { title: 'Strong Post-Launch Support', icon: '🛡️' }
+            ].map((item, index) => (
+              <Card key={index} className="p-8 bg-gradient-to-br from-white to-blue-50 hover:shadow-xl transition-all duration-300 border border-blue-100">
+                <div className="text-5xl mb-4">{item.icon}</div>
+                <h3 className="text-lg font-semibold text-gray-900">{item.title}</h3>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </motion.section>
+
+      <motion.section {...sectionMotionProps} className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold mb-4">Our Products Ecosystem</h2>
+            <p className="text-xl text-gray-600">
+              We are building an ecosystem of SaaS tools for modern businesses
             </p>
           </div>
 

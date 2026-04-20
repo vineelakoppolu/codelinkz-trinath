@@ -16,57 +16,71 @@ const Services = () => {
   const mainServices = [
     {
       icon: <Code className="w-12 h-12" />,
-      title: 'Custom Software Development',
-      description: 'End-to-end custom software solutions tailored to your business needs. We build scalable, secure, and high-performance applications.',
+      title: 'Web Development',
+      description: 'We create visually stunning and high-performance web platforms.',
       features: [
-        'Enterprise Application Development',
-        'SaaS Product Development',
-        'Legacy System Modernization',
-        'API Development & Integration'
+        'Corporate Websites',
+        'SaaS Platforms',
+        'E-commerce Systems',
+        'Progressive Web Apps'
+      ],
+      benefits: [
+        'SEO Optimized',
+        'Fast Loading',
+        'Mobile Responsive'
       ]
     },
     {
       icon: <Smartphone className="w-12 h-12" />,
       title: 'Mobile App Development',
-      description: 'Native and cross-platform mobile applications that deliver exceptional user experiences on iOS and Android.',
+      description: 'We build apps that users love across all platforms.',
       features: [
-        'iOS & Android Native Apps',
-        'React Native & Flutter Development',
-        'Mobile App UI/UX Design',
-        'App Store Optimization'
+        'Android & iOS Apps',
+        'Hybrid Apps (React Native / Flutter)',
+        'Enterprise Mobility Solutions'
+      ],
+      benefits: [
+        'Real-time Sync',
+        'Push Notifications',
+        'API Integration'
       ]
     },
     {
       icon: <Cloud className="w-12 h-12" />,
-      title: 'Web App Development',
-      description: 'Modern, responsive web applications built with cutting-edge technologies for optimal performance.',
+      title: 'SaaS Development',
+      description: 'Launch and scale SaaS products globally with confidence.',
       features: [
-        'Progressive Web Apps (PWA)',
-        'Single Page Applications (SPA)',
-        'E-commerce Platforms',
-        'Content Management Systems'
+        'Multi-Tenant Architecture',
+        'Subscription Billing',
+        'Admin Dashboards',
+        'Role-Based Access'
+      ],
+      benefits: [
+        'Ideal for Startups',
+        'Perfect for Agencies',
+        'Great for Product Companies'
       ]
     },
     {
       icon: <Brain className="w-12 h-12" />,
       title: 'AI & Machine Learning',
-      description: 'Intelligent solutions powered by artificial intelligence and machine learning to automate and optimize business processes.',
+      description: 'We bring intelligence to your systems with cutting-edge AI.',
       features: [
-        'Natural Language Processing',
-        'Computer Vision Solutions',
+        'AI Chatbots',
         'Predictive Analytics',
-        'AI Chatbots & Virtual Assistants'
+        'Recommendation Engines',
+        'Automation Systems'
       ]
     },
     {
-      icon: <Cloud className="w-12 h-12" />,
-      title: 'Cloud Consulting',
-      description: 'Expert cloud strategy, migration, and optimization services for AWS, Azure, and Google Cloud Platform.',
+      icon: <Code className="w-12 h-12" />,
+      title: 'Custom Software Development',
+      description: 'We build software tailored to your unique business processes.',
       features: [
-        'Cloud Architecture Design',
-        'Cloud Migration Services',
-        'DevOps & CI/CD Implementation',
-        'Cloud Cost Optimization'
+        'CRM Systems',
+        'ERP Platforms',
+        'Workflow Automation Tools',
+        'Field Service Management'
       ]
     },
     {

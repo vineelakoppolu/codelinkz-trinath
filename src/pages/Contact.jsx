@@ -95,21 +95,18 @@ const Contact = () => {
       icon: <MapPin className="w-6 h-6" />,
       title: "Office Address",
       details: [
-        "1st Floor, Highmark Chambers,",
-        "8/199/2, X Roads,",
-        "Gachibowli, Khajaguda,",
-        "Hyderabad, Telangana 500032",
+        "📍 Bangalore, India",
       ],
-    },
-    {
-      icon: <Phone className="w-6 h-6" />,
-      title: "Phone",
-      details: ["+91 7093702655"],
     },
     {
       icon: <Mail className="w-6 h-6" />,
       title: "Email",
-      details: ["business@zomantsolutions.com"],
+      details: ["📧 info@codelinksolution.com"],
+    },
+    {
+      icon: <Phone className="w-6 h-6" />,
+      title: "Phone",
+      details: ["📞 +91-XXXXXXXXXX"],
     },
   ];
 
@@ -130,14 +127,12 @@ const Contact = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center">
             <h1 className="text-5xl md:text-6xl font-bold mb-6">
-              Get In{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-blue-700">
-                Touch
+              Let's <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-blue-700">
+                Connect
               </span>
             </h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Ready to transform your business? Let's discuss how we can help
-              you achieve your goals.
+              Have a project or idea? Let's discuss how we can help bring it to life.
             </p>
           </div>
         </div>
