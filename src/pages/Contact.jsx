@@ -95,18 +95,21 @@ const Contact = () => {
       icon: <MapPin className="w-6 h-6" />,
       title: "Office Address",
       details: [
-        "📍 Bangalore, India",
+        "1st Floor, Highmark Chambers,",
+        "8/199/2, X Roads,",
+        "Gachibowli, Khajaguda,",
+        "Hyderabad, Telangana 500032",
       ],
-    },
-    {
-      icon: <Mail className="w-6 h-6" />,
-      title: "Email",
-      details: ["📧 info@codelinksolution.com"],
     },
     {
       icon: <Phone className="w-6 h-6" />,
       title: "Phone",
-      details: ["📞 +91-XXXXXXXXXX"],
+      details: ["+91 7093702655"],
+    },
+    {
+      icon: <Mail className="w-6 h-6" />,
+      title: "Email",
+      details: ["business@zomantsolutions.com"],
     },
   ];
 
