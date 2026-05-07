@@ -13,11 +13,22 @@ import Integrations from "../components/Integrations";
 import Blog from "../components/Blog";
 import PricingPreview from "../components/PricingPreview";
 import FAQ from "../components/FAQ";
+import WhatWeDo from "../components/WhatWeDo";
+import TrustMarquee from "../components/TrustMarquee";
+import KeyHighlights from "../components/KeyHighlights";
+import ProductsEcosystem from "../components/ProductsEcosystem";
+import WhyCodelink from "../components/WhyCodelink";
+import CTABanner from "../components/CTABanner";
 
 export default function HomePage() {
   return (
     <div>
       <Hero />
+      <TrustMarquee />
+      <KeyHighlights />
+      <WhatWeDo />
+      <ProductsEcosystem />
+      <WhyCodelink />
       <TrustedBy />
       <Modules />
       <WhyChooseUs />
@@ -31,6 +42,7 @@ export default function HomePage() {
       <Blog />
       <FAQ />
       <MadeInIndia />
+      <CTABanner />
       <CTA />
     </div>
   );

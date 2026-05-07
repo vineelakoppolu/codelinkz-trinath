@@ -1,109 +1,211 @@
 import { motion } from 'framer-motion';
 import {
+  ShoppingCart,
+  Users,
+  Briefcase,
+  FileText,
+  Truck,
+  Share2,
   BarChart3,
   Zap,
   Shield,
-  Users,
-  TrendingUp,
-  Layers,
-  Settings,
-  Brain,
   Network,
   Clock,
+  Brain,
 } from 'lucide-react';
-import {
-  PageHero,
-  ProductCard,
-  ServiceCard,
-  StatsCard,
-  HeroButton,
-  GlassCard,
-  GradientText,
-} from '../components/ui';
+import { PageHero, CTASection } from '../components/ui';
+import { ProductCard } from '../components/products/ProductCard';
+import { DetailedProductShowcase } from '../components/products/DetailedProductShowcase';
 import { colors, shadows } from '@/theme';
 
-const productCategories = [
+const productsData = [
   {
-    icon: <Layers className="w-6 h-6" />,
-    title: 'SaaS Platforms',
-    description: 'Enterprise-grade software platforms for restaurants, healthcare, HRMS, and more.',
-    highlight: true,
+    icon: ShoppingCart,
+    name: 'Restolinkz',
+    tagline: 'Cloud-based Restaurant Management',
+    shortDescription: 'End-to-end solution for restaurant operations including POS, inventory, staff management, and customer loyalty programs.',
+    description: 'Restolinkz is a comprehensive restaurant management system built for modern food service establishments. From table management to kitchen operations, inventory tracking to customer analytics, Restolinkz streamlines every aspect of your restaurant business with real-time insights and automation.',
+    features: ['Cloud-based POS', 'Inventory Sync', 'Staff Management', 'Customer Analytics'],
+    detailedFeatures: [
+      'Advanced POS with multiple payment methods',
+      'Real-time kitchen display system',
+      'Inventory management with auto-reorder',
+      'Staff scheduling and performance tracking',
+      'Table reservation system',
+      'Customer loyalty programs',
+      'Multi-location management',
+      'Analytics and reporting dashboard',
+    ],
+    benefits: [
+      'Reduce operational costs by 30% with automated workflows',
+      'Improve customer satisfaction with faster service',
+      'Gain real-time insights into sales and inventory',
+      'Streamline staff management and scheduling',
+    ],
+    stats: [
+      { label: 'Restaurants Served', value: '1000+' },
+      { label: 'Transactions/Day', value: '50K+' },
+      { label: 'Uptime', value: '99.99%' },
+      { label: 'Support Available', value: '24/7' },
+    ],
   },
   {
-    icon: <Brain className="w-6 h-6" />,
-    title: 'AI Automation',
-    description: 'Intelligent workflow automation powered by machine learning and advanced analytics.',
+    icon: Users,
+    name: 'Crmlinkz',
+    tagline: 'Enterprise CRM & Sales Automation',
+    shortDescription: 'Comprehensive customer relationship management designed for sales teams to manage pipelines, track interactions, and close deals faster.',
+    description: 'Crmlinkz is a powerful CRM platform that helps sales teams manage customer relationships, track opportunities, and close deals faster. With AI-powered insights, automation, and seamless integrations, Crmlinkz empowers sales organizations to achieve higher conversion rates and revenue growth.',
+    features: ['Sales Pipeline', 'Lead Scoring', 'Automation', 'Analytics Dashboard'],
+    detailedFeatures: [
+      'Visual sales pipeline management',
+      'AI-powered lead scoring',
+      'Automated follow-up workflows',
+      'Email and call integration',
+      'Customer activity tracking',
+      'Quote and proposal generation',
+      'Revenue forecasting',
+      'Mobile CRM access',
+    ],
+    benefits: [
+      'Increase sales productivity by 40%',
+      'Reduce sales cycle by 25%',
+      'Improve lead conversion rates',
+      'Better visibility into sales pipeline',
+    ],
+    stats: [
+      { label: 'Sales Teams', value: '500+' },
+      { label: 'Deals Tracked', value: '100K+' },
+      { label: 'Avg Deal Value +', value: '35%' },
+      { label: 'Customer Retention', value: '95%' },
+    ],
   },
   {
-    icon: <Users className="w-6 h-6" />,
-    title: 'CRM Suite',
-    description: 'Customer relationship management with AI-powered insights and automation.',
+    icon: Briefcase,
+    name: 'Hrlinkz',
+    tagline: 'Human Resources & Payroll Platform',
+    shortDescription: 'Streamlined HR operations covering recruitment, onboarding, payroll, performance management, and employee engagement.',
+    description: 'Hrlinkz is an integrated HRMS platform that streamlines all aspects of human resource management. From recruitment and onboarding to payroll processing, performance management, and employee engagement, Hrlinkz helps HR teams focus on strategic initiatives while automating routine tasks.',
+    features: ['Recruitment Suite', 'Payroll Engine', 'Performance Tracking', 'Employee Portal'],
+    detailedFeatures: [
+      'End-to-end recruitment management',
+      'Digital onboarding process',
+      'Automated payroll processing',
+      'Attendance and leave management',
+      'Performance appraisal system',
+      'Employee self-service portal',
+      'Compliance and regulatory reports',
+      'Employee engagement tools',
+    ],
+    benefits: [
+      'Reduce HR administrative time by 50%',
+      'Ensure 100% payroll compliance',
+      'Improve employee satisfaction scores',
+      'Faster recruitment and onboarding',
+    ],
+    stats: [
+      { label: 'Employees Managed', value: '50K+' },
+      { label: 'Companies Using', value: '200+' },
+      { label: 'Payroll Accuracy', value: '99.95%' },
+      { label: 'Avg Time Saved', value: '20hrs/mo' },
+    ],
   },
   {
-    icon: <Users className="w-6 h-6" />,
-    title: 'HRMS Platform',
-    description: 'Comprehensive human resources management with payroll and compliance tracking.',
+    icon: FileText,
+    name: 'Advocatelinkz',
+    tagline: 'Legal Case Management Platform',
+    shortDescription: 'Specialized case management system for law firms enabling document management, time tracking, billing, and client communication.',
+    description: 'Advocatelinkz is purpose-built for law firms and legal professionals. Manage cases, documents, billable hours, and client communications in one integrated platform. With secure document storage, automated billing, and client portals, Advocatelinkz simplifies legal practice management.',
+    features: ['Case Tracking', 'Document Management', 'Time Billing', 'Client Portal'],
+    detailedFeatures: [
+      'Comprehensive case management',
+      'Secure document repository',
+      'Time tracking and billing',
+      'Client communication portal',
+      'Court deadline reminders',
+      'Matter templates',
+      'Financial reports and analytics',
+      'Client document sharing',
+    ],
+    benefits: [
+      'Improve case management efficiency',
+      'Automate billing and reduce errors',
+      'Enhance client communication',
+      'Ensure compliance and security',
+    ],
+    stats: [
+      { label: 'Law Firms', value: '150+' },
+      { label: 'Cases Managed', value: '10K+' },
+      { label: 'Billing Accuracy', value: '99.8%' },
+      { label: 'Client Satisfaction', value: '4.9/5' },
+    ],
   },
   {
-    icon: <TrendingUp className="w-6 h-6" />,
-    title: 'Field Service Mgmt',
-    description: 'Real-time tracking and scheduling for mobile and field-based operations.',
+    icon: Truck,
+    name: 'Poslinkz',
+    tagline: 'Billing, Inventory & POS Platform',
+    shortDescription: 'Real-time fleet and logistics management with route optimization, delivery tracking, and supply chain visibility.',
+    description: 'Poslinkz is a comprehensive billing and inventory management platform designed for retail and logistics businesses. Manage multiple stores, track inventory in real-time, process GST-compliant billing, and generate detailed reports with advanced analytics.',
+    features: ['Fleet Tracking', 'Route Optimization', 'Delivery Tracking', 'Analytics'],
+    detailedFeatures: [
+      'Multi-location billing system',
+      'Real-time inventory tracking',
+      'Automated GST compliance',
+      'Sales and purchase management',
+      'Stock transfer between locations',
+      'Barcode scanning',
+      'Supplier management',
+      'Business intelligence reports',
+    ],
+    benefits: [
+      'Reduce inventory carrying costs',
+      'Ensure GST and tax compliance',
+      'Improve inventory visibility',
+      'Streamline multi-store operations',
+    ],
+    stats: [
+      { label: 'Stores Connected', value: '3000+' },
+      { label: 'Daily Transactions', value: '500K+' },
+      { label: 'Inventory Accuracy', value: '99%' },
+      { label: 'Processing Time', value: '<2sec' },
+    ],
   },
   {
-    icon: <BarChart3 className="w-6 h-6" />,
-    title: 'Analytics Engine',
-    description: 'Advanced analytics and business intelligence for data-driven decisions.',
+    icon: Share2,
+    name: 'Sociallinkz',
+    tagline: 'Social Media Marketing Automation',
+    shortDescription: 'Unified platform for managing multiple social channels, scheduling content, analyzing engagement, and collaborating with teams.',
+    description: 'Sociallinkz empowers marketing teams to manage their entire social media presence from one platform. Schedule posts, track engagement, capture leads, and analyze performance across all major social networks. With AI-powered insights, Sociallinkz helps optimize your social media strategy.',
+    features: ['Multi-Channel Posting', 'Analytics', 'Engagement Tracking', 'Team Collaboration'],
+    detailedFeatures: [
+      'Multi-channel post scheduling',
+      'Content calendar management',
+      'Real-time engagement monitoring',
+      'Lead capture forms',
+      'Competitor analysis',
+      'Influencer identification',
+      'Team collaboration tools',
+      'Performance analytics and reporting',
+    ],
+    benefits: [
+      'Save 10+ hours per week on social media',
+      'Increase engagement by 50%',
+      'Track ROI on social campaigns',
+      'Build cohesive social strategy',
+    ],
+    stats: [
+      { label: 'Marketing Teams', value: '800+' },
+      { label: 'Posts Scheduled', value: '1M+/mo' },
+      { label: 'Avg Engagement +', value: '45%' },
+      { label: 'Customer Acquisition -', value: '30%' },
+    ],
   },
-];
-
-const features = [
-  {
-    icon: <Zap className="w-5 h-5" />,
-    title: 'Lightning Fast',
-    description: 'Sub-100ms response times across all modules',
-  },
-  {
-    icon: <Shield className="w-5 h-5" />,
-    title: 'Enterprise Security',
-    description: 'SOC 2 Type II, end-to-end encryption, and compliance',
-  },
-  {
-    icon: <Network className="w-5 h-5" />,
-    title: '1000+ Integrations',
-    description: 'Seamless integration with your existing tools',
-  },
-  {
-    icon: <Clock className="w-5 h-5" />,
-    title: '24/7 Support',
-    description: 'Round-the-clock expert support and monitoring',
-  },
-  {
-    icon: <TrendingUp className="w-5 h-5" />,
-    title: 'Real-time Analytics',
-    description: 'Advanced insights and custom reporting',
-  },
-  {
-    icon: <Brain className="w-5 h-5" />,
-    title: 'AI-Powered',
-    description: 'Machine learning for intelligent automation',
-  },
-];
-
-const productStats = [
-  { label: 'Transactions/Month', value: '8B+' },
-  { label: 'Enterprise Customers', value: '500+' },
-  { label: 'Uptime SLA', value: '99.99%' },
-  { label: 'Industries Served', value: '40+' },
 ];
 
 const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-    transition: {
-      staggerChildren: 0.1,
-      delayChildren: 0.2,
-    },
+    transition: { staggerChildren: 0.1, delayChildren: 0.2 },
   },
 };
 
@@ -116,551 +218,249 @@ const itemVariants = {
   },
 };
 
+const featureHighlights = [
+  {
+    icon: Zap,
+    title: 'Lightning Fast',
+    description: 'Sub-100ms response times across all modules for optimal user experience',
+  },
+  {
+    icon: Shield,
+    title: 'Enterprise Security',
+    description: 'SOC 2 Type II certified with end-to-end encryption and compliance',
+  },
+  {
+    icon: Network,
+    title: '1000+ Integrations',
+    description: 'Seamless integration with your existing tools and platforms',
+  },
+  {
+    icon: Clock,
+    title: '24/7 Support',
+    description: 'Round-the-clock expert support and monitoring for peace of mind',
+  },
+  {
+    icon: BarChart3,
+    title: 'Real-time Analytics',
+    description: 'Advanced insights and custom reporting for data-driven decisions',
+  },
+  {
+    icon: Brain,
+    title: 'AI-Powered',
+    description: 'Machine learning for intelligent automation and predictions',
+  },
+];
+
 export default function ProductsPage() {
   return (
     <div>
       {/* Hero Section */}
       <PageHero
-        badge="Product Suite"
-        title="Enterprise SaaS Products"
-        subtitle="Powerful platforms for every business need"
-        description="Codelinkz delivers integrated, industry-specific SaaS solutions that streamline operations, reduce costs, and drive growth. From restaurants to healthcare, we have the platform for you."
-      >
-        <motion.div
-          className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-8"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.5 }}
-        >
-          <HeroButton variant="primary" size="lg">
-            Start Free Trial
-          </HeroButton>
-          <HeroButton variant="glass" size="lg">
-            Request Demo
-          </HeroButton>
-        </motion.div>
-      </PageHero>
+        badge="Our Products"
+        title="Enterprise SaaS Solutions"
+        subtitle="Build, Scale, and Succeed"
+        description="A comprehensive ecosystem of cloud-native SaaS products designed for modern businesses. From restaurants to law firms, from HR to logistics, we have solutions for every industry and business need."
+      />
 
-      {/* Product Categories Grid */}
-      <section className="section-padding bg-bg-soft">
+      {/* Products Grid Section */}
+      <section className="py-20 bg-backgroundSoft">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2
-              className="mb-6 font-700"
-              style={{
-                fontSize: '48px',
-                lineHeight: '56px',
-                color: colors.textPrimary,
-              }}
-            >
-              Our Product Categories
+          <motion.div
+            className="text-center mb-16"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-4xl md:text-5xl font-800 mb-4" style={{ color: colors.textPrimary }}>
+              Our Products Ecosystem
             </h2>
-          </div>
+            <p
+              className="text-lg max-w-3xl mx-auto"
+              style={{ color: colors.textSecondary }}
+            >
+              Six industry-leading SaaS platforms solving critical business challenges across different sectors
+            </p>
+          </motion.div>
 
           <motion.div
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
-            variants={containerVariants}
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
+            variants={containerVariants}
           >
-            {productCategories.map((category, i) => (
-              <motion.div key={i} variants={itemVariants}>
-                <ServiceCard
-                  icon={category.icon}
-                  title={category.title}
-                  description={category.description}
-                  highlight={category.highlight}
-                />
-              </motion.div>
+            {productsData.map((product, idx) => (
+              <ProductCard
+                key={idx}
+                icon={product.icon}
+                name={product.name}
+                description={product.shortDescription}
+                features={product.features}
+                onLearnMore={() => {
+                  // Smooth scroll to detailed section
+                  const element = document.getElementById(`product-${idx}`);
+                  element?.scrollIntoView({ behavior: 'smooth' });
+                }}
+              />
             ))}
           </motion.div>
         </div>
       </section>
 
-      {/* Featured Products Showcase */}
-      <section className="section-padding">
+      {/* Feature Highlights */}
+      <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2
-              className="mb-6 font-700"
-              style={{
-                fontSize: '48px',
-                lineHeight: '56px',
-                color: colors.textPrimary,
-              }}
-            >
-              Featured Products
+          <motion.div
+            className="text-center mb-16"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-4xl md:text-5xl font-800 mb-4" style={{ color: colors.textPrimary }}>
+              Common Features Across All Products
             </h2>
             <p
-              style={{
-                fontSize: '18px',
-                color: colors.textSecondary,
-              }}
+              className="text-lg max-w-3xl mx-auto"
+              style={{ color: colors.textSecondary }}
             >
-              Industry-leading solutions with proven ROI
+              Every Codelink product comes with enterprise-grade features built in
             </p>
-          </div>
-
-          {[
-            {
-              title: 'Restaurant OS',
-              description:
-                'Complete platform for restaurant operations including POS, inventory management, kitchen operations, and customer engagement.',
-              metrics: ['95% faster operations', '40% cost reduction', 'Real-time inventory'],
-              icon: '🍽️',
-            },
-            {
-              title: 'Healthcare Suite',
-              description:
-                'HIPAA-compliant healthcare platform for appointments, patient records, billing, and engagement.',
-              metrics: ['25% faster patient processing', 'HIPAA certified', '24/7 uptime'],
-              icon: '⚕️',
-            },
-            {
-              title: 'HRMS & Payroll',
-              description:
-                'Enterprise HR platform for hiring, employee management, payroll, and compliance tracking.',
-              metrics: ['50% faster payroll', 'Zero compliance issues', 'Employee self-service'],
-              icon: '👥',
-            },
-          ].map((product, i) => (
-            <motion.div
-              key={i}
-              className={`grid md:grid-cols-2 gap-12 items-center mb-20 ${
-                i % 2 === 1 ? 'md:grid-flow-dense' : ''
-              }`}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.2 }}
-            >
-              {/* Image/Preview */}
-              <motion.div
-                className="rounded-2xl overflow-hidden h-64 md:h-96 flex items-center justify-center text-6xl"
-                style={{
-                  background: `linear-gradient(135deg, ${colors.primary}15 0%, ${colors.accentBlue}15 100%)`,
-                  border: `1px solid ${colors.borderLight}`,
-                  boxShadow: shadows.premium,
-                }}
-                whileHover={{ y: -8 }}
-              >
-                {product.icon}
-              </motion.div>
-
-              {/* Content */}
-              <div>
-                <h3
-                  className="mb-4 font-700"
-                  style={{
-                    fontSize: '32px',
-                    color: colors.primary,
-                  }}
-                >
-                  {product.title}
-                </h3>
-                <p
-                  className="mb-6"
-                  style={{
-                    fontSize: '16px',
-                    lineHeight: '26px',
-                    color: colors.textSecondary,
-                  }}
-                >
-                  {product.description}
-                </p>
-
-                {/* Metrics */}
-                <div className="mb-8 space-y-3">
-                  {product.metrics.map((metric, j) => (
-                    <div
-                      key={j}
-                      className="flex items-center gap-3"
-                      style={{
-                        fontSize: '14px',
-                        color: colors.textSecondary,
-                      }}
-                    >
-                      <span
-                        style={{
-                          color: colors.primary,
-                          fontWeight: 700,
-                        }}
-                      >
-                        ✓
-                      </span>
-                      {metric}
-                    </div>
-                  ))}
-                </div>
-
-                <HeroButton variant="secondary">Learn More</HeroButton>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-      </section>
-
-      {/* Product Features Grid */}
-      <section className="section-padding bg-bg-soft">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2
-              className="mb-6 font-700"
-              style={{
-                fontSize: '48px',
-                lineHeight: '56px',
-                color: colors.textPrimary,
-              }}
-            >
-              Core Features Across All Products
-            </h2>
-          </div>
+          </motion.div>
 
           <motion.div
-            className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
-            variants={containerVariants}
+            className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
+            variants={containerVariants}
           >
-            {features.map((feature, i) => (
-              <motion.div key={i} variants={itemVariants}>
-                <div
-                  className="p-8 rounded-2xl"
-                  style={{
-                    background: 'rgba(255, 255, 255, 0.72)',
-                    backdropFilter: 'blur(20px)',
-                    border: `1px solid ${colors.borderLight}`,
-                    boxShadow: shadows.premium,
-                  }}
+            {featureHighlights.map((feature, idx) => {
+              const Icon = feature.icon;
+              return (
+                <motion.div
+                  key={idx}
+                  variants={itemVariants}
+                  className="p-8 rounded-2xl border border-borderLight bg-backgroundSoft hover:border-primary/30 transition-all"
+                  whileHover={{ y: -8, boxShadow: `0 20px 40px ${colors.primary}15` }}
                 >
-                  <motion.div
-                    className="w-12 h-12 rounded-lg mb-4 flex items-center justify-center"
-                    style={{
-                      background: `linear-gradient(135deg, ${colors.primary} 0%, ${colors.primaryLight} 100%)`,
-                      color: 'white',
-                    }}
-                    whileHover={{ scale: 1.1 }}
+                  <div
+                    className="w-14 h-14 rounded-xl flex items-center justify-center mb-6"
+                    style={{ background: `${colors.primary}15` }}
                   >
-                    {feature.icon}
-                  </motion.div>
-                  <h3
-                    className="mb-2 font-700"
-                    style={{
-                      fontSize: '18px',
-                      color: colors.textPrimary,
-                    }}
-                  >
+                    <Icon className="w-7 h-7" style={{ color: colors.primary }} />
+                  </div>
+                  <h3 className="text-xl font-700 mb-3" style={{ color: colors.textPrimary }}>
                     {feature.title}
                   </h3>
-                  <p
-                    style={{
-                      fontSize: '14px',
-                      color: colors.textSecondary,
-                      lineHeight: '22px',
-                    }}
-                  >
-                    {feature.description}
-                  </p>
-                </div>
-              </motion.div>
-            ))}
+                  <p style={{ color: colors.textSecondary }}>{feature.description}</p>
+                </motion.div>
+              );
+            })}
           </motion.div>
         </div>
       </section>
 
-      {/* AI Automation Section */}
-      <section className="section-padding">
+      {/* Detailed Product Showcases */}
+      {productsData.map((product, idx) => (
+        <div key={idx} id={`product-${idx}`}>
+          <DetailedProductShowcase
+            icon={product.icon}
+            name={product.name}
+            tagline={product.tagline}
+            description={product.description}
+            features={product.detailedFeatures}
+            benefits={product.benefits}
+            stats={product.stats}
+            imagePosition={idx % 2 === 0 ? 'left' : 'right'}
+            accentColor={colors.primary}
+          />
+        </div>
+      ))}
+
+      {/* Integration Section */}
+      <section className="py-20 bg-backgroundSoft">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2
-              className="mb-6 font-700"
-              style={{
-                fontSize: '48px',
-                lineHeight: '56px',
-                color: colors.textPrimary,
-              }}
-            >
-              <GradientText>AI-Powered Automation</GradientText>
+          <motion.div
+            className="text-center mb-16"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-4xl md:text-5xl font-800 mb-4" style={{ color: colors.textPrimary }}>
+              Seamless Integrations & Ecosystem
             </h2>
             <p
-              style={{
-                fontSize: '18px',
-                color: colors.textSecondary,
-              }}
+              className="text-lg max-w-3xl mx-auto"
+              style={{ color: colors.textSecondary }}
             >
-              Intelligent workflows that learn and adapt to your business
+              All our products work together and integrate with your existing tools
             </p>
-          </div>
+          </motion.div>
 
           <motion.div
-            className="grid md:grid-cols-2 gap-8"
-            variants={containerVariants}
+            className="grid md:grid-cols-3 gap-8"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
+            variants={containerVariants}
           >
             {[
               {
-                title: 'Smart Automation',
-                description: 'AI-powered workflows that handle repetitive tasks automatically',
+                title: 'API-First Architecture',
+                description: 'RESTful APIs and webhooks for seamless integrations with any platform',
+                icon: Network,
               },
               {
-                title: 'Predictive Analytics',
-                description: 'ML models that predict trends and help you make better decisions',
+                title: 'Cloud Native',
+                description: 'Built on AWS/Azure for reliability, scalability, and security',
+                icon: Zap,
               },
               {
-                title: 'Natural Language',
-                description: 'Conversational AI for customer support and internal operations',
+                title: 'Data Sync',
+                description: 'Real-time data synchronization across all products in your ecosystem',
+                icon: Brain,
               },
-              {
-                title: 'Custom Training',
-                description: 'Train AI models on your specific data for maximum accuracy',
-              },
-            ].map((item, i) => (
-              <motion.div
-                key={i}
-                variants={itemVariants}
-                className="p-8 rounded-2xl"
-                style={{
-                  background: 'rgba(255, 255, 255, 0.72)',
-                  backdropFilter: 'blur(20px)',
-                  border: `1px solid ${colors.borderLight}`,
-                  boxShadow: shadows.premium,
-                }}
-                whileHover={{ y: -4 }}
-              >
-                <h3
-                  className="font-700 mb-3"
+            ].map((item, idx) => {
+              const Icon = item.icon;
+              return (
+                <motion.div
+                  key={idx}
+                  variants={itemVariants}
+                  className="p-8 rounded-2xl border border-borderLight text-center"
                   style={{
-                    fontSize: '20px',
-                    color: colors.primary,
+                    background: 'rgba(255, 255, 255, 0.72)',
+                    backdropFilter: 'blur(20px)',
+                    boxShadow: shadows.premium,
                   }}
+                  whileHover={{ y: -8 }}
                 >
-                  {item.title}
-                </h3>
-                <p
-                  style={{
-                    fontSize: '14px',
-                    color: colors.textSecondary,
-                    lineHeight: '22px',
-                  }}
-                >
-                  {item.description}
-                </p>
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Statistics Section */}
-      <section className="section-padding bg-bg-soft">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2
-              className="mb-6 font-700"
-              style={{
-                fontSize: '48px',
-                lineHeight: '56px',
-                color: colors.textPrimary,
-              }}
-            >
-              By The Numbers
-            </h2>
-          </div>
-
-          <motion.div
-            className="grid grid-cols-2 md:grid-cols-4 gap-6"
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-          >
-            {productStats.map((stat, i) => (
-              <motion.div key={i} variants={itemVariants}>
-                <StatsCard label={stat.label} value={stat.value} highlight={i === 0} />
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Integrations Section */}
-      <section className="section-padding">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2
-              className="mb-6 font-700"
-              style={{
-                fontSize: '48px',
-                lineHeight: '56px',
-                color: colors.textPrimary,
-              }}
-            >
-              Integrations & Ecosystem
-            </h2>
-            <p
-              style={{
-                fontSize: '18px',
-                color: colors.textSecondary,
-              }}
-            >
-              Connect with 1000+ applications and platforms
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-8">
-            <motion.div
-              className="p-8 rounded-2xl"
-              style={{
-                background: 'rgba(255, 255, 255, 0.72)',
-                backdropFilter: 'blur(20px)',
-                border: `1px solid ${colors.borderLight}`,
-                boxShadow: shadows.premium,
-              }}
-              whileHover={{ y: -4 }}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-            >
-              <h3
-                className="font-700 mb-4"
-                style={{
-                  fontSize: '20px',
-                  color: colors.primary,
-                }}
-              >
-                🔌 Native Integrations
-              </h3>
-              <p
-                className="mb-6"
-                style={{
-                  fontSize: '14px',
-                  color: colors.textSecondary,
-                  lineHeight: '22px',
-                }}
-              >
-                Pre-built connectors for Salesforce, SAP, Oracle, Stripe, Twilio, and 100+ more
-                platforms.
-              </p>
-              <div className="flex flex-wrap gap-2">
-                {['Salesforce', 'SAP', 'Stripe', 'AWS', 'Google Cloud', 'Azure'].map((int) => (
-                  <span
-                    key={int}
-                    className="px-3 py-1 rounded-full text-sm font-600"
-                    style={{
-                      background: colors.accentSky,
-                      color: colors.primary,
-                    }}
+                  <div
+                    className="w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-6"
+                    style={{ background: `${colors.primary}15` }}
                   >
-                    {int}
-                  </span>
-                ))}
-              </div>
-            </motion.div>
-
-            <motion.div
-              className="p-8 rounded-2xl"
-              style={{
-                background: 'rgba(255, 255, 255, 0.72)',
-                backdropFilter: 'blur(20px)',
-                border: `1px solid ${colors.borderLight}`,
-                boxShadow: shadows.premium,
-              }}
-              whileHover={{ y: -4 }}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.1 }}
-            >
-              <h3
-                className="font-700 mb-4"
-                style={{
-                  fontSize: '20px',
-                  color: colors.primary,
-                }}
-              >
-                🔌 APIs & Webhooks
-              </h3>
-              <p
-                className="mb-6"
-                style={{
-                  fontSize: '14px',
-                  color: colors.textSecondary,
-                  lineHeight: '22px',
-                }}
-              >
-                Comprehensive REST API, GraphQL, and Webhooks for custom integrations and
-                workflows.
-              </p>
-              <div className="space-y-2">
-                {['REST API', 'GraphQL', 'Webhooks', 'SDKs'].map((api) => (
-                  <div key={api} style={{ fontSize: '14px', color: colors.textSecondary }}>
-                    ✓ {api}
+                    <Icon className="w-8 h-8" style={{ color: colors.primary }} />
                   </div>
-                ))}
-              </div>
-            </motion.div>
-          </div>
+                  <h3 className="text-xl font-700 mb-3" style={{ color: colors.textPrimary }}>
+                    {item.title}
+                  </h3>
+                  <p style={{ color: colors.textSecondary }}>{item.description}</p>
+                </motion.div>
+              );
+            })}
+          </motion.div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="section-padding bg-bg-soft">
-        <div className="max-w-4xl mx-auto px-6 lg:px-8">
-          <motion.div
-            className="relative overflow-hidden rounded-3xl p-12 lg:p-16"
-            style={{
-              background: `linear-gradient(135deg, ${colors.primary}08 0%, ${colors.accentBlue}08 100%)`,
-              border: `1px solid ${colors.borderLight}`,
-            }}
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <div className="text-center">
-              <h2
-                className="mb-6 font-700"
-                style={{
-                  fontSize: '40px',
-                  lineHeight: '48px',
-                  color: colors.textPrimary,
-                }}
-              >
-                Ready to Transform Your Business?
-              </h2>
-              <p
-                className="mb-8"
-                style={{
-                  fontSize: '18px',
-                  color: colors.textSecondary,
-                  maxWidth: '500px',
-                  margin: '0 auto 32px',
-                }}
-              >
-                Experience the power of enterprise SaaS. Start your free trial today.
-              </p>
-              <motion.div
-                className="flex flex-col sm:flex-row items-center justify-center gap-4"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.2 }}
-              >
-                <HeroButton variant="primary" size="lg">
-                  Start Free Trial
-                </HeroButton>
-                <HeroButton variant="secondary" size="lg">
-                  Schedule Demo
-                </HeroButton>
-              </motion.div>
-            </div>
-          </motion.div>
-        </div>
-      </section>
+      <CTASection
+        title="Ready to Transform Your Business?"
+        description="Choose one product or build your complete SaaS ecosystem with our integrated solutions. Get started with a free demo and consultation."
+        buttonText="Schedule Your Demo"
+        buttonSecondary="View Case Studies"
+      />
     </div>
   );
 }

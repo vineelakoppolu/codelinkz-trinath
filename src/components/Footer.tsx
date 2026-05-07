@@ -1,23 +1,42 @@
 import { motion } from 'framer-motion';
-import { Mail, Phone, MapPin, Twitter, Linkedin, Instagram, Github, Send, ArrowRight } from 'lucide-react';
-import { useState } from 'react';
+import { Mail, Phone, MapPin, Twitter, Linkedin, Github, ArrowRight } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
+import { colors } from '@/theme';
 
-const footerLinks = {
-  Products: ['Restaurant OS', 'Healthcare', 'HRMS & Payroll', 'Legal', 'Revenue', 'Marketing'],
-  Solutions: ['Enterprise', 'SMB', 'Franchises', 'Healthcare Chains', 'Law Firms', 'Startups'],
-  Resources: ['Documentation', 'API Docs', 'Blog', 'Case Studies', 'Status', 'Support'],
-  Company: ['About', 'Careers', 'Press', 'Partners', 'Contact', 'Legal'],
-};
-
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.05,
-      delayChildren: 0.1,
-    },
-  },
+const footerSections = {
+  Products: [
+    { label: 'Restolinkz', href: '/products' },
+    { label: 'Crmlinkz', href: '/products' },
+    { label: 'Hrlinkz', href: '/products' },
+    { label: 'Advocatelinkz', href: '/products' },
+    { label: 'Poslinkz', href: '/products' },
+    { label: 'Sociallinkz', href: '/products' },
+  ],
+  Services: [
+    { label: 'Web Development', href: '/services' },
+    { label: 'Mobile Apps', href: '/services' },
+    { label: 'SaaS Development', href: '/services' },
+    { label: 'AI Solutions', href: '/services' },
+    { label: 'Custom Software', href: '/services' },
+  ],
+  Technologies: [
+    { label: 'Cloud-Native', href: '/technologies' },
+    { label: 'AI & Machine Learning', href: '/technologies' },
+    { label: 'Open APIs', href: '/technologies' },
+    { label: 'Mobile & Edge', href: '/technologies' },
+  ],
+  Company: [
+    { label: 'About Us', href: '/company' },
+    { label: 'Careers', href: '/company' },
+    { label: 'Contact', href: '/company' },
+    { label: 'Blog', href: '/' },
+  ],
+  Partnership: [
+    { label: 'Channel Partner', href: '/partners' },
+    { label: 'Technology Partner', href: '/partners' },
+    { label: 'Implementation Partner', href: '/partners' },
+    { label: 'Affiliate Partner', href: '/partners' },
+  ],
 };
 
 const itemVariants = {
@@ -30,276 +49,179 @@ const itemVariants = {
 };
 
 export default function Footer() {
-  const [email, setEmail] = useState('');
-  const [subscribed, setSubscribed] = useState(false);
-
-  const handleSubscribe = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (email.trim()) {
-      setSubscribed(true);
-      setEmail('');
-      setTimeout(() => setSubscribed(false), 3000);
-    }
-  };
+  const navigate = useNavigate();
 
   return (
-    <footer className="bg-gradient-to-b from-text-primary via-text-primary to-black text-white relative overflow-hidden">
-      {/* Gradient Background */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute -top-40 -right-40 w-80 h-80 bg-primary/10 rounded-full blur-3xl"></div>
-        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-accent-blue/10 rounded-full blur-3xl"></div>
-      </div>
-
-      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
-        {/* Newsletter Section */}
+    <footer className="bg-gradient-to-b from-white via-backgroundSoft to-white text-textPrimary border-t border-borderLight">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        {/* Top Section - Brand & Metrics */}
         <motion.div
-          className="py-12 mb-12 border-b border-white/10"
+          className="py-16 border-b border-borderLight"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
-          <div className="max-w-2xl mx-auto text-center">
-            <motion.h3
-              className="text-3xl md:text-4xl font-800 mb-4 bg-gradient-to-r from-white via-white to-white/70 bg-clip-text text-transparent"
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              transition={{ delay: 0.1 }}
-              viewport={{ once: true }}
-            >
-              Stay Updated with Codelink
-            </motion.h3>
-            <motion.p
-              className="text-white/70 mb-6"
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              transition={{ delay: 0.2 }}
-              viewport={{ once: true }}
-            >
-              Get the latest updates, insights, and best practices delivered to your inbox.
-            </motion.p>
-
-            <motion.form
-              onSubmit={handleSubscribe}
-              className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto"
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3 }}
-              viewport={{ once: true }}
-            >
-              <input
-                type="email"
-                placeholder="Enter your email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                className="flex-1 px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder-white/50 focus:outline-none focus:border-primary transition-colors"
-              />
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            {/* Brand */}
+            <motion.div variants={itemVariants}>
               <motion.button
-                type="submit"
-                className="px-6 py-3 bg-gradient-to-r from-primary to-accent-blue rounded-lg text-white font-600 flex items-center justify-center gap-2 hover:shadow-lg hover:shadow-primary/50 transition-all"
+                onClick={() => navigate('/')}
+                className="flex items-center gap-3 mb-6 group bg-transparent border-none cursor-pointer p-0"
                 whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
               >
-                {subscribed ? 'Subscribed!' : 'Subscribe'}
-                {!subscribed && <Send className="w-4 h-4" />}
+                <div
+                  className="w-12 h-12 rounded-lg flex items-center justify-center"
+                  style={{ background: colors.gradientPrimary }}
+                >
+                  <span className="font-800 text-lg text-white">C</span>
+                </div>
+                <div>
+                  <div className="font-800 text-lg">Codelink</div>
+                  <div className="text-xs text-textSecondary">Solution</div>
+                </div>
               </motion.button>
-            </motion.form>
+              <p className="text-textSecondary leading-relaxed max-w-sm">
+                Building the next generation of enterprise SaaS solutions with innovative technology, world-class design, and unmatched support.
+              </p>
+            </motion.div>
 
-            {subscribed && (
-              <motion.p
-                className="text-green-400 text-sm mt-3"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-              >
-                ✓ Thank you for subscribing!
-              </motion.p>
-            )}
+            {/* Brand Metrics */}
+            <motion.div className="grid grid-cols-3 gap-4" initial="hidden" whileInView="visible" viewport={{ once: true }}>
+              {[
+                { value: '500+', label: 'Enterprise Clients' },
+                { value: '8B+', label: 'Transactions/mo' },
+                { value: '40+', label: 'Industries' },
+              ].map((stat, idx) => (
+                <motion.div
+                  key={idx}
+                  variants={itemVariants}
+                  className="p-4 rounded-xl border border-borderLight bg-white"
+                >
+                  <div className="font-800 text-lg" style={{ color: colors.primary }}>
+                    {stat.value}
+                  </div>
+                  <div className="text-xs text-textSecondary">{stat.label}</div>
+                </motion.div>
+              ))}
+            </motion.div>
           </div>
         </motion.div>
 
-        {/* Main Footer Content */}
+        {/* Main Links Section */}
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8 mb-12 pb-12 border-b border-white/10 py-12"
+          className="py-16 border-b border-borderLight"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
-          {/* Brand */}
-          <motion.div className="lg:col-span-2" variants={itemVariants}>
-            <motion.div
-              className="flex items-center gap-2 mb-6"
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.1 }}
-              viewport={{ once: true }}
-            >
-              <motion.div
-                className="w-10 h-10 bg-gradient-to-br from-primary to-accent-blue rounded-lg flex items-center justify-center"
-                whileHover={{ scale: 1.1, rotate: 5 }}
-              >
-                <span className="font-800 text-white text-lg">C</span>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
+            {Object.entries(footerSections).map(([category, links]) => (
+              <motion.div key={category} variants={itemVariants} initial="hidden" whileInView="visible" viewport={{ once: true }}>
+                <h4 className="font-700 text-sm mb-4 text-textPrimary uppercase tracking-wider">{category}</h4>
+                <ul className="space-y-3">
+                  {links.map((link, idx) => (
+                    <motion.li key={idx} whileHover={{ x: 4 }}>
+                      <button
+                        onClick={() => navigate(link.href)}
+                        className="text-sm text-textSecondary hover:text-primary transition-colors flex items-center gap-2 group bg-transparent border-none cursor-pointer p-0"
+                      >
+                        {link.label}
+                        <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" />
+                      </button>
+                    </motion.li>
+                  ))}
+                </ul>
               </motion.div>
-              <div className="flex flex-col">
-                <span className="font-800 text-lg">Codelink</span>
-                <span className="text-xs text-white/50">Enterprise Platform</span>
-              </div>
-            </motion.div>
-            <p className="text-sm text-white/70 leading-relaxed mb-6 max-w-xs">
-              Empowering businesses globally with intelligent, scalable SaaS solutions. Built in India, trusted worldwide.
-            </p>
-            <motion.div
-              className="space-y-3 text-sm text-white/70"
-              variants={containerVariants}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-            >
-              <motion.a
-                href="mailto:hello@codelink.in"
-                className="flex items-center gap-2 hover:text-white transition-colors cursor-pointer group"
-                variants={itemVariants}
-                whileHover={{ x: 4 }}
-              >
-                <div className="p-2 bg-primary/20 rounded-lg group-hover:bg-primary/40 transition-colors">
-                  <Mail className="w-4 h-4" />
-                </div>
-                hello@codelink.in
-              </motion.a>
-              <motion.a
-                href="tel:+919876543210"
-                className="flex items-center gap-2 hover:text-white transition-colors cursor-pointer group"
-                variants={itemVariants}
-                whileHover={{ x: 4 }}
-              >
-                <div className="p-2 bg-primary/20 rounded-lg group-hover:bg-primary/40 transition-colors">
-                  <Phone className="w-4 h-4" />
-                </div>
-                +91 98765 43210
-              </motion.a>
-              <motion.div
-                className="flex items-center gap-2 hover:text-white transition-colors cursor-pointer group"
-                variants={itemVariants}
-                whileHover={{ x: 4 }}
-              >
-                <div className="p-2 bg-primary/20 rounded-lg group-hover:bg-primary/40 transition-colors">
-                  <MapPin className="w-4 h-4" />
-                </div>
-                Bengaluru, India
-              </motion.div>
-            </motion.div>
-          </motion.div>
-
-          {/* Links */}
-          {Object.entries(footerLinks).map(([category, links], idx) => (
-            <motion.div
-              key={category}
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.1 + idx * 0.05 }}
-              viewport={{ once: true }}
-            >
-              <h4 className="font-700 text-sm mb-4 uppercase tracking-wide text-white/90">
-                {category}
-              </h4>
-              <motion.ul
-                className="space-y-2.5"
-                variants={containerVariants}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-              >
-                {links.map((link) => (
-                  <motion.li key={link} variants={itemVariants}>
-                    <motion.a
-                      href="#"
-                      className="text-sm text-white/70 hover:text-white transition-colors flex items-center gap-1 group"
-                      whileHover={{ x: 4 }}
-                    >
-                      <ArrowRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
-                      {link}
-                    </motion.a>
-                  </motion.li>
-                ))}
-              </motion.ul>
-            </motion.div>
-          ))}
+            ))}
+          </div>
         </motion.div>
 
-        {/* Bottom Section */}
+        {/* Contact & Social Section */}
         <motion.div
-          className="py-8 flex flex-col md:flex-row items-center justify-between gap-6"
+          className="py-16 border-b border-borderLight"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+        >
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+            {/* Contact Info */}
+            <motion.div variants={itemVariants}>
+              <h4 className="font-700 text-sm mb-6 text-textPrimary uppercase tracking-wider">Get in Touch</h4>
+              <div className="space-y-4">
+                <a href="mailto:info@codelinksolution.com" className="flex items-start gap-3 group">
+                  <Mail className="w-5 h-5 text-primary mt-0.5" />
+                  <div>
+                    <div className="text-sm text-textSecondary group-hover:text-primary transition-colors">Email</div>
+                    <div className="text-sm font-500">info@codelinksolution.com</div>
+                  </div>
+                </a>
+                <a href="tel:+919876543210" className="flex items-start gap-3 group">
+                  <Phone className="w-5 h-5 text-primary mt-0.5" />
+                  <div>
+                    <div className="text-sm text-textSecondary group-hover:text-primary transition-colors">Phone</div>
+                    <div className="text-sm font-500">+91 9876543210</div>
+                  </div>
+                </a>
+                <div className="flex items-start gap-3">
+                  <MapPin className="w-5 h-5 text-primary mt-0.5" />
+                  <div>
+                    <div className="text-sm text-textSecondary">Address</div>
+                    <div className="text-sm font-500">Bangalore, India</div>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Social Links */}
+            <motion.div variants={itemVariants}>
+              <h4 className="font-700 text-sm mb-6 text-textPrimary uppercase tracking-wider">Connect With Us</h4>
+              <div className="flex gap-4">
+                {[
+                  { Icon: Twitter, label: 'Twitter', href: '#' },
+                  { Icon: Linkedin, label: 'LinkedIn', href: '#' },
+                  { Icon: Github, label: 'GitHub', href: '#' },
+                ].map(({ Icon, label, href }, idx) => (
+                  <motion.a
+                    key={idx}
+                    href={href}
+                    className="p-3 rounded-lg border border-borderLight hover:border-primary bg-white hover:bg-white transition-all group"
+                    whileHover={{ y: -4, boxShadow: `0 8px 16px ${colors.primary}20` }}
+                  >
+                    <Icon className="w-5 h-5 text-textSecondary group-hover:text-primary transition-colors" />
+                  </motion.a>
+                ))}
+              </div>
+            </motion.div>
+          </div>
+        </motion.div>
+
+        {/* Bottom Footer */}
+        <motion.div
+          className="py-8 flex flex-col md:flex-row items-center justify-between gap-4"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ delay: 0.3 }}
           viewport={{ once: true }}
         >
-          {/* Copyright & Legal */}
-          <motion.div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6">
-            <p className="text-sm text-white/60">
-              © {new Date().getFullYear()} Codelink. All rights reserved.
-            </p>
-            <motion.div
-              className="flex items-center gap-6 text-xs text-white/60 border-t md:border-t-0 md:border-l border-white/10 pt-4 md:pt-0 pl-4 md:pl-6"
-              variants={containerVariants}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-            >
-              {['Privacy', 'Terms', 'Cookies'].map((link) => (
-                <motion.a
-                  key={link}
-                  href="#"
-                  className="hover:text-white transition-colors"
-                  variants={itemVariants}
-                  whileHover={{ y: -2 }}
-                >
-                  {link}
-                </motion.a>
-              ))}
-            </motion.div>
-          </motion.div>
-
-          {/* Social Links */}
-          <motion.div
-            className="flex items-center gap-4"
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-          >
-            {[
-              { Icon: Twitter, label: 'Twitter' },
-              { Icon: Linkedin, label: 'LinkedIn' },
-              { Icon: Instagram, label: 'Instagram' },
-              { Icon: Github, label: 'GitHub' },
-            ].map(({ Icon, label }, idx) => (
-              <motion.a
-                key={idx}
-                href="#"
-                aria-label={label}
-                className="p-2.5 rounded-lg bg-white/5 text-white/70 hover:text-white hover:bg-white/10 transition-all group"
-                variants={itemVariants}
-                whileHover={{ scale: 1.1, y: -2 }}
-              >
-                <Icon className="w-5 h-5" />
-              </motion.a>
-            ))}
-          </motion.div>
+          <p className="text-sm text-textSecondary">© {new Date().getFullYear()} Codelink Solution. All rights reserved.</p>
+          <div className="flex items-center gap-6 text-xs text-textSecondary">
+            <a href="#" className="hover:text-primary transition-colors">
+              Privacy Policy
+            </a>
+            <span className="text-borderLight">•</span>
+            <a href="#" className="hover:text-primary transition-colors">
+              Terms of Service
+            </a>
+            <span className="text-borderLight">•</span>
+            <a href="#" className="hover:text-primary transition-colors">
+              Cookie Policy
+            </a>
+          </div>
         </motion.div>
       </div>
-
-      {/* Floating Badge */}
-      <motion.div
-        className="fixed bottom-8 right-8 px-4 py-2 rounded-full bg-gradient-to-r from-primary to-accent-blue text-white text-xs font-600 z-40"
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.5 }}
-        viewport={{ once: true }}
-        whileHover={{ scale: 1.05 }}
-      >
-        Made in India 🚀
-      </motion.div>
     </footer>
   );
 }

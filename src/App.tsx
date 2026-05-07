@@ -3,14 +3,14 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 
 // Pages
-import HomePage from './pages/Home';
-import SolutionsPage from './pages/Solutions';
-import ServicesPage from './pages/Services';
-import ProductsPage from './pages/Products';
-import TechnologiesPage from './pages/Technologies';
-import PricingPage from './pages/Pricing';
-import PartnersPage from './pages/Partners';
-import CompanyPage from './pages/Company';
+import HomePage from './pages/Home.tsx';
+import SolutionsPage from './pages/Solutions.tsx';
+import ServicesPage from './pages/Services.tsx';
+import ProductsPage from './pages/Products.tsx';
+import TechnologiesPage from './pages/Technologies.tsx';
+import PricingPage from './pages/Pricing.tsx';
+import PartnersPage from './pages/Partners.tsx';
+import CompanyPage from './pages/Company.tsx';
 
 function App() {
   return (
