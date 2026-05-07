@@ -1,80 +1,103 @@
 import { Utensils, HeartPulse, Users, Scale, DollarSign, Megaphone } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { SectionTitle, FeatureCard } from './ui';
+import { colors } from '@/theme';
 
 const modules = [
   {
     icon: Utensils,
     title: 'Restaurant OS',
     desc: 'POS, inventory, table management, and kitchen operations.',
-    color: 'from-orange-500 to-orange-600',
+    gradient: `linear-gradient(135deg, ${colors.primary}15 0%, #FF6B6B20 100%)`,
   },
   {
     icon: HeartPulse,
     title: 'Healthcare',
     desc: 'Appointments, EMR, billing, and patient engagement.',
-    color: 'from-rose-500 to-rose-600',
+    gradient: `linear-gradient(135deg, ${colors.primary}15 0%, #FF1493 20%, #FF69B420 100%)`,
   },
   {
     icon: Users,
     title: 'HRMS & Payroll',
     desc: 'Hire, manage, pay, and retain your workforce.',
-    color: 'from-blue-500 to-blue-600',
+    gradient: `linear-gradient(135deg, ${colors.primary}20 0%, ${colors.accentBlue}15 100%)`,
   },
   {
     icon: Scale,
     title: 'Legal Operations',
     desc: 'Case tracking, contracts, and client management.',
-    color: 'from-emerald-500 to-emerald-600',
+    gradient: `linear-gradient(135deg, ${colors.primary}15 0%, #10B98120 100%)`,
   },
   {
     icon: DollarSign,
     title: 'Revenue Platform',
     desc: 'Invoicing, subscriptions, and revenue analytics.',
-    color: 'from-amber-500 to-amber-600',
+    gradient: `linear-gradient(135deg, ${colors.primary}15 0%, #F59E0B20 100%)`,
   },
   {
     icon: Megaphone,
     title: 'Marketing Ops',
     desc: 'Multi-channel campaigns and customer engagement.',
-    color: 'from-cyan-500 to-cyan-600',
+    gradient: `linear-gradient(135deg, ${colors.primary}15 0%, ${colors.accentBlue}15 100%)`,
   },
 ];
 
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+      delayChildren: 0.2,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { type: 'spring', damping: 12, stiffness: 200 },
+  },
+};
+
 export default function Modules() {
   return (
-    <section className="section-padding bg-white">
+    <section style={{ padding: '120px 0', background: colors.background }}>
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         {/* Header */}
-        <div className="text-center mb-16">
-          <span className="text-sm font-700 text-primary uppercase tracking-wide">Enterprise Modules</span>
-          <h2 className="text-5xl lg:text-6xl font-800 mt-4 text-text-primary leading-tight">
-            Six Powerful{' '}
-            <span className="gradient-text">Modules.</span>
-            <br />
-            Infinite Possibilities.
-          </h2>
-          <p className="text-lg text-text-secondary mt-6 max-w-2xl mx-auto">
-            Mix and match enterprise-grade modules tailored to your business. Each module integrates seamlessly.
-          </p>
-        </div>
+        <SectionTitle
+          label="Enterprise Modules"
+          title={
+            <>
+              Six Powerful <span style={{ color: colors.primary }}>Modules.</span>
+              <br />
+              Infinite Possibilities.
+            </>
+          }
+          description="Mix and match enterprise-grade modules tailored to your business. Each module integrates seamlessly with your existing workflows."
+        />
 
         {/* Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {modules.map((mod) => (
-            <div
-              key={mod.title}
-              className="group glass-card hover-lift rounded-2xl p-8 cursor-pointer"
-            >
-              <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${mod.color} flex items-center justify-center mb-5 shadow-blue-glow`}>
-                <mod.icon className="w-6 h-6 text-white" />
-              </div>
-              <h3 className="text-lg font-700 text-text-primary mb-2">{mod.title}</h3>
-              <p className="text-text-secondary text-sm leading-relaxed">{mod.desc}</p>
-              <div className="mt-4 flex items-center gap-2 text-primary font-600 text-sm opacity-0 group-hover:opacity-100 transition-opacity">
-                Explore <span>→</span>
-              </div>
-            </div>
+        <motion.div
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: '-100px' }}
+        >
+          {modules.map((mod, i) => (
+            <motion.div key={mod.title} variants={itemVariants}>
+              <FeatureCard
+                icon={<mod.icon className="w-6 h-6" />}
+                title={mod.title}
+                description={mod.desc}
+                gradient={mod.gradient}
+              />
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
