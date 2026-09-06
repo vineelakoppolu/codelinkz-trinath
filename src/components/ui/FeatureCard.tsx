@@ -28,7 +28,7 @@ export function FeatureCard({
         ${onClick ? 'cursor-pointer hover:shadow-lg hover:translate-y-[-4px] group' : ''}
       `}
       style={{
-        background: 'rgba(255, 255, 255, 0.72)',
+        background: colors.card,
         border: `1px solid ${colors.borderLight}`,
         boxShadow: shadows.premium,
       }}

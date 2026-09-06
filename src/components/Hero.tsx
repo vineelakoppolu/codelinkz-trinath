@@ -121,7 +121,7 @@ export default function Hero() {
       </div>
 
       {/* Floating metric cards */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+      <div className="absolute inset-0 pointer-events-none overflow-hidden hidden md:block">
         {floatingMetrics.map((metric, i) => (
           <motion.div
             key={i}
@@ -142,7 +142,7 @@ export default function Hero() {
 
       {/* Main content */}
       <motion.div
-        className="max-w-6xl mx-auto px-6 lg:px-8 text-center relative z-10"
+        className="w-full max-w-6xl mx-auto px-5 sm:px-6 lg:px-8 text-center relative z-10"
         variants={containerVariants}
         initial="hidden"
         animate="visible"
@@ -177,9 +177,10 @@ export default function Hero() {
         {/* Hero heading with gradient */}
         <motion.h1
           variants={itemVariants}
+          className="break-words"
           style={{
-            fontSize: 'clamp(44px, 8vw, 96px)',
-            lineHeight: 'clamp(52px, 9vw, 108px)',
+            fontSize: 'clamp(32px, 8vw, 96px)',
+            lineHeight: 'clamp(38px, 9vw, 108px)',
             fontWeight: 800,
             color: colors.textPrimary,
             marginBottom: '32px',
@@ -198,8 +199,8 @@ export default function Hero() {
         <motion.p
           variants={itemVariants}
           style={{
-            fontSize: '18px',
-            lineHeight: '28px',
+            fontSize: 'clamp(15px, 4vw, 18px)',
+            lineHeight: '1.55',
             color: colors.textSecondary,
             marginBottom: '48px',
             maxWidth: '700px',

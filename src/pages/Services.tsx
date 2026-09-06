@@ -92,7 +92,7 @@ export default function ServicesPage() {
       />
 
       {/* Services Grid */}
-      <section className="section-padding bg-bg-soft">
+      <section className="section-padding bg-background-soft">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <motion.div
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
@@ -158,7 +158,7 @@ export default function ServicesPage() {
                 key={i}
                 className="p-8 rounded-2xl"
                 style={{
-                  background: 'rgba(255, 255, 255, 0.72)',
+                  background: colors.card,
                   backdropFilter: 'blur(20px)',
                   border: `1px solid ${colors.borderLight}`,
                   boxShadow: shadows.premium,
@@ -196,7 +196,7 @@ export default function ServicesPage() {
       </section>
 
       {/* Engagement Timeline */}
-      <section className="section-padding bg-bg-soft">
+      <section className="section-padding bg-background-soft">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <TimelineSection items={timeline} title="Our Process" description="Four-step engagement model ensuring success" />
         </div>
@@ -236,7 +236,7 @@ export default function ServicesPage() {
                 key={i}
                 className="p-6 rounded-xl"
                 style={{
-                  background: 'rgba(255, 255, 255, 0.72)',
+                  background: colors.card,
                   backdropFilter: 'blur(20px)',
                   border: `1px solid ${colors.borderLight}`,
                   boxShadow: shadows.premium,

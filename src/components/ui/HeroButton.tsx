@@ -1,5 +1,5 @@
 import React from 'react';
-import { colors, shadows } from '@/theme';
+import { colors, royalAlpha, shadows } from '@/theme';
 
 interface HeroButtonProps {
   children: React.ReactNode;
@@ -43,9 +43,9 @@ export function HeroButton({
       boxShadow: shadows.sm,
     },
     glass: {
-      background: 'rgba(255, 255, 255, 0.6)',
+      background: colors.card,
       color: colors.textPrimary,
-      border: `1px solid rgba(37, 99, 255, 0.1)`,
+      border: `1px solid ${royalAlpha(0.1)}`,
       backdropFilter: 'blur(12px)',
       boxShadow: 'none',
     },

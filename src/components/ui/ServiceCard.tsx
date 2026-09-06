@@ -33,11 +33,11 @@ export function ServiceCard({
         className="rounded-2xl p-8 h-full transition-all duration-300"
         style={{
           background: highlight
-            ? `linear-gradient(135deg, ${colors.primary}15 0%, ${colors.accentBlue}15 100%)`
-            : 'rgba(255, 255, 255, 0.72)',
+            ? `linear-gradient(135deg, rgba(29, 104, 190, 0.16) 0%, rgba(0, 174, 254, 0.12) 100%), ${colors.card}`
+            : colors.card,
           backdropFilter: 'blur(20px)',
           border: highlight
-            ? `2px solid ${colors.primary}30`
+            ? `2px solid ${colors.primary}40`
             : `1px solid ${colors.borderLight}`,
           boxShadow: highlight ? shadows.blueGlow : shadows.premium,
         }}

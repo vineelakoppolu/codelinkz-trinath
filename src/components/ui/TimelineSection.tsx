@@ -112,7 +112,7 @@ export function TimelineSection({
               <motion.div
                 className="p-6 rounded-xl"
                 style={{
-                  background: 'rgba(255, 255, 255, 0.72)',
+                  background: colors.card,
                   backdropFilter: 'blur(20px)',
                   border: `1px solid ${colors.borderLight}`,
                   boxShadow: '0 4px 6px rgba(0, 0, 0, 0.07)',

@@ -46,7 +46,7 @@ const itemVariants = {
 
 export default function WhyChooseUs() {
   return (
-    <section className="section-padding bg-bg-soft">
+    <section className="section-padding bg-background-soft">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         {/* Header */}
         <motion.div

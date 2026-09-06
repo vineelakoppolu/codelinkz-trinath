@@ -56,7 +56,7 @@ const itemVariants = {
 
 export default function Integrations() {
   return (
-    <section className="py-20 bg-gradient-to-b from-gray-50 to-white">
+    <section className="py-20 bg-gradient-to-b from-background-soft to-background">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         {/* Header */}
         <motion.div
@@ -101,7 +101,7 @@ export default function Integrations() {
               className="group"
             >
               <motion.div
-                className="relative h-full p-8 bg-white rounded-2xl border border-gray-200 hover:border-primary transition-all duration-300 overflow-hidden"
+                className="relative h-full p-8 bg-card rounded-2xl border border-borderLight hover:border-primary transition-all duration-300 overflow-hidden"
                 whileHover={{ y: -5, boxShadow: '0 20px 40px rgba(0,0,0,0.1)' }}
               >
                 {/* Gradient Background */}

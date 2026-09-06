@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { Mail, Phone, MapPin, Twitter, Linkedin, Github, ArrowRight } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
-import { colors } from '@/theme';
+import { colors, logos } from '@/theme';
 
 const footerSections = {
   Products: [
@@ -52,7 +52,7 @@ export default function Footer() {
   const navigate = useNavigate();
 
   return (
-    <footer className="bg-gradient-to-b from-white via-backgroundSoft to-white text-textPrimary border-t border-borderLight">
+    <footer className="bg-[var(--background)] text-[var(--text-primary)] border-t" style={{ borderColor: 'var(--border-light)' }}>
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         {/* Top Section - Brand & Metrics */}
         <motion.div
@@ -67,19 +67,15 @@ export default function Footer() {
             <motion.div variants={itemVariants}>
               <motion.button
                 onClick={() => navigate('/')}
-                className="flex items-center gap-3 mb-6 group bg-transparent border-none cursor-pointer p-0"
-                whileHover={{ scale: 1.05 }}
+                className="flex items-center mb-6 bg-transparent border-none cursor-pointer p-0"
+                whileHover={{ scale: 1.03 }}
+                aria-label="CodeLink SOLUTION home"
               >
-                <div
-                  className="w-12 h-12 rounded-lg flex items-center justify-center"
-                  style={{ background: colors.gradientPrimary }}
-                >
-                  <span className="font-800 text-lg text-white">C</span>
-                </div>
-                <div>
-                  <div className="font-800 text-lg">Codelink</div>
-                  <div className="text-xs text-textSecondary">Solution</div>
-                </div>
+                <img
+                  src={logos.footer}
+                  alt="CodeLink SOLUTION"
+                  className="h-16 w-auto object-contain rounded-lg"
+                />
               </motion.button>
               <p className="text-textSecondary leading-relaxed max-w-sm">
                 Building the next generation of enterprise SaaS solutions with innovative technology, world-class design, and unmatched support.
@@ -96,7 +92,7 @@ export default function Footer() {
                 <motion.div
                   key={idx}
                   variants={itemVariants}
-                  className="p-4 rounded-xl border border-borderLight bg-white"
+                  className="p-4 rounded-xl border border-borderLight bg-card"
                 >
                   <div className="font-800 text-lg" style={{ color: colors.primary }}>
                     {stat.value}
@@ -187,7 +183,7 @@ export default function Footer() {
                   <motion.a
                     key={idx}
                     href={href}
-                    className="p-3 rounded-lg border border-borderLight hover:border-primary bg-white hover:bg-white transition-all group"
+                    className="p-3 rounded-lg border border-borderLight hover:border-primary bg-card hover:bg-card transition-all group"
                     whileHover={{ y: -4, boxShadow: `0 8px 16px ${colors.primary}20` }}
                   >
                     <Icon className="w-5 h-5 text-textSecondary group-hover:text-primary transition-colors" />

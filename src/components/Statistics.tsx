@@ -50,7 +50,7 @@ const itemVariants = {
 
 export default function Statistics() {
   return (
-    <section className="py-20 bg-white relative overflow-hidden">
+    <section className="py-20 bg-background relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-20 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl"></div>
@@ -103,7 +103,7 @@ export default function Statistics() {
                 className="group"
               >
                 <motion.div
-                  className="relative p-8 bg-gradient-to-br from-white to-gray-50 rounded-2xl border border-gray-200 hover:border-primary transition-all duration-300 overflow-hidden"
+                  className="relative p-8 bg-card rounded-2xl border border-borderLight hover:border-primary transition-all duration-300 overflow-hidden"
                   whileHover={{ y: -5, boxShadow: '0 20px 40px rgba(0,0,0,0.1)' }}
                 >
                   {/* Background Gradient */}

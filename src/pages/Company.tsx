@@ -98,7 +98,7 @@ export default function CompanyPage() {
       />
 
       {/* Statistics */}
-      <section className="section-padding bg-bg-soft">
+      <section className="section-padding bg-background-soft">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <motion.div
             className="grid grid-cols-2 md:grid-cols-4 gap-6"
@@ -192,7 +192,7 @@ export default function CompanyPage() {
       </section>
 
       {/* Core Values */}
-      <section className="section-padding bg-bg-soft">
+      <section className="section-padding bg-background-soft">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2
@@ -220,7 +220,7 @@ export default function CompanyPage() {
                 variants={itemVariants}
                 className="p-8 rounded-2xl"
                 style={{
-                  background: 'rgba(255, 255, 255, 0.72)',
+                  background: colors.card,
                   backdropFilter: 'blur(20px)',
                   border: `1px solid ${colors.borderLight}`,
                   boxShadow: shadows.premium,
@@ -267,7 +267,7 @@ export default function CompanyPage() {
       </section>
 
       {/* Team & Culture */}
-      <section className="section-padding bg-bg-soft">
+      <section className="section-padding bg-background-soft">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2
@@ -309,7 +309,7 @@ export default function CompanyPage() {
                 key={i}
                 className="p-8 rounded-xl text-center"
                 style={{
-                  background: 'rgba(255, 255, 255, 0.72)',
+                  background: colors.card,
                   backdropFilter: 'blur(20px)',
                   border: `1px solid ${colors.borderLight}`,
                   boxShadow: shadows.premium,
@@ -367,7 +367,7 @@ export default function CompanyPage() {
                 key={i}
                 className="text-center p-6 rounded-xl"
                 style={{
-                  background: 'rgba(255, 255, 255, 0.72)',
+                  background: colors.card,
                   backdropFilter: 'blur(20px)',
                   border: `1px solid ${colors.borderLight}`,
                   boxShadow: shadows.premium,

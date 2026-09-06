@@ -16,7 +16,7 @@ export default function TrustMarquee() {
   const duplicatedCompanies = [...companies, ...companies];
 
   return (
-    <section className="py-16 overflow-hidden bg-white border-y border-borderLight">
+    <section className="py-16 overflow-hidden bg-background border-y border-borderLight">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <motion.p
           className="text-center text-sm text-textSecondary mb-8 font-500"
@@ -41,7 +41,7 @@ export default function TrustMarquee() {
             {duplicatedCompanies.map((company, idx) => (
               <div
                 key={idx}
-                className="flex items-center gap-3 px-6 py-3 rounded-lg border border-borderLight bg-backgroundSoft whitespace-nowrap flex-shrink-0"
+                className="flex items-center gap-3 px-6 py-3 rounded-lg border border-borderLight bg-background-soft whitespace-nowrap flex-shrink-0"
               >
                 <div
                   className="w-2 h-2 rounded-full"
@@ -53,8 +53,8 @@ export default function TrustMarquee() {
           </motion.div>
 
           {/* Gradient masks */}
-          <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-white via-white to-transparent z-10 pointer-events-none" />
-          <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-white via-white to-transparent z-10 pointer-events-none" />
+          <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-background via-background to-transparent z-10 pointer-events-none" />
+          <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-background via-background to-transparent z-10 pointer-events-none" />
         </div>
       </div>
     </section>

@@ -263,7 +263,7 @@ export default function ProductsPage() {
       />
 
       {/* Products Grid Section */}
-      <section className="py-20 bg-backgroundSoft">
+      <section className="py-20 bg-background-soft">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <motion.div
             className="text-center mb-16"
@@ -309,7 +309,7 @@ export default function ProductsPage() {
       </section>
 
       {/* Feature Highlights */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-background">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <motion.div
             className="text-center mb-16"
@@ -342,7 +342,7 @@ export default function ProductsPage() {
                 <motion.div
                   key={idx}
                   variants={itemVariants}
-                  className="p-8 rounded-2xl border border-borderLight bg-backgroundSoft hover:border-primary/30 transition-all"
+                  className="p-8 rounded-2xl border border-borderLight bg-background-soft hover:border-primary/30 transition-all"
                   whileHover={{ y: -8, boxShadow: `0 20px 40px ${colors.primary}15` }}
                 >
                   <div
@@ -380,7 +380,7 @@ export default function ProductsPage() {
       ))}
 
       {/* Integration Section */}
-      <section className="py-20 bg-backgroundSoft">
+      <section className="py-20 bg-background-soft">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <motion.div
             className="text-center mb-16"
@@ -431,7 +431,7 @@ export default function ProductsPage() {
                   variants={itemVariants}
                   className="p-8 rounded-2xl border border-borderLight text-center"
                   style={{
-                    background: 'rgba(255, 255, 255, 0.72)',
+                    background: colors.card,
                     backdropFilter: 'blur(20px)',
                     boxShadow: shadows.premium,
                   }}

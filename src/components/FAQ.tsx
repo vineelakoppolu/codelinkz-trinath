@@ -53,7 +53,7 @@ export default function FAQ() {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
   return (
-    <section className="py-20 bg-gradient-to-b from-white to-gray-50">
+    <section className="py-20 bg-background-soft">
       <div className="max-w-4xl mx-auto px-6 lg:px-8">
         {/* Header */}
         <motion.div
@@ -99,7 +99,7 @@ export default function FAQ() {
             >
               <motion.button
                 onClick={() => setActiveIndex(activeIndex === index ? null : index)}
-                className="w-full flex items-center justify-between p-6 bg-white border border-gray-200 rounded-xl hover:border-primary transition-all duration-300 hover:shadow-lg hover:shadow-primary/5"
+                className="w-full flex items-center justify-between p-6 bg-card border border-borderLight rounded-xl hover:border-primary transition-all duration-300 hover:shadow-lg hover:shadow-primary/5"
                 whileHover={{ x: 4 }}
               >
                 <h3 className="text-left text-lg font-600 text-gray-900 group-hover:text-primary transition-colors">

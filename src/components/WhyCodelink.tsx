@@ -40,7 +40,7 @@ const itemVariants = {
 
 export default function WhyCodelink() {
   return (
-    <section className="py-20 bg-backgroundSoft">
+    <section className="py-20 bg-background-soft">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         {/* Header */}
         <motion.div
@@ -69,7 +69,7 @@ export default function WhyCodelink() {
               <motion.div
                 key={idx}
                 variants={itemVariants}
-                className="p-8 rounded-2xl border border-borderLight bg-white hover:border-primary/30 transition-all group"
+                className="p-8 rounded-2xl border border-borderLight bg-card hover:border-primary/30 transition-all group"
                 whileHover={{ y: -8, boxShadow: `0 20px 25px ${colors.primary}15` }}
               >
                 <div className="flex items-start gap-4">

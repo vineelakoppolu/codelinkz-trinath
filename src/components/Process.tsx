@@ -29,7 +29,7 @@ const itemVariants = {
 
 export default function Process() {
   return (
-    <section className="section-padding bg-white">
+    <section className="section-padding bg-background-soft">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         {/* Header */}
         <motion.div

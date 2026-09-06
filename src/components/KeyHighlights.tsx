@@ -43,7 +43,7 @@ const itemVariants = {
 
 export default function KeyHighlights() {
   return (
-    <section className="py-20 bg-backgroundSoft">
+    <section className="py-20 bg-background-soft">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         {/* Header */}
         <motion.div
@@ -72,7 +72,7 @@ export default function KeyHighlights() {
               <motion.div
                 key={idx}
                 variants={itemVariants}
-                className="p-8 rounded-2xl border border-borderLight bg-white hover:border-primary/30 transition-all group"
+                className="p-8 rounded-2xl border border-borderLight bg-card hover:border-primary/30 transition-all group"
                 whileHover={{ y: -4 }}
               >
                 <div className="flex items-start gap-4">
@@ -103,7 +103,7 @@ export default function KeyHighlights() {
             <motion.div
               key={idx}
               variants={itemVariants}
-              className="p-6 rounded-xl border border-borderLight bg-white text-center"
+              className="p-6 rounded-xl border border-borderLight bg-card text-center"
               whileHover={{ y: -4, boxShadow: `0 8px 16px ${colors.primary}10` }}
             >
               <div className="text-3xl font-800 mb-1" style={{ color: colors.primary }}>

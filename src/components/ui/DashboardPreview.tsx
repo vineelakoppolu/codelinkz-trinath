@@ -8,7 +8,7 @@ export function DashboardPreview() {
     <div
       className="rounded-2xl overflow-hidden backdrop-blur-sm"
       style={{
-        background: 'rgba(255, 255, 255, 0.72)',
+        background: colors.card,
         border: `1px solid ${colors.borderLight}`,
         boxShadow: shadows.premiumLg,
         maxWidth: '600px',

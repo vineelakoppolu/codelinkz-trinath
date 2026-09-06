@@ -76,7 +76,7 @@ export default function SolutionsPage() {
       />
 
       {/* Solutions Grid */}
-      <section className="section-padding bg-bg-soft">
+      <section className="section-padding bg-background-soft">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <motion.div
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
@@ -145,7 +145,7 @@ export default function SolutionsPage() {
       </section>
 
       {/* Industries Detail */}
-      <section className="section-padding bg-bg-soft">
+      <section className="section-padding bg-background-soft">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           {[
             {

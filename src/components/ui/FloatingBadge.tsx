@@ -1,5 +1,5 @@
 import React from 'react';
-import { colors } from '@/theme';
+import { colors, cyanAlpha } from '@/theme';
 
 interface FloatingBadgeProps {
   icon?: React.ReactNode;
@@ -29,9 +29,9 @@ export function FloatingBadge({
       border: colors.borderSoft,
     },
     accent: {
-      bg: `rgba(91, 182, 255, 0.1)`,
+      bg: cyanAlpha(0.1),
       textColor: colors.accentBlue,
-      border: `rgba(91, 182, 255, 0.2)`,
+      border: cyanAlpha(0.2),
     },
   };
 
@@ -41,7 +41,7 @@ export function FloatingBadge({
     <div
       className="flex items-center gap-3 px-4 py-3 rounded-2xl shadow-md backdrop-blur-sm"
       style={{
-        background: `rgba(255, 255, 255, 0.72)`,
+        background: colors.card,
         border: `1px solid ${colors.borderLight}`,
         backdropFilter: 'blur(20px)',
       }}

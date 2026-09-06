@@ -23,7 +23,7 @@ export function GradientText({
       background: `linear-gradient(135deg, ${colors.accentBlue} 0%, ${colors.primary} 100%)`,
     },
     'blue-cyan': {
-      background: `linear-gradient(135deg, #2563FF 0%, #5BB6FF 100%)`,
+      background: colors.gradientAccent,
     },
   };
 

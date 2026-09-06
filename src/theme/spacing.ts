@@ -33,9 +33,9 @@ export const shadows = {
   xl: '0 12px 32px -4px rgba(0, 0, 0, 0.14)',
   '2xl': '0 20px 48px -8px rgba(0, 0, 0, 0.16)',
 
-  // Blue glow shadows
-  blueGlow: '0 4px 20px rgba(37, 99, 255, 0.12)',
-  blueGlowLg: '0 12px 40px rgba(37, 99, 255, 0.12)',
+  // Brand glow shadows — Royal Blue #1D68BE
+  blueGlow: '0 4px 20px rgba(29, 104, 190, 0.12)',
+  blueGlowLg: '0 12px 40px rgba(29, 104, 190, 0.12)',
 
   // Premium shadows
   premium: '0 8px 32px rgba(0, 0, 0, 0.06)',

@@ -33,7 +33,7 @@ export function ProductCard({
       whileHover={{ y: -8 }}
     >
       <div
-        className="relative h-full p-8 rounded-2xl border border-borderLight bg-white overflow-hidden transition-all duration-300 hover:border-primary/30"
+        className="relative h-full p-8 rounded-2xl border border-borderLight bg-card overflow-hidden transition-all duration-300 hover:border-primary/30"
         style={{
           boxShadow: `0 4px 6px ${colors.primary}05`,
         }}

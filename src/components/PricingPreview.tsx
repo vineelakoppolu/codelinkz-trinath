@@ -78,7 +78,7 @@ const itemVariants = {
 
 export default function PricingPreview() {
   return (
-    <section className="py-20 bg-gradient-to-b from-gray-50 to-white relative overflow-hidden">
+    <section className="py-20 bg-gradient-to-b from-background-soft to-background relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-0 left-1/3 w-96 h-96 bg-primary/5 rounded-full blur-3xl"></div>
@@ -144,7 +144,7 @@ export default function PricingPreview() {
                 className={`relative h-full p-8 rounded-2xl border-2 transition-all duration-300 ${
                   plan.popular
                     ? 'border-primary bg-gradient-to-br from-primary/5 to-accent-blue/5 shadow-xl'
-                    : 'border-gray-200 bg-white hover:border-primary'
+                    : 'border-borderLight bg-card hover:border-primary'
                 }`}
                 whileHover={!plan.popular ? { y: -5 } : undefined}
               >
@@ -172,7 +172,7 @@ export default function PricingPreview() {
                     className={`w-full py-3 rounded-lg font-700 transition-all ${
                       plan.popular
                         ? 'bg-gradient-to-r from-primary to-accent-blue text-white hover:shadow-lg hover:shadow-primary/50'
-                        : 'bg-gray-100 text-gray-900 hover:bg-gray-200'
+                        : 'bg-background-soft text-text-primary hover:bg-accent-sky'
                     }`}
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}

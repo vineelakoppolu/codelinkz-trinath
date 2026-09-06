@@ -97,7 +97,7 @@ export default function TechnologiesPage() {
       />
 
       {/* Technologies Grid */}
-      <section className="section-padding bg-bg-soft">
+      <section className="section-padding bg-background-soft">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <motion.div
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
@@ -157,7 +157,7 @@ export default function TechnologiesPage() {
                 variants={itemVariants}
                 className="p-8 rounded-2xl"
                 style={{
-                  background: 'rgba(255, 255, 255, 0.72)',
+                  background: colors.card,
                   backdropFilter: 'blur(20px)',
                   border: `1px solid ${colors.borderLight}`,
                   boxShadow: shadows.premium,
@@ -199,7 +199,7 @@ export default function TechnologiesPage() {
       </section>
 
       {/* Tech Stack by Layer */}
-      <section className="section-padding bg-bg-soft">
+      <section className="section-padding bg-background-soft">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2
@@ -245,7 +245,7 @@ export default function TechnologiesPage() {
                 key={i}
                 className="p-6 rounded-xl"
                 style={{
-                  background: i % 2 === 0 ? 'rgba(255, 255, 255, 0.72)' : colors.accentSky,
+                  background: i % 2 === 0 ? colors.card : colors.accentSky,
                   backdropFilter: 'blur(20px)',
                   border: `1px solid ${colors.borderLight}`,
                   boxShadow: shadows.premium,
@@ -302,7 +302,7 @@ export default function TechnologiesPage() {
                 key={i}
                 className="text-center p-8 rounded-xl"
                 style={{
-                  background: 'rgba(255, 255, 255, 0.72)',
+                  background: colors.card,
                   backdropFilter: 'blur(20px)',
                   border: `1px solid ${colors.borderLight}`,
                   boxShadow: shadows.premium,

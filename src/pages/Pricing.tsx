@@ -95,7 +95,7 @@ export default function PricingPage() {
       />
 
       {/* Pricing Cards */}
-      <section className="section-padding bg-bg-soft">
+      <section className="section-padding bg-background-soft">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <motion.div
             className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto"
@@ -125,7 +125,7 @@ export default function PricingPage() {
                   style={{
                     background: plan.highlight
                       ? `linear-gradient(135deg, ${colors.primary}08 0%, ${colors.accentBlue}08 100%)`
-                      : 'rgba(255, 255, 255, 0.72)',
+                      : colors.card,
                     backdropFilter: 'blur(20px)',
                     border: plan.highlight
                       ? `2px solid ${colors.primary}30`
@@ -246,7 +246,7 @@ export default function PricingPage() {
                 key={i}
                 className="p-6 rounded-xl"
                 style={{
-                  background: 'rgba(255, 255, 255, 0.72)',
+                  background: colors.card,
                   backdropFilter: 'blur(20px)',
                   border: `1px solid ${colors.borderLight}`,
                   boxShadow: shadows.sm,

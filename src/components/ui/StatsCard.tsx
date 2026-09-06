@@ -27,8 +27,8 @@ export function StatsCard({
       className="p-6 rounded-2xl"
       style={{
         background: highlight
-          ? `linear-gradient(135deg, ${colors.primary}10 0%, ${colors.accentBlue}10 100%)`
-          : 'rgba(255, 255, 255, 0.72)',
+          ? `linear-gradient(135deg, rgba(29, 104, 190, 0.16) 0%, rgba(0, 174, 254, 0.12) 100%), ${colors.card}`
+          : colors.card,
         backdropFilter: 'blur(20px)',
         border: highlight
           ? `2px solid ${colors.primary}30`

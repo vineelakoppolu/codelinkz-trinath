@@ -37,9 +37,9 @@ export function GlassCard({
       className={`${baseStyles} ${variants[variant]} ${className}`}
       onClick={onClick}
       style={{
-        background: 'rgba(255, 255, 255, 0.72)',
+        background: colors.card,
         backdropFilter: 'blur(20px)',
-        border: `1px solid rgba(37, 99, 255, 0.08)`,
+        border: `1px solid ${colors.borderLight}`,
         boxShadow: shadows.premium,
         borderRadius: '24px',
       }}

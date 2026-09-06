@@ -45,7 +45,7 @@ export function DetailedProductShowcase({
   const isLeftImage = imagePosition === 'left';
 
   return (
-    <section className="py-20 bg-white">
+    <section className="py-20 bg-background">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         {/* Header */}
         <motion.div
@@ -89,7 +89,7 @@ export function DetailedProductShowcase({
             <div
               className="rounded-2xl p-8 border border-borderLight overflow-hidden"
               style={{
-                background: `linear-gradient(135deg, ${colors.backgroundSoft} 0%, #F0F7FF 100%)`,
+                background: `linear-gradient(135deg, ${colors.backgroundSoft} 0%, ${colors.card} 100%)`,
                 boxShadow: `0 20px 40px ${accentColor}15`,
               }}
             >
@@ -108,7 +108,7 @@ export function DetailedProductShowcase({
                 </div>
 
                 {/* Mock Chart Area */}
-                <div className="mt-6 p-4 rounded-lg" style={{ background: 'rgba(255,255,255,0.5)' }}>
+                <div className="mt-6 p-4 rounded-lg" style={{ background: colors.card }}>
                   <div className="flex items-end gap-2 h-20 justify-center">
                     <div className="w-2 h-8" style={{ background: accentColor, borderRadius: '4px' }} />
                     <div className="w-2 h-12" style={{ background: accentColor, borderRadius: '4px' }} />
@@ -121,7 +121,7 @@ export function DetailedProductShowcase({
                 {/* Mock Metrics */}
                 <div className="grid grid-cols-3 gap-2 mt-4">
                   {[...Array(3)].map((_, i) => (
-                    <div key={i} className="p-3 rounded-lg" style={{ background: 'rgba(255,255,255,0.5)' }}>
+                    <div key={i} className="p-3 rounded-lg" style={{ background: colors.card }}>
                       <div className="h-2 bg-borderLight rounded-full mb-2" />
                       <div className="h-1.5 bg-borderLight rounded-full w-2/3" />
                     </div>
@@ -198,7 +198,7 @@ export function DetailedProductShowcase({
                 variants={itemVariants}
                 className="p-6 rounded-xl border border-borderLight text-center"
                 style={{
-                  background: 'rgba(255,255,255,0.72)',
+                  background: colors.card,
                   backdropFilter: 'blur(20px)',
                   boxShadow: shadows.premium,
                 }}

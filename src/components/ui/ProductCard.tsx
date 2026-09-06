@@ -34,7 +34,7 @@ export function ProductCard({
       <div
         className="rounded-2xl p-8 h-full transition-all duration-300"
         style={{
-          background: 'rgba(255, 255, 255, 0.72)',
+          background: colors.card,
           backdropFilter: 'blur(20px)',
           border: `1px solid ${colors.borderLight}`,
           boxShadow: shadows.premium,

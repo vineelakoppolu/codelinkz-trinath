@@ -84,7 +84,7 @@ const itemVariants = {
 
 export default function ProductsEcosystem() {
   return (
-    <section className="py-24 bg-backgroundSoft relative overflow-hidden">
+    <section className="py-24 bg-background-soft relative overflow-hidden">
       {/* Background glow */}
       <div
         className="absolute inset-0 opacity-40"
@@ -136,7 +136,7 @@ export default function ProductsEcosystem() {
                 <motion.div
                   className="group h-full rounded-3xl border border-borderLight overflow-hidden transition-all duration-300 hover:border-primary/40 cursor-pointer"
                   style={{
-                    background: 'rgba(255, 255, 255, 0.8)',
+                    background: colors.card,
                     backdropFilter: 'blur(20px)',
                     boxShadow: `0 8px 16px ${colors.primary}08`,
                   }}

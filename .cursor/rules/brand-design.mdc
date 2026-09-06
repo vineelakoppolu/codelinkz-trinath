@@ -1,0 +1,51 @@
+---
+description: CodeLink SOLUTION visual system — glossy, modern, brand-locked UI
+alwaysApply: true
+---
+
+# CodeLink SOLUTION design system
+
+Every UI change must follow this look. Do not revert to a generic flat SaaS header or palette.
+
+## Brand tokens only
+
+Use `src/theme/colors.ts` (`brand`, `colors`, `royalAlpha`, `cyanAlpha`). Never introduce new hues.
+
+- Cyan `#00AEFE` — reserved accents: CTAs, active fills, hairlines
+- Royal `#1D68BE` — reserved for primary buttons and open/hover fills
+- Charcoal `#54595E` / near-black `#111111` — default titles, nav labels, body
+- White `#FFFFFF` — light surfaces
+- Dark surfaces — `#0B1220` page, `#162033` cards (never invent extra hues)
+
+Do **not** paint brand blue on every heading or menu title. Default type stays charcoal/black in light, off-white in dark. Brand color appears only where it earns attention (CTA, active state, hover fill).
+
+Light/dark is class-based (`html.dark`). Use `var(--background)`, `var(--text-primary)`, and `ThemeToggle`. Persist with `codelink-theme`. Header uses `logos.header` in light and `logos.footer` in dark.
+
+## Visual language
+
+- Glossy, unique motion — not a generic flat SaaS look
+- Top nav: thick gradient fill on hover/open. Dropdown rows stay calmer
+- Mega-menus: Codevian columns; AWS-style Products rail + grid
+- Solid white dropdowns (no see-through homepage)
+- Motion is smooth (`0.35–0.5s`, ease-out)
+
+## Visual language
+
+- Glossy glass: frosted white, soft royal glow, cyan→royal hairlines
+- Unique, not stock: liquid color-fill hovers, sheen sweeps, staggered motion
+- Mega-menus stay structured (Codevian columns; AWS-style Products rail + grid)
+- Motion is smooth (`0.35–0.5s`, ease-out). No abrupt pops
+
+## Header contract
+
+- Logo: `logos.header` in nav, `logos.footer` in footer
+- Nav: Services, Technology Focus, Products, Career, Company, Work, Blog, Contact us
+- Products panel: left category rail, right content grid, close control
+
+```tsx
+// ❌ BAD — generic flat link
+<a className="text-gray-600 hover:text-blue-600">Services</a>
+
+// ✅ GOOD — brand fill + cyan underline
+<button className="nav-link-premium">Services</button>
+```

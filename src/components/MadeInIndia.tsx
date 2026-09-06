@@ -29,7 +29,7 @@ const statVariants = {
 
 export default function MadeInIndia() {
   return (
-    <section className="section-padding bg-white relative overflow-hidden">
+    <section className="section-padding bg-background relative overflow-hidden">
       {/* Background accent */}
       <motion.div
         className="absolute top-0 right-0 w-96 h-96 bg-blue-50 rounded-full blur-3xl opacity-40 -z-10"
@@ -66,7 +66,7 @@ export default function MadeInIndia() {
               transition={{ duration: 3, repeat: Infinity }}
             />
             <motion.span
-              className="w-8 h-2 bg-white border border-blue-100"
+              className="w-8 h-2 bg-[#FFFFFF] border border-blue-100"
               animate={{ scaleX: [1, 1.1, 1] }}
               transition={{ duration: 3, repeat: Infinity, delay: 0.2 }}
             />

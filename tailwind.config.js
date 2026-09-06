@@ -1,24 +1,34 @@
 /** @type {import('tailwindcss').Config} */
 export default {
+  darkMode: 'class',
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     extend: {
       colors: {
-        primary: '#2563FF',
-        'primary-light': '#4F8CFF',
-        'primary-dark': '#1247D6',
-        'accent-cyan': '#5BB6FF',
-        'accent-sky': '#DCEEFF',
-        'bg-soft': '#F7FAFF',
-        'text-muted': '#94A3B8',
+        primary: '#1D68BE',
+        'primary-light': '#00AEFE',
+        'primary-dark': '#155398',
+        'accent-blue': '#00AEFE',
+        'accent-cyan': '#00AEFE',
+        'accent-sky': 'var(--accent-sky)',
+        charcoal: '#54595E',
+        background: 'var(--background)',
+        'background-soft': 'var(--background-soft)',
+        'bg-soft': 'var(--background-soft)',
+        card: 'var(--card)',
+        'text-primary': 'var(--text-primary)',
+        'text-secondary': 'var(--text-secondary)',
+        'text-muted': 'var(--text-muted)',
+        surface: 'var(--surface)',
+        borderLight: 'var(--border-light)',
       },
       borderRadius: {
         xl: '24px',
         lg: '18px',
       },
       boxShadow: {
-        'blue-glow': '0 4px 20px rgba(37, 99, 255, 0.12)',
-        'blue-glow-lg': '0 12px 40px rgba(37, 99, 255, 0.12)',
+        'blue-glow': '0 4px 20px rgba(29, 104, 190, 0.12)',
+        'blue-glow-lg': '0 12px 40px rgba(29, 104, 190, 0.12)',
         'premium': '0 8px 32px rgba(0, 0, 0, 0.06)',
       },
       keyframes: {

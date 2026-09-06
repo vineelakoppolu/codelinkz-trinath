@@ -47,7 +47,7 @@ const statVariants = {
 
 export default function TrustedBy() {
   return (
-    <section className="section-padding bg-gradient-to-b from-white via-bg-soft to-white">
+    <section className="section-padding bg-gradient-to-b from-background via-background-soft to-background">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <motion.div
           className="text-center mb-12"
@@ -98,7 +98,7 @@ export default function TrustedBy() {
             <motion.div
               key={stat.label}
               variants={statVariants}
-              className="text-center p-6 rounded-xl bg-gradient-to-br from-white to-bg-soft"
+              className="text-center p-6 rounded-xl bg-card border border-borderLight"
               whileHover={{ scale: 1.03, y: -4 }}
             >
               <motion.div

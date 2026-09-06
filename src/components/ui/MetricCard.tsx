@@ -23,7 +23,7 @@ export function MetricCard({
     <div
       className="rounded-2xl p-6 backdrop-blur-sm"
       style={{
-        background: 'rgba(255, 255, 255, 0.72)',
+        background: colors.card,
         border: `1px solid ${colors.borderLight}`,
         boxShadow: shadows.premium,
       }}
