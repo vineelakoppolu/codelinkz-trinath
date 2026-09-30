@@ -1,5 +1,5 @@
-import { ArrowRight, TrendingUp, Zap, Shield, Activity } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { ArrowRight, Zap, Shield } from 'lucide-react';
+import { motion, type Variants } from 'framer-motion';
 import {
   GradientText,
   HeroButton,
@@ -41,7 +41,7 @@ const floatingMetrics = [
   // },
 ];
 
-const containerVariants = {
+const containerVariants: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
@@ -52,7 +52,7 @@ const containerVariants = {
   },
 };
 
-const itemVariants = {
+const itemVariants: Variants = {
   hidden: { opacity: 0, y: 24 },
   visible: {
     opacity: 1,
@@ -65,7 +65,7 @@ const itemVariants = {
   },
 };
 
-const floatVariants = {
+const floatVariants: Variants = {
   animate: {
     y: [0, -20, 0],
     transition: {
