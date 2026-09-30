@@ -1,27 +1,30 @@
 import { motion } from 'framer-motion';
 import { Code, Cloud, Brain, TrendingUp } from 'lucide-react';
-import { colors } from '@/theme';
 
 const whatWeDo = [
   {
     icon: Code,
     title: 'End-to-End Product Development',
     description: 'From idea to market, we build complete digital products with scalable architecture and best practices.',
+    accent: '#1863BA',
   },
   {
     icon: Cloud,
     title: 'SaaS Product Engineering',
     description: 'Enterprise-grade SaaS platforms with multi-tenant architecture, subscriptions, and analytics dashboards.',
+    accent: '#00B2FE',
   },
   {
     icon: Brain,
     title: 'AI-Driven Automation',
     description: 'Intelligent automation systems that learn and adapt to reduce manual work and boost efficiency.',
+    accent: '#0076CE',
   },
   {
     icon: TrendingUp,
     title: 'Business Process Optimization',
     description: 'Digital transformation and workflow automation to streamline operations and increase productivity.',
+    accent: '#10B981',
   },
 ];
 
@@ -47,7 +50,7 @@ const itemVariants = {
 
 export default function WhatWeDo() {
   return (
-    <section className="py-20 bg-background">
+    <section className="py-20" style={{ background: 'var(--background-soft)' }}>
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         {/* Header */}
         <motion.div
@@ -77,14 +80,16 @@ export default function WhatWeDo() {
               <motion.div
                 key={idx}
                 variants={itemVariants}
-                className="p-8 rounded-2xl border border-borderLight bg-card hover:border-primary/30 transition-all group"
-                whileHover={{ y: -8, boxShadow: `0 16px 32px ${colors.primary}10` }}
+                className="p-8 rounded-2xl border transition-all group overflow-hidden relative"
+                style={{ background: 'var(--card)', borderColor: 'var(--border-light)' }}
+                whileHover={{ y: -8, boxShadow: `0 18px 36px ${item.accent}2e` }}
               >
+                <div className="absolute top-0 left-0 right-0 h-1" style={{ background: item.accent }} />
                 <div
-                  className="w-12 h-12 rounded-lg flex items-center justify-center mb-4"
-                  style={{ background: `${colors.primary}15` }}
+                  className="w-12 h-12 rounded-lg flex items-center justify-center mb-4 transition-transform duration-300 group-hover:scale-110"
+                  style={{ background: `${item.accent}18` }}
                 >
-                  <Icon className="w-6 h-6" style={{ color: colors.primary }} />
+                  <Icon className="w-6 h-6" style={{ color: item.accent }} />
                 </div>
                 <h3 className="text-xl font-700 mb-2">{item.title}</h3>
                 <p className="text-textSecondary">{item.description}</p>

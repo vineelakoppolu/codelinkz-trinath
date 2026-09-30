@@ -1,10 +1,10 @@
 import { motion } from 'framer-motion';
 
 const steps = [
-  { num: '1', title: 'Discovery', desc: 'We understand your business, workflows, and goals.' },
-  { num: '2', title: 'Custom Setup', desc: 'Configure the platform to match your needs perfectly.' },
-  { num: '3', title: 'Onboarding', desc: 'Live training for your team to ensure adoption.' },
-  { num: '4', title: 'Scale & Grow', desc: 'Continuous support and quarterly business reviews.' },
+  { num: '1', title: 'Discovery', desc: 'We understand your business, workflows, and goals.', accent: '#00B2FE' },
+  { num: '2', title: 'Custom Setup', desc: 'Configure the platform to match your needs perfectly.', accent: '#1863BA' },
+  { num: '3', title: 'Onboarding', desc: 'Live training for your team to ensure adoption.', accent: '#0076CE' },
+  { num: '4', title: 'Scale & Grow', desc: 'Continuous support and quarterly business reviews.', accent: '#10B981' },
 ];
 
 const containerVariants = {
@@ -29,7 +29,7 @@ const itemVariants = {
 
 export default function Process() {
   return (
-    <section className="section-padding bg-background-soft">
+    <section className="section-padding" style={{ background: 'var(--background-soft)' }}>
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         {/* Header */}
         <motion.div
@@ -87,7 +87,8 @@ export default function Process() {
                 whileHover={{ y: -4 }}
               >
                 <motion.div
-                  className="w-12 h-12 bg-gradient-to-br from-primary to-accent-blue rounded-xl flex items-center justify-center mb-5 text-white font-700 text-lg"
+                  className="w-12 h-12 rounded-xl flex items-center justify-center mb-5 text-white font-700 text-lg"
+                  style={{ background: step.accent, boxShadow: `0 10px 24px ${step.accent}55` }}
                   whileHover={{ scale: 1.15, rotate: -5 }}
                   transition={{ type: 'spring', stiffness: 400 }}
                 >

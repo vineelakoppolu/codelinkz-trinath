@@ -10,13 +10,13 @@ import { CompanyPanel, ServicesPanel, TechnologyPanel } from './navbar/MegaPanel
 import { ProductsPanel } from './navbar/ProductsPanel';
 import { FillItem } from './navbar/FillItem';
 
-type MenuKey = 'services' | 'technology' | 'products' | 'company';
+type MenuKey =  'products' | 'services' | 'technology' | 'company';
 
-const trailingLinks = [
-  { label: 'Work', href: '/solutions' },
-  { label: 'Blog', href: '/' },
-  { label: 'Contact us', href: '/company' },
-];
+// const trailingLinks = [
+//   { label: 'Work', href: '/solutions' },
+//   { label: 'Blog', href: '/' },
+//   { label: 'Contact us', href: '/company' },
+// ];
 
 export default function Navbar() {
   const [openMenu, setOpenMenu] = useState<MenuKey | null>(null);
@@ -55,15 +55,11 @@ export default function Navbar() {
   return (
     <header className="fixed top-0 left-0 right-0 z-50">
       <nav
-        className="transition-[box-shadow,background] duration-300"
-        style={{
-          background: openMenu || mobileOpen ? 'var(--background)' : 'transparent',
-          boxShadow: openMenu || mobileOpen ? '0 10px 40px rgba(29, 104, 190, 0.08)' : 'none',
-        }}
+        className={`header-sheen transition-[box-shadow,background,backdrop-filter] duration-300 ${openMenu || mobileOpen ? 'is-solid' : ''}`}
         onMouseLeave={scheduleClose}
       >
-        <div className="max-w-[1440px] mx-auto px-5 lg:px-8">
-          <div className="flex items-center h-[88px] lg:h-[96px] gap-6 lg:gap-10">
+        <div className="max-w-[1440px] mx-auto px-6 lg:px-10">
+          <div className="flex items-center h-[80px] lg:h-[88px] gap-8 lg:gap-12">
             <motion.button
               type="button"
               onClick={() => go('/')}
@@ -80,10 +76,18 @@ export default function Navbar() {
             </motion.button>
 
             <div
-              className="hidden xl:block flex-1 min-w-0 px-4"
+              className="hidden xl:flex flex-1 min-w-0 justify-center px-2"
               onMouseEnter={() => window.clearTimeout(closeTimer.current)}
             >
               <GlowMenuTrack>
+               
+                <GlowNavItem
+                  label="Products"
+                  hasMenu
+                  open={openMenu === 'products'}
+                  onEnter={() => open('products')}
+                  onClick={() => go('/products')}
+                />
                 <GlowNavItem
                   label="Services"
                   hasMenu
@@ -99,28 +103,13 @@ export default function Navbar() {
                   onClick={() => go('/technologies')}
                 />
                 <GlowNavItem
-                  label="Products"
-                  hasMenu
-                  open={openMenu === 'products'}
-                  onEnter={() => open('products')}
-                  onClick={() => go('/products')}
-                />
-                <GlowNavItem label="Career" onEnter={scheduleClose} onClick={() => go('/company')} />
-                <GlowNavItem
                   label="Company"
                   hasMenu
                   open={openMenu === 'company'}
                   onEnter={() => open('company')}
                   onClick={() => go('/company')}
                 />
-                {trailingLinks.map((link) => (
-                  <GlowNavItem
-                    key={link.label}
-                    label={link.label}
-                    onEnter={scheduleClose}
-                    onClick={() => go(link.href)}
-                  />
-                ))}
+                
               </GlowMenuTrack>
             </div>
 
@@ -129,9 +118,9 @@ export default function Navbar() {
                 type="button"
                 onClick={() => go('/company')}
                 className="header-cta-shine rounded-full px-5 py-2.5 text-sm font-700 text-white"
-                style={{ background: colors.gradientPrimary, boxShadow: '0 8px 22px rgba(29,104,190,0.28)' }}
+                style={{ background: colors.gradientPrimary, boxShadow: '0 8px 22px rgba(24,99,186,0.28)' }}
               >
-                Get a Quote
+                Contact Us
               </button>
             </div>
 
@@ -168,7 +157,7 @@ export default function Navbar() {
                   background: 'var(--background)',
                   boxShadow: '0 28px 80px var(--shadow-blue)',
                   borderBottom: '1px solid var(--border-light)',
-                  maxHeight: 'calc(100vh - 96px)',
+                  maxHeight: 'calc(100vh - 88px)',
                 }}
               >
                 <div className="h-[2px] w-full header-hairline" />
@@ -187,7 +176,7 @@ export default function Navbar() {
       {openMenu && (
         <button
           type="button"
-          className="hidden xl:block fixed inset-0 top-[96px] -z-10"
+          className="hidden xl:block fixed inset-0 top-[88px] -z-10"
           style={{ background: royalAlpha(0.18) }}
           aria-label="Close menu overlay"
           onClick={() => setOpenMenu(null)}
@@ -201,7 +190,7 @@ export default function Navbar() {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             className="xl:hidden overflow-hidden border-b"
-            style={{ background: 'var(--background)', borderColor: 'rgba(29,104,190,0.1)' }}
+            style={{ background: 'var(--background)', borderColor: 'rgba(24,99,186,0.1)' }}
           >
             <div className="header-hairline h-[2px] w-full" />
             <div className="px-5 py-4 max-h-[78vh] overflow-y-auto space-y-2">
@@ -261,17 +250,7 @@ export default function Navbar() {
                 ))}
               </MobileAccordion>
 
-              {trailingLinks.map((link) => (
-                <button
-                  key={link.label}
-                  type="button"
-                  className="nav-link-premium w-full text-left"
-                  onClick={() => go(link.href)}
-                >
-                  <NavFill />
-                  <span className="nav-label">{link.label}</span>
-                </button>
-              ))}
+             
 
               <button
                 type="button"

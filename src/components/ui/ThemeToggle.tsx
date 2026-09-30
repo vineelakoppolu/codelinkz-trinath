@@ -17,9 +17,9 @@ export function ThemeToggle() {
       }}
     >
       {isDark ? (
-        <Moon className="h-5 w-5 shrink-0 text-[#00AEFE]" />
+        <Moon className="h-5 w-5 shrink-0 text-[#00B2FE]" />
       ) : (
-        <Sun className="h-5 w-5 shrink-0 text-[#1D68BE]" />
+        <Sun className="h-5 w-5 shrink-0 text-[#1863BA]" />
       )}
       <span className="max-w-0 overflow-hidden whitespace-nowrap text-sm font-semibold text-[var(--text-primary)] opacity-0 transition-all duration-300 group-hover:ml-2 group-hover:max-w-[4.5rem] group-hover:opacity-100">
         {isDark ? 'Dark' : 'Light'}

@@ -5,6 +5,7 @@ export {
   logos,
   royalAlpha,
   cyanAlpha,
+  deepAlpha,
   colors,
   type Brand,
   type Logos,

@@ -7,10 +7,9 @@ const footerSections = {
   Products: [
     { label: 'Restolinkz', href: '/products' },
     { label: 'Crmlinkz', href: '/products' },
-    { label: 'Hrlinkz', href: '/products' },
     { label: 'Advocatelinkz', href: '/products' },
-    { label: 'Poslinkz', href: '/products' },
-    { label: 'Sociallinkz', href: '/products' },
+    { label: 'Erplinkz', href: '/products' },
+    { label: 'Fieldlinkz', href: '/products' },
   ],
   Services: [
     { label: 'Web Development', href: '/services' },

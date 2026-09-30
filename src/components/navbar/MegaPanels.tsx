@@ -81,7 +81,7 @@ export function CompanyPanel({ onNavigate }: { onNavigate: () => void }) {
         <p className="relative text-white/80 text-sm leading-relaxed mb-6 max-w-xs">
           {companyFeatured.description}
         </p>
-        <span className="relative inline-flex items-center gap-2 rounded-full border border-white/50 px-5 py-2 text-sm font-700 text-white group-hover:bg-white group-hover:text-[#1D68BE] transition-colors duration-300">
+        <span className="relative inline-flex items-center gap-2 rounded-full border border-white/50 px-5 py-2 text-sm font-700 text-white group-hover:bg-white group-hover:text-[#1863BA] transition-colors duration-300">
           {companyFeatured.cta}
           <ArrowRight className="h-4 w-4" />
         </span>
@@ -96,7 +96,7 @@ function ColumnHeading({ children }: { children: string }) {
       <h3 className="text-[15px] font-semibold tracking-tight" style={{ color: 'var(--text-primary)' }}>
         {children}
       </h3>
-      <div className="mt-2 h-px w-full bg-gradient-to-r from-[#00AEFE] via-[#1D68BE]/30 to-transparent" />
+      <div className="mt-2 h-px w-full bg-gradient-to-r from-[#00B2FE] via-[#1863BA]/30 to-transparent" />
     </div>
   );
 }
@@ -122,7 +122,7 @@ function ServicesFooter({ onNavigate }: { onNavigate: () => void }) {
           <div key={label} className="flex items-center gap-2.5">
             <span
               className="flex h-9 w-9 items-center justify-center rounded-lg"
-              style={{ background: 'rgba(0, 174, 254, 0.12)', color: colors.primary }}
+              style={{ background: 'rgba(0, 178, 254, 0.12)', color: colors.primary }}
             >
               <Icon className="h-4 w-4" strokeWidth={2} />
             </span>
@@ -140,7 +140,7 @@ function ServicesFooter({ onNavigate }: { onNavigate: () => void }) {
           navigate('/services');
         }}
         className="header-cta-shine shrink-0 inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-[15px] font-semibold text-white"
-        style={{ background: colors.gradientPrimary, boxShadow: '0 8px 20px rgba(29,104,190,0.25)' }}
+        style={{ background: colors.gradientPrimary, boxShadow: '0 8px 20px rgba(24,99,186,0.25)' }}
       >
         Staff Augmentation
         <ArrowRight className="h-4 w-4" />
@@ -169,19 +169,19 @@ function WorkCta({
       }}
       className="mt-4 w-full rounded-2xl px-4 py-4 text-left relative overflow-hidden group"
       style={{
-        background: 'linear-gradient(135deg, rgba(0,174,254,0.12), rgba(29,104,190,0.1))',
-        border: '1px solid rgba(0,174,254,0.22)',
+        background: 'linear-gradient(135deg, rgba(0,178,254,0.12), rgba(24,99,186,0.1))',
+        border: '1px solid rgba(0,178,254,0.22)',
       }}
     >
-      <span className="absolute inset-0 bg-gradient-to-r from-[#1D68BE] to-[#00AEFE] opacity-0 group-hover:opacity-100 transition-opacity duration-400" />
+      <span className="absolute inset-0 bg-gradient-to-r from-[#1863BA] to-[#00B2FE] opacity-0 group-hover:opacity-100 transition-opacity duration-400" />
       <span className="relative z-10 flex items-center justify-between">
         <span className="flex items-center gap-3">
           <img src={logos.header} alt="" className="h-8 w-auto object-contain" />
-          <span className="text-[16px] font-semibold text-[#1D68BE] group-hover:text-white transition-colors">
+          <span className="text-[16px] font-semibold text-[#1863BA] group-hover:text-white transition-colors">
             {title}
           </span>
         </span>
-        <ArrowRight className="h-4 w-4 text-[#00AEFE] group-hover:text-white transition-colors" />
+        <ArrowRight className="h-4 w-4 text-[#00B2FE] group-hover:text-white transition-colors" />
       </span>
     </button>
   );

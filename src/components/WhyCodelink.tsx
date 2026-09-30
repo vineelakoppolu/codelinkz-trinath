@@ -5,24 +5,28 @@ import { colors } from '@/theme';
 const benefits = [
   {
     icon: Zap,
+    accent: '#00B2FE',
     title: 'Faster Time to Market',
     description:
       'Our accelerated development process and proven frameworks get your product live in months, not years. Launch faster and capture market opportunities before competitors.',
   },
   {
     icon: Lock,
+    accent: '#1863BA',
     title: 'Enterprise-Grade Security',
     description:
       'Bank-level security with compliance for GDPR, SOC 2, and industry standards. Your data is protected with encryption, access controls, and regular audits.',
   },
   {
     icon: TrendingUp,
+    accent: '#10B981',
     title: 'Built for Scale',
     description:
       'Cloud-native architecture that grows with you. Handle millions of transactions daily with auto-scaling, zero-downtime deployments, and 99.99% uptime.',
   },
   {
     icon: Users,
+    accent: '#F59E0B',
     title: 'Dedicated Support',
     description:
       'Your success is our priority. Get a dedicated account manager, prioritized support, and regular check-ins to ensure your platform delivers value.',
@@ -70,14 +74,14 @@ export default function WhyCodelink() {
                 key={idx}
                 variants={itemVariants}
                 className="p-8 rounded-2xl border border-borderLight bg-card hover:border-primary/30 transition-all group"
-                whileHover={{ y: -8, boxShadow: `0 20px 25px ${colors.primary}15` }}
+                whileHover={{ y: -8, boxShadow: `0 20px 36px ${benefit.accent}33` }}
               >
                 <div className="flex items-start gap-4">
                   <div
                     className="w-14 h-14 rounded-xl flex items-center justify-center flex-shrink-0"
-                    style={{ background: `${colors.primary}15` }}
+                    style={{ background: `${benefit.accent}18` }}
                   >
-                    <Icon className="w-7 h-7" style={{ color: colors.primary }} />
+                    <Icon className="w-7 h-7" style={{ color: benefit.accent }} />
                   </div>
                   <div className="flex-1">
                     <h3 className="text-xl font-700 mb-3">{benefit.title}</h3>

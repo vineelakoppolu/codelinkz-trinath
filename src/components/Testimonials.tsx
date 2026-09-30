@@ -47,7 +47,7 @@ const itemVariants = {
 
 export default function Testimonials() {
   return (
-    <section className="section-padding bg-background-soft">
+    <section className="section-padding" style={{ background: 'var(--section-wash)' }}>
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         {/* Header */}
         <motion.div

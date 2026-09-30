@@ -12,7 +12,7 @@ export function ProductsPanel({ onClose }: { onClose: () => void }) {
 
   return (
     <div className="grid grid-cols-1 lg:grid-cols-[260px_1fr] min-h-[420px]">
-      <aside className="pr-4 lg:pr-6 lg:border-r" style={{ borderColor: 'rgba(29,104,190,0.1)' }}>
+      <aside className="pr-4 lg:pr-6 lg:border-r" style={{ borderColor: 'rgba(24,99,186,0.1)' }}>
         <div className="space-y-1">
           {productCategories.map((category) => {
             const selected = category.id === activeId;
@@ -31,7 +31,7 @@ export function ProductsPanel({ onClose }: { onClose: () => void }) {
                     {category.label}
                   </span>
                   <ChevronRight
-                    className={`h-4 w-4 transition-colors ${selected ? 'text-white' : 'text-[#00AEFE]'}`}
+                    className={`h-4 w-4 transition-colors ${selected ? 'text-white' : 'text-[#00B2FE]'}`}
                   />
                 </span>
               </button>
@@ -45,7 +45,7 @@ export function ProductsPanel({ onClose }: { onClose: () => void }) {
           type="button"
           onClick={onClose}
           className="absolute top-0 right-0 h-9 w-9 rounded-full flex items-center justify-center transition-colors"
-          style={{ color: colors.primary, background: 'rgba(0,174,254,0.08)' }}
+          style={{ color: colors.primary, background: 'rgba(0,178,254,0.08)' }}
           aria-label="Close products menu"
         >
           <X className="h-4 w-4" />

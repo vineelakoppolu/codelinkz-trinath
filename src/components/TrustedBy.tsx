@@ -1,117 +1,82 @@
 import { motion } from 'framer-motion';
+import { Building2, HeartPulse, Scale, Rocket, Briefcase, UtensilsCrossed } from 'lucide-react';
 
 const brands = [
-  'Restaurant Brands',
-  'Healthcare Systems',
-  'Fortune 500',
-  'Law Firms',
-  'Tech Startups',
-  'Consulting Firms',
+  { name: 'Restaurant Brands', icon: UtensilsCrossed, accent: '#F59E0B' },
+  { name: 'Healthcare Systems', icon: HeartPulse, accent: '#10B981' },
+  { name: 'Fortune 500', icon: Building2, accent: '#1863BA' },
+  { name: 'Law Firms', icon: Scale, accent: '#0B2545' },
+  { name: 'Tech Startups', icon: Rocket, accent: '#00B2FE' },
+  { name: 'Consulting Firms', icon: Briefcase, accent: '#0076CE' },
 ];
 
 const stats = [
-  { value: '8B+', label: 'Transactions' },
-  { value: '500+', label: 'Enterprise Clients' },
-  { value: '99.9%', label: 'Uptime SLA' },
-  { value: '40+', label: 'Industries' },
+  { value: '8B+', label: 'Transactions', accent: '#1863BA' },
+  { value: '500+', label: 'Enterprise Clients', accent: '#00B2FE' },
+  { value: '99.9%', label: 'Uptime SLA', accent: '#10B981' },
+  { value: '40+', label: 'Industries', accent: '#0076CE' },
 ];
-
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.08,
-      delayChildren: 0.1,
-    },
-  },
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, scale: 0.8 },
-  visible: {
-    opacity: 1,
-    scale: 1,
-    transition: { duration: 0.4, ease: 'easeOut' },
-  },
-};
-
-const statVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.5, ease: 'easeOut' },
-  },
-};
 
 export default function TrustedBy() {
   return (
-    <section className="section-padding bg-gradient-to-b from-background via-background-soft to-background">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+    <section className="section-padding" style={{ background: 'var(--section-wash)' }}>
+      <div className="mx-auto max-w-6xl px-6 lg:px-8">
         <motion.div
-          className="text-center mb-12"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.5 }}
+          className="mb-10 text-center"
+          initial={{ opacity: 0, y: 12 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <span className="text-sm font-700 text-text-muted uppercase tracking-wide">
-            Trusted By Enterprise
-          </span>
+          <p className="text-xs font-700 uppercase tracking-[0.22em]" style={{ color: '#1863BA' }}>
+            Trusted by enterprise
+          </p>
+          <h2 className="mt-3 text-3xl font-800 md:text-4xl" style={{ color: 'var(--text-primary)' }}>
+            Teams that run on CodeLink
+          </h2>
         </motion.div>
 
-        <motion.div
-          className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 mb-16"
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-        >
-          {brands.map((brand) => (
-            <motion.div
-              key={brand}
-              variants={itemVariants}
-              className="flex items-center justify-center group"
-              whileHover={{ scale: 1.05 }}
-            >
-              <div className="text-center">
-                <motion.div
-                  className="w-12 h-12 bg-gradient-to-br from-primary/10 to-accent-blue/10 rounded-lg mx-auto mb-2 group-hover:from-primary/20 group-hover:to-accent-blue/20 transition-all"
-                  whileHover={{ rotate: 6, scale: 1.1 }}
-                />
-                <span className="text-xs text-text-muted font-600">{brand}</span>
-              </div>
-            </motion.div>
-          ))}
-        </motion.div>
+        <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-6">
+          {brands.map((brand) => {
+            const Icon = brand.icon;
+            return (
+              <motion.div
+                key={brand.name}
+                className="flex flex-col items-center gap-3 rounded-2xl border px-3 py-5 text-center"
+                style={{ background: 'var(--card)', borderColor: 'var(--border-light)', boxShadow: '0 10px 24px rgba(11,37,69,0.05)' }}
+                whileHover={{ y: -6 }}
+              >
+                <div
+                  className="flex h-14 w-14 items-center justify-center rounded-2xl text-white"
+                  style={{ background: `linear-gradient(145deg, ${brand.accent}, #0B2545)` }}
+                >
+                  <Icon className="h-6 w-6" />
+                </div>
+                <span className="text-xs font-700 leading-snug" style={{ color: 'var(--text-primary)' }}>
+                  {brand.name}
+                </span>
+              </motion.div>
+            );
+          })}
+        </div>
 
-        {/* Stats */}
-        <motion.div
-          className="grid grid-cols-2 md:grid-cols-4 gap-6"
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-        >
+        <div className="mt-8 grid grid-cols-2 gap-4 md:grid-cols-4">
           {stats.map((stat) => (
             <motion.div
               key={stat.label}
-              variants={statVariants}
-              className="text-center p-6 rounded-xl bg-card border border-borderLight"
-              whileHover={{ scale: 1.03, y: -4 }}
+              className="rounded-2xl border px-4 py-6 text-center"
+              style={{ background: 'var(--card)', borderColor: 'var(--border-light)' }}
+              whileHover={{ y: -4 }}
             >
-              <motion.div
-                className="text-4xl font-800 text-primary mb-1"
-                whileHover={{ scale: 1.1 }}
-                transition={{ type: 'spring', stiffness: 400 }}
-              >
+              <div className="mx-auto mb-3 h-1 w-10 rounded-full" style={{ background: stat.accent }} />
+              <div className="text-3xl font-800" style={{ color: stat.accent }}>
                 {stat.value}
-              </motion.div>
-              <div className="text-sm text-text-muted">{stat.label}</div>
+              </div>
+              <div className="mt-1 text-sm" style={{ color: 'var(--text-secondary)' }}>
+                {stat.label}
+              </div>
             </motion.div>
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   );

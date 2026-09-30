@@ -50,7 +50,7 @@ const itemVariants = {
 
 export default function Statistics() {
   return (
-    <section className="py-20 bg-background relative overflow-hidden">
+    <section className="py-20 relative overflow-hidden text-white" style={{ background: 'linear-gradient(135deg, #0B2545 0%, #1863BA 58%, #0076CE 100%)' }}>
       {/* Background Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-20 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl"></div>
@@ -73,10 +73,10 @@ export default function Statistics() {
             transition={{ delay: 0.1 }}
             viewport={{ once: true }}
           >
-            Trusted by <span className="bg-gradient-to-r from-primary to-accent-blue bg-clip-text text-transparent">Thousands</span>
+            Trusted by <span style={{ color: '#00B2FE' }}>Thousands</span>
           </motion.h2>
           <motion.p
-            className="text-lg text-gray-600 max-w-2xl mx-auto"
+            className="text-lg max-w-2xl mx-auto" style={{ color: 'rgba(248,250,252,0.78)' }}
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ delay: 0.2 }}
@@ -103,7 +103,8 @@ export default function Statistics() {
                 className="group"
               >
                 <motion.div
-                  className="relative p-8 bg-card rounded-2xl border border-borderLight hover:border-primary transition-all duration-300 overflow-hidden"
+                  className="relative p-8 rounded-2xl border transition-all duration-300 overflow-hidden"
+                  style={{ background: 'rgba(255,255,255,0.08)', borderColor: 'rgba(255,255,255,0.16)' }}
                   whileHover={{ y: -5, boxShadow: '0 20px 40px rgba(0,0,0,0.1)' }}
                 >
                   {/* Background Gradient */}
@@ -120,7 +121,7 @@ export default function Statistics() {
 
                     {/* Value */}
                     <motion.div
-                      className="text-4xl md:text-5xl font-800 bg-gradient-to-r from-primary to-accent-blue bg-clip-text text-transparent mb-2"
+                      className="text-4xl md:text-5xl font-800 mb-2" style={{ color: '#00B2FE' }}
                       initial={{ scale: 0 }}
                       whileInView={{ scale: 1 }}
                       transition={{ delay: 0.2 + index * 0.1, type: 'spring' }}
@@ -130,12 +131,12 @@ export default function Statistics() {
                     </motion.div>
 
                     {/* Label */}
-                    <h3 className="text-lg font-700 text-gray-900 mb-2">
+                    <h3 className="text-lg font-700 text-white mb-2">
                       {stat.label}
                     </h3>
 
                     {/* Description */}
-                    <p className="text-sm text-gray-600">
+                    <p className="text-sm" style={{ color: 'rgba(248,250,252,0.75)' }}>
                       {stat.description}
                     </p>
                   </div>
@@ -154,7 +155,8 @@ export default function Statistics() {
           viewport={{ once: true }}
         >
           <motion.button
-            className="px-8 py-4 bg-gradient-to-r from-primary to-accent-blue text-white font-700 rounded-xl hover:shadow-lg hover:shadow-primary/50 transition-all inline-flex items-center gap-2"
+            className="px-8 py-4 font-700 rounded-xl transition-all inline-flex items-center gap-2 text-[#0B2545]"
+            style={{ background: '#FFFFFF', boxShadow: '0 12px 30px rgba(0,0,0,0.18)' }}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >

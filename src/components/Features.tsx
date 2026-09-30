@@ -5,25 +5,25 @@ const features = [
     title: 'AI-Powered Automation',
     desc: 'Automate repetitive tasks, predict trends, and scale effortlessly.',
     icon: '🤖',
-    gradient: 'from-blue-500 to-cyan-500',
+    bar: 'linear-gradient(90deg, #1863BA, #00B2FE)',
   },
   {
     title: 'Real-Time Insights',
     desc: 'Custom dashboards and analytics for every department.',
     icon: '📊',
-    gradient: 'from-purple-500 to-blue-500',
+    bar: 'linear-gradient(90deg, #00B2FE, #10B981)',
   },
   {
     title: 'Universal API',
     desc: 'REST, GraphQL, and Webhooks for seamless integrations.',
     icon: '🔌',
-    gradient: 'from-cyan-500 to-blue-500',
+    bar: 'linear-gradient(90deg, #0076CE, #1863BA)',
   },
   {
     title: 'Multi-Tenant Architecture',
     desc: 'Support unlimited companies and teams within one platform.',
     icon: '🏢',
-    gradient: 'from-blue-500 to-indigo-500',
+    bar: 'linear-gradient(90deg, #0B2545, #00B2FE)',
   },
 ];
 
@@ -49,7 +49,7 @@ const itemVariants = {
 
 export default function Features() {
   return (
-    <section className="section-padding bg-background-soft">
+    <section className="section-padding" style={{ background: 'var(--background)' }}>
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         {/* Header */}
         <motion.div
@@ -90,7 +90,7 @@ export default function Features() {
               variants={itemVariants}
               className="group glass-card hover:shadow-premium rounded-2xl overflow-hidden transition-all duration-300 hover:-translate-y-1"
             >
-              <div className={`h-32 bg-gradient-to-br ${feature.gradient} opacity-15 group-hover:opacity-25 transition-opacity`} />
+              <div className="h-2 w-full transition-all duration-300 group-hover:h-3" style={{ background: feature.bar }} />
               <div className="p-8">
                 <motion.div
                   className="text-4xl mb-3"

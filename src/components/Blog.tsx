@@ -80,7 +80,7 @@ const itemVariants = {
 
 export default function Blog() {
   return (
-    <section className="py-20 bg-background relative overflow-hidden">
+    <section className="py-20 relative overflow-hidden" style={{ background: 'var(--background-soft)' }}>
       {/* Background Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute -bottom-40 -right-40 w-96 h-96 bg-accent-blue/5 rounded-full blur-3xl"></div>
@@ -142,7 +142,8 @@ export default function Blog() {
                   <div className="flex items-center justify-between mb-4">
                     <div className="text-4xl">{blog.image}</div>
                     <motion.span
-                      className="px-3 py-1 bg-primary/10 text-primary text-xs font-600 rounded-full"
+                      className="px-3 py-1 text-xs font-600 rounded-full text-white"
+                      style={{ background: ['#1863BA', '#00B2FE', '#10B981', '#0076CE', '#F59E0B', '#0B2545'][index % 6] }}
                       whileHover={{ scale: 1.05 }}
                     >
                       {blog.category}
