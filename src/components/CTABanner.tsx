@@ -1,6 +1,5 @@
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
-import { colors } from '@/theme';
 
 export default function CTABanner() {
   return (
@@ -13,7 +12,7 @@ export default function CTABanner() {
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
           style={{
-            background: `linear-gradient(135deg, ${colors.primary} 0%, ${colors.primaryLight} 100%)`,
+            background: 'linear-gradient(135deg, #1863BA 0%, #00B2FE 100%)',
           }}
         >
           {/* Animated Background Elements */}

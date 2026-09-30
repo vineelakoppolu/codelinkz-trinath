@@ -2,10 +2,9 @@ import { motion } from 'framer-motion';
 import {
   ShoppingCart,
   Users,
-  Briefcase,
   FileText,
-  Truck,
-  Share2,
+  Building2,
+  MapPinned,
   BarChart3,
   Zap,
   Shield,
@@ -80,33 +79,33 @@ const productsData = [
     ],
   },
   {
-    icon: Briefcase,
-    name: 'Hrlinkz',
-    tagline: 'Human Resources & Payroll Platform',
-    shortDescription: 'Streamlined HR operations covering recruitment, onboarding, payroll, performance management, and employee engagement.',
-    description: 'Hrlinkz is an integrated HRMS platform that streamlines all aspects of human resource management. From recruitment and onboarding to payroll processing, performance management, and employee engagement, Hrlinkz helps HR teams focus on strategic initiatives while automating routine tasks.',
-    features: ['Recruitment Suite', 'Payroll Engine', 'Performance Tracking', 'Employee Portal'],
+    icon: Building2,
+    name: 'Erplinkz',
+    tagline: 'Enterprise Resource Planning',
+    shortDescription: 'Unified finance, procurement, inventory, and reporting so operations, stock, and the books stay on one system.',
+    description: 'Erplinkz is an ERP platform for growing companies that need procurement, inventory, finance, and reporting in one place. It replaces disconnected spreadsheets and tools with a single operating record for orders, stock, cost, and performance.',
+    features: ['Finance & Procurement', 'Inventory Control', 'Multi-entity Reporting', 'Workflow Automation'],
     detailedFeatures: [
-      'End-to-end recruitment management',
-      'Digital onboarding process',
-      'Automated payroll processing',
-      'Attendance and leave management',
-      'Performance appraisal system',
-      'Employee self-service portal',
-      'Compliance and regulatory reports',
-      'Employee engagement tools',
+      'Purchase orders and supplier management',
+      'Real-time inventory and stock reservations',
+      'General ledger and cost-center tracking',
+      'Invoice matching and approvals',
+      'Multi-location operations',
+      'Role-based workflows',
+      'Management reporting dashboards',
+      'Audit-ready transaction history',
     ],
     benefits: [
-      'Reduce HR administrative time by 50%',
-      'Ensure 100% payroll compliance',
-      'Improve employee satisfaction scores',
-      'Faster recruitment and onboarding',
+      'See finance and inventory in one view',
+      'Shorten purchase-to-pay cycles',
+      'Reduce stock surprises across locations',
+      'Give leadership a current operating picture',
     ],
     stats: [
-      { label: 'Employees Managed', value: '50K+' },
-      { label: 'Companies Using', value: '200+' },
-      { label: 'Payroll Accuracy', value: '99.95%' },
-      { label: 'Avg Time Saved', value: '20hrs/mo' },
+      { label: 'Business Units', value: '120+' },
+      { label: 'Orders Processed', value: '2M+' },
+      { label: 'Close Time Saved', value: '40%' },
+      { label: 'Data Accuracy', value: '99.5%' },
     ],
   },
   {
@@ -140,63 +139,33 @@ const productsData = [
     ],
   },
   {
-    icon: Truck,
-    name: 'Poslinkz',
-    tagline: 'Billing, Inventory & POS Platform',
-    shortDescription: 'Real-time fleet and logistics management with route optimization, delivery tracking, and supply chain visibility.',
-    description: 'Poslinkz is a comprehensive billing and inventory management platform designed for retail and logistics businesses. Manage multiple stores, track inventory in real-time, process GST-compliant billing, and generate detailed reports with advanced analytics.',
-    features: ['Fleet Tracking', 'Route Optimization', 'Delivery Tracking', 'Analytics'],
+    icon: MapPinned,
+    name: 'Fieldlinkz',
+    tagline: 'Field Service Management',
+    shortDescription: 'Dispatch, live technician tracking, and mobile work orders so the right person arrives with the right job details.',
+    description: 'Fieldlinkz is a field service platform for teams that work on site. It plans routes, assigns technicians, tracks progress, and closes work orders from a phone so dispatch and the customer stay in sync.',
+    features: ['Smart Dispatch', 'Live Tracking', 'Mobile Work Orders', 'Customer Updates'],
     detailedFeatures: [
-      'Multi-location billing system',
-      'Real-time inventory tracking',
-      'Automated GST compliance',
-      'Sales and purchase management',
-      'Stock transfer between locations',
-      'Barcode scanning',
-      'Supplier management',
-      'Business intelligence reports',
+      'Skill-based technician assignment',
+      'Route planning and live location',
+      'Mobile work orders and checklists',
+      'Parts and inventory on the job',
+      'Customer notifications',
+      'Photo and signature capture',
+      'SLA and schedule tracking',
+      'Service history on every site',
     ],
     benefits: [
-      'Reduce inventory carrying costs',
-      'Ensure GST and tax compliance',
-      'Improve inventory visibility',
-      'Streamline multi-store operations',
+      'Reach the right technician faster',
+      'Cut wasted travel between jobs',
+      'Close work orders before leaving the site',
+      'Keep customers updated without extra calls',
     ],
     stats: [
-      { label: 'Stores Connected', value: '3000+' },
-      { label: 'Daily Transactions', value: '500K+' },
-      { label: 'Inventory Accuracy', value: '99%' },
-      { label: 'Processing Time', value: '<2sec' },
-    ],
-  },
-  {
-    icon: Share2,
-    name: 'Sociallinkz',
-    tagline: 'Social Media Marketing Automation',
-    shortDescription: 'Unified platform for managing multiple social channels, scheduling content, analyzing engagement, and collaborating with teams.',
-    description: 'Sociallinkz empowers marketing teams to manage their entire social media presence from one platform. Schedule posts, track engagement, capture leads, and analyze performance across all major social networks. With AI-powered insights, Sociallinkz helps optimize your social media strategy.',
-    features: ['Multi-Channel Posting', 'Analytics', 'Engagement Tracking', 'Team Collaboration'],
-    detailedFeatures: [
-      'Multi-channel post scheduling',
-      'Content calendar management',
-      'Real-time engagement monitoring',
-      'Lead capture forms',
-      'Competitor analysis',
-      'Influencer identification',
-      'Team collaboration tools',
-      'Performance analytics and reporting',
-    ],
-    benefits: [
-      'Save 10+ hours per week on social media',
-      'Increase engagement by 50%',
-      'Track ROI on social campaigns',
-      'Build cohesive social strategy',
-    ],
-    stats: [
-      { label: 'Marketing Teams', value: '800+' },
-      { label: 'Posts Scheduled', value: '1M+/mo' },
-      { label: 'Avg Engagement +', value: '45%' },
-      { label: 'Customer Acquisition -', value: '30%' },
+      { label: 'Jobs Dispatched', value: '80K+' },
+      { label: 'On-time Arrival', value: '96%' },
+      { label: 'First-time Fix', value: '88%' },
+      { label: 'Teams in the Field', value: '400+' },
     ],
   },
 ];
@@ -259,7 +228,7 @@ export default function ProductsPage() {
         badge="Our Products"
         title="Enterprise SaaS Solutions"
         subtitle="Build, Scale, and Succeed"
-        description="A comprehensive ecosystem of cloud-native SaaS products designed for modern businesses. From restaurants to law firms, from HR to logistics, we have solutions for every industry and business need."
+        description="A comprehensive ecosystem of cloud-native SaaS products designed for modern businesses. From restaurants and sales teams to law firms, enterprise operations, and field service."
       />
 
       {/* Products Grid Section */}
@@ -279,7 +248,7 @@ export default function ProductsPage() {
               className="text-lg max-w-3xl mx-auto"
               style={{ color: colors.textSecondary }}
             >
-              Six industry-leading SaaS platforms solving critical business challenges across different sectors
+              Five industry platforms solving critical business challenges across restaurants, sales, legal, ERP, and field service
             </p>
           </motion.div>
 

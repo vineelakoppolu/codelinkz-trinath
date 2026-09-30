@@ -1,4 +1,4 @@
-import { colors, shadows } from '@/theme';
+import { colors } from '@/theme';
 
 /**
  * DashboardPreview - Floating glassmorphism dashboard preview card
@@ -6,12 +6,11 @@ import { colors, shadows } from '@/theme';
 export function DashboardPreview() {
   return (
     <div
-      className="rounded-2xl overflow-hidden backdrop-blur-sm"
+      className="w-full rounded-2xl overflow-hidden"
       style={{
-        background: colors.card,
-        border: `1px solid ${colors.borderLight}`,
-        boxShadow: shadows.premiumLg,
-        maxWidth: '600px',
+        background: '#FFFFFF',
+        border: '1px solid rgba(255,255,255,0.7)',
+        boxShadow: '0 24px 60px rgba(0,0,0,0.22)',
       }}
     >
       {/* Header */}
@@ -53,7 +52,7 @@ export function DashboardPreview() {
       {/* Content */}
       <div className="p-6 space-y-4">
         {/* Metric blocks */}
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
           {[
             { label: 'Revenue', value: '+24%' },
             { label: 'Growth', value: '$48K' },

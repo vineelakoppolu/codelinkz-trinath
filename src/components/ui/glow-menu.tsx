@@ -3,7 +3,7 @@ import { motion, type Variants } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
 
 const BRAND_GLOW =
-  'radial-gradient(circle, rgba(0,174,254,0.22) 0%, rgba(29,104,190,0.10) 48%, rgba(29,104,190,0) 100%)';
+  'radial-gradient(circle, rgba(0,178,254,0.22) 0%, rgba(24,99,186,0.10) 48%, rgba(24,99,186,0) 100%)';
 
 const itemVariants: Variants = {
   initial: { rotateX: 0, opacity: 1 },
@@ -94,7 +94,7 @@ function GlowFace({
     <motion.button
       type="button"
       onClick={onClick}
-      className={`flex items-center justify-center gap-1 whitespace-nowrap px-3 py-2 rounded-xl bg-transparent text-[16px] font-bold text-[var(--text-primary)] ${
+      className={`flex items-center justify-center gap-1.5 whitespace-nowrap px-5 py-2.5 rounded-xl bg-transparent text-[15px] font-bold text-[var(--text-primary)] ${
         overlay ? 'absolute inset-0 z-10' : 'relative z-10'
       }`}
       variants={variants}
@@ -108,7 +108,7 @@ function GlowFace({
 
 export function GlowMenuTrack({ children }: { children: ReactNode }) {
   return (
-    <ul className="relative z-10 flex items-center justify-evenly w-full gap-0.5 flex-nowrap">
+    <ul className="relative z-10 flex items-center justify-center gap-5 flex-nowrap">
       {children}
     </ul>
   );

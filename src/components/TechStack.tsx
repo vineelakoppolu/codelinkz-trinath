@@ -38,7 +38,7 @@ const statsVariants = {
 
 export default function TechStack() {
   return (
-    <section className="section-padding bg-background">
+    <section className="section-padding" style={{ background: 'var(--background-soft)' }}>
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         {/* Header */}
         <motion.div

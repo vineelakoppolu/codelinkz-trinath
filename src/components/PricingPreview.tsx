@@ -78,7 +78,7 @@ const itemVariants = {
 
 export default function PricingPreview() {
   return (
-    <section className="py-20 bg-gradient-to-b from-background-soft to-background relative overflow-hidden">
+    <section className="py-20 relative overflow-hidden" style={{ background: 'var(--background)' }}>
       {/* Background Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-0 left-1/3 w-96 h-96 bg-primary/5 rounded-full blur-3xl"></div>
@@ -127,7 +127,7 @@ export default function PricingPreview() {
               variants={itemVariants}
               className="group relative"
             >
-              {plan.popular && (
+                {plan.popular && (
                 <motion.div
                   className="absolute -top-4 left-1/2 transform -translate-x-1/2"
                   initial={{ opacity: 0, y: -10 }}
@@ -141,13 +141,15 @@ export default function PricingPreview() {
               )}
 
               <motion.div
-                className={`relative h-full p-8 rounded-2xl border-2 transition-all duration-300 ${
+                className={`relative h-full rounded-2xl border-2 transition-all duration-300 overflow-hidden ${
                   plan.popular
                     ? 'border-primary bg-gradient-to-br from-primary/5 to-accent-blue/5 shadow-xl'
                     : 'border-borderLight bg-card hover:border-primary'
                 }`}
-                whileHover={!plan.popular ? { y: -5 } : undefined}
+                whileHover={{ y: -8, scale: 1.01 }}
               >
+                <div className="h-1.5 w-full" style={{ background: plan.popular ? 'linear-gradient(90deg,#1863BA,#00B2FE)' : plan.name === 'Enterprise' ? '#0B2545' : '#10B981' }} />
+                <div className="p-8">
                 {/* Plan Header */}
                 <div className="mb-8">
                   <h3 className="text-2xl font-800 text-gray-900 mb-2">
@@ -210,6 +212,7 @@ export default function PricingPreview() {
                     </motion.div>
                   ))}
                 </motion.div>
+                </div>
               </motion.div>
             </motion.div>
           ))}

@@ -1,23 +1,23 @@
-import { ArrowRight, TrendingUp, Zap, Shield, Activity } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { ArrowRight, Zap, Shield } from 'lucide-react';
+import { motion, type Variants } from 'framer-motion';
 import {
   GradientText,
   HeroButton,
-  GlassCard,
   FloatingBadge,
   DashboardPreview,
-  GlowBackground,
 } from './ui';
-import { colors, shadows, animations } from '@/theme';
+import ParticleEffectForHero from './ui/particle-effect-for-hero';
+import { AnimatedText } from './ui/animated-underline-text-one';
+import { colors } from '@/theme';
 
 const floatingMetrics = [
-  {
-    icon: <TrendingUp className="w-5 h-5" />,
-    label: 'Revenue',
-    value: '+24%',
-    position: 'top-20 right-[5%]',
-    delay: 0,
-  },
+  // {
+  //   icon: <TrendingUp className="w-5 h-5" />,
+  //   label: 'Revenue',
+  //   value: '+24%',
+  //   position: 'top-6 right-[6%]',
+  //   delay: 0,
+  // },
   {
     icon: <Zap className="w-5 h-5" />,
     label: 'Performance',
@@ -32,16 +32,16 @@ const floatingMetrics = [
     position: 'top-1/2 left-[12%]',
     delay: 0.4,
   },
-  {
-    icon: <Activity className="w-5 h-5" />,
-    label: 'Automation',
-    value: '85%',
-    position: 'top-32 right-[10%]',
-    delay: 0.6,
-  },
+  // {
+  //   icon: <Activity className="w-5 h-5" />,
+  //   label: 'Automation',
+  //   value: '85%',
+  //   position: 'top-28 right-[12%]',
+  //   delay: 0.6,
+  // },
 ];
 
-const containerVariants = {
+const containerVariants: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
@@ -52,7 +52,7 @@ const containerVariants = {
   },
 };
 
-const itemVariants = {
+const itemVariants: Variants = {
   hidden: { opacity: 0, y: 24 },
   visible: {
     opacity: 1,
@@ -65,7 +65,7 @@ const itemVariants = {
   },
 };
 
-const floatVariants = {
+const floatVariants: Variants = {
   animate: {
     y: [0, -20, 0],
     transition: {
@@ -78,14 +78,19 @@ const floatVariants = {
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center pt-32 pb-20 overflow-hidden">
+    <section
+      className="relative min-h-screen flex flex-col items-center justify-center pt-32 pb-20 overflow-hidden"
+      style={{ background: 'linear-gradient(165deg, #0B2545 0%, #123A66 46%, #0B2545 100%)' }}
+    >
+      <ParticleEffectForHero />
+
       {/* Premium background with glows */}
       <div className="absolute inset-0 -z-10">
         {/* Top left glow */}
         <motion.div
           className="absolute -top-40 -left-40 w-96 h-96 rounded-full blur-3xl pointer-events-none"
           style={{
-            background: `radial-gradient(circle, ${colors.primary}15 0%, transparent 70%)`,
+            background: `radial-gradient(circle, rgba(0,178,254,0.35) 0%, transparent 70%)`,
           }}
           animate={{
             y: [0, -40, 0],
@@ -102,7 +107,7 @@ export default function Hero() {
         <motion.div
           className="absolute -bottom-40 -right-40 w-96 h-96 rounded-full blur-3xl pointer-events-none"
           style={{
-            background: `radial-gradient(circle, ${colors.accentBlue}10 0%, transparent 70%)`,
+            background: `radial-gradient(circle, rgba(24,99,186,0.45) 0%, transparent 70%)`,
           }}
           animate={{
             y: [0, 40, 0],
@@ -121,7 +126,7 @@ export default function Hero() {
       </div>
 
       {/* Floating metric cards */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden hidden md:block">
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 top-[140px] hidden overflow-hidden md:block">
         {floatingMetrics.map((metric, i) => (
           <motion.div
             key={i}
@@ -152,8 +157,8 @@ export default function Hero() {
           variants={itemVariants}
           className="mb-8 inline-flex items-center gap-2 px-4 py-2 rounded-full"
           style={{
-            background: colors.accentSky,
-            border: `1px solid ${colors.borderLight}`,
+            background: 'rgba(0,178,254,0.14)',
+            border: '1px solid rgba(0,178,254,0.45)',
           }}
         >
           <motion.div
@@ -174,26 +179,20 @@ export default function Hero() {
           </span>
         </motion.div>
 
-        {/* Hero heading with gradient */}
-        <motion.h1
-          variants={itemVariants}
-          className="break-words"
-          style={{
-            fontSize: 'clamp(32px, 8vw, 96px)',
-            lineHeight: 'clamp(38px, 9vw, 108px)',
-            fontWeight: 800,
-            color: colors.textPrimary,
-            marginBottom: '32px',
-            letterSpacing: '-0.02em',
-          }}
-        >
-          Transform{' '}
-          <GradientText variant="primary">Operations</GradientText>
-          <br />
-          Across Your Entire
-          <br />
-          <GradientText variant="primary">Organization</GradientText>
-        </motion.h1>
+        <motion.div variants={itemVariants} className="mb-8">
+          <AnimatedText
+            className="w-full"
+            textClassName="break-words text-[clamp(32px,8vw,96px)] leading-[clamp(38px,9vw,108px)] font-800 tracking-tight text-white"
+            underlineClassName="text-[#00B2FE]"
+            underlineDuration={1.6}
+          >
+            Transform <GradientText variant="primary">Operations</GradientText>
+            <br />
+            Across Your Entire
+            <br />
+            <GradientText variant="primary">Organization</GradientText>
+          </AnimatedText>
+        </motion.div>
 
         {/* Subheading */}
         <motion.p
@@ -201,7 +200,7 @@ export default function Hero() {
           style={{
             fontSize: 'clamp(15px, 4vw, 18px)',
             lineHeight: '1.55',
-            color: colors.textSecondary,
+            color: 'rgba(248,250,252,0.78)',
             marginBottom: '48px',
             maxWidth: '700px',
             marginLeft: 'auto',
@@ -216,76 +215,56 @@ export default function Hero() {
           variants={itemVariants}
           className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-20"
         >
-          <HeroButton variant="primary" size="lg" icon={<ArrowRight className="w-5 h-5" />}>
+          <HeroButton variant="primary" size="lg" icon={<ArrowRight className="w-5 h-5" />} className="hover:scale-105">
             Start Free Trial
           </HeroButton>
-          <HeroButton variant="glass" size="lg">
+          <button
+            type="button"
+            className="px-8 py-4 text-lg font-700 rounded-full text-white border border-white/35 bg-white/10 backdrop-blur-md transition-all duration-300 hover:-translate-y-0.5 hover:bg-white/20 hover:shadow-lg"
+          >
             Watch Demo
-          </HeroButton>
+          </button>
         </motion.div>
 
-        {/* Key metrics strip */}
-        <motion.div
-          variants={itemVariants}
-          className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-3xl mx-auto mb-24"
-        >
-          {[
-            { label: 'Users Served Globally', value: '10B+' },
-            { label: '99.9%', value: 'Uptime SLA' },
-            { label: '13.9x', value: 'Faster Deployment' },
-          ].map((stat, i) => (
-            <motion.div
-              key={i}
-              whileHover={{ translateY: -4 }}
-              transition={{ type: 'spring', stiffness: 300 }}
-            >
-              <GlassCard>
-                <div className="px-6 py-4">
-                  <div
-                    style={{
-                      fontSize: '12px',
-                      color: colors.textMuted,
-                      marginBottom: '8px',
-                      fontWeight: 600,
-                      textTransform: 'uppercase',
-                      letterSpacing: '0.05em',
-                    }}
-                  >
-                    {stat.label}
-                  </div>
-                  <div
-                    style={{
-                      fontSize: '32px',
-                      fontWeight: 800,
-                      background: `linear-gradient(135deg, ${colors.primary} 0%, ${colors.accentBlue} 100%)`,
-                      WebkitBackgroundClip: 'text',
-                      WebkitTextFillColor: 'transparent',
-                      backgroundClip: 'text',
-                    }}
-                  >
-                    {stat.value}
-                  </div>
-                </div>
-              </GlassCard>
-            </motion.div>
-          ))}
-        </motion.div>
       </motion.div>
 
-      {/* Dashboard Preview */}
       <motion.div
         variants={itemVariants}
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, margin: '-100px' }}
-        className="w-full max-w-5xl mx-auto px-6 lg:px-8"
+        viewport={{ once: true, margin: '-80px' }}
+        className="w-full max-w-5xl mx-auto px-5 sm:px-6 lg:px-8 relative z-10"
       >
-        <motion.div
-          whileHover={{ translateY: -8 }}
-          transition={{ type: 'spring', stiffness: 300 }}
+        <div
+          className="rounded-[28px] p-4 sm:p-6"
+          style={{
+            background: 'rgba(255,255,255,0.08)',
+            border: '1px solid rgba(255,255,255,0.16)',
+            boxShadow: '0 30px 80px rgba(0,0,0,0.22)',
+          }}
         >
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-4">
+            {[
+              { value: '10B+', label: 'Users Served Globally' },
+              { value: '99.9%', label: 'Uptime SLA' },
+              { value: '13.9x', label: 'Faster Deployment' },
+            ].map((stat) => (
+              <div
+                key={stat.label}
+                className="rounded-2xl px-4 py-4 text-center"
+                style={{ background: '#FFFFFF' }}
+              >
+                <div className="text-[28px] sm:text-[32px] font-800 leading-none" style={{ color: '#1863BA' }}>
+                  {stat.value}
+                </div>
+                <div className="mt-2 text-[12px] font-600 uppercase tracking-wide" style={{ color: '#515254' }}>
+                  {stat.label}
+                </div>
+              </div>
+            ))}
+          </div>
           <DashboardPreview />
-        </motion.div>
+        </div>
       </motion.div>
     </section>
   );

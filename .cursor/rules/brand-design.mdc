@@ -9,15 +9,18 @@ Every UI change must follow this look. Do not revert to a generic flat SaaS head
 
 ## Brand tokens only
 
-Use `src/theme/colors.ts` (`brand`, `colors`, `royalAlpha`, `cyanAlpha`). Never introduce new hues.
+Use `src/theme/colors.ts` (`brand`, `colors`, `royalAlpha`, `cyanAlpha`, `deepAlpha`). Stay inside this palette.
 
-- Cyan `#00AEFE` — reserved accents: CTAs, active fills, hairlines
-- Royal `#1D68BE` — reserved for primary buttons and open/hover fills
-- Charcoal `#54595E` / near-black `#111111` — default titles, nav labels, body
-- White `#FFFFFF` — light surfaces
-- Dark surfaces — `#0B1220` page, `#162033` cards (never invent extra hues)
+- Electric cyan `#00B2FE` — accents, hover highlights, gradient ends, badges
+- Brand royal `#1863BA` — primary buttons, active states, hero marks
+- Logo blue `#0076CE` — supporting blue from the footer logo
+- Deep corporate `#0B2545` — dark bands, footer, dark cards
+- Charcoal `#515254` — body text
+- Dark slate `#0F172A` — headings on light surfaces
+- Canvas `#F8FAFC` and white `#FFFFFF` — page and cards
+- Success `#10B981`, warning `#F59E0B`, error `#EF4444` — status and metric color only
 
-Do **not** paint brand blue on every heading or menu title. Default type stays charcoal/black in light, off-white in dark. Brand color appears only where it earns attention (CTA, active state, hover fill).
+Headings on light surfaces stay dark slate. Cyan is an accent, not body text on white. Dark bands use white type.
 
 Light/dark is class-based (`html.dark`). Use `var(--background)`, `var(--text-primary)`, and `ThemeToggle`. Persist with `codelink-theme`. Header uses `logos.header` in light and `logos.footer` in dark.
 

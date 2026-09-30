@@ -13,7 +13,7 @@ export default function CTA() {
           viewport={{ once: true }}
         >
           {/* Background gradient */}
-          <div className="absolute inset-0 bg-gradient-to-br from-primary via-primary-dark to-accent-blue opacity-90" />
+          <div className="absolute inset-0" style={{ background: 'linear-gradient(135deg, #0B2545 0%, #1863BA 55%, #00B2FE 100%)' }} />
           <motion.div
             className="absolute top-0 right-0 w-96 h-96 bg-white/20 rounded-full blur-3xl"
             animate={{
@@ -62,7 +62,7 @@ export default function CTA() {
             >
               <motion.button
                 className="flex items-center gap-2 bg-white text-primary font-700 px-8 py-4 rounded-full hover:bg-white/90 transition-all duration-300 group shadow-lg"
-                whileHover={{ scale: 1.05, boxShadow: '0 20px 40px rgba(29, 104, 190, 0.3)' }}
+                whileHover={{ scale: 1.05, boxShadow: '0 20px 40px rgba(24, 99, 186, 0.3)' }}
                 whileTap={{ scale: 0.95 }}
               >
                 Start Free Trial

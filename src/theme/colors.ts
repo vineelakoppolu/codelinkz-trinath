@@ -1,22 +1,35 @@
 /**
- * Official CodeLink SOLUTION brand colors — extracted from the logo.
- * Use these tokens everywhere. Do not introduce new brand hues.
+ * Official CodeLink SOLUTION brand colors — sampled from the logos.
+ * Use these tokens everywhere. Do not introduce hues outside this palette.
  */
 export const brand = {
-  /** Light Blue / Cyan — C outer ring, O inner dot, i-dot */
-  cyan: '#00AEFE',
-  /** Dark Blue / Royal Blue — C inner, O ring, "deLink", TM */
-  royal: '#1D68BE',
-  /** Dark Slate Gray / Charcoal — "SOLUTION" subtext */
-  charcoal: '#54595E',
-  /** Background White */
+  /** Electric cyan — outer C ring, O inner circle, i-dot */
+  cyan: '#00B2FE',
+  /** Brand royal — COdelink wordmark, second ring */
+  royal: '#1863BA',
+  /** Footer logo field */
+  logo: '#0076CE',
+  /** Deep corporate blue — nav, dark bands, dark cards */
+  deep: '#0B2545',
+  /** SOLUTION wordmark / body text */
+  charcoal: '#515254',
+  /** Headings */
+  slate: '#0F172A',
+  /** Alternating section canvas */
+  canvas: '#F8FAFC',
   white: '#FFFFFF',
+  success: '#10B981',
+  warning: '#F59E0B',
+  error: '#EF4444',
 } as const;
 
 export const brandRgb = {
-  cyan: '0, 174, 254',
-  royal: '29, 104, 190',
-  charcoal: '84, 89, 94',
+  cyan: '0, 178, 254',
+  royal: '24, 99, 186',
+  logo: '0, 118, 206',
+  deep: '11, 37, 69',
+  charcoal: '81, 82, 84',
+  slate: '15, 23, 42',
   white: '255, 255, 255',
 } as const;
 
@@ -27,42 +40,37 @@ export const logos = {
 
 export const royalAlpha = (alpha: number) => `rgba(${brandRgb.royal}, ${alpha})`;
 export const cyanAlpha = (alpha: number) => `rgba(${brandRgb.cyan}, ${alpha})`;
+export const deepAlpha = (alpha: number) => `rgba(${brandRgb.deep}, ${alpha})`;
 
 export const colors = {
-  // Primary — Royal Blue
   primary: brand.royal,
   primaryLight: brand.cyan,
-  primaryDark: '#155398',
+  primaryDark: brand.deep,
 
-  // Accent — Cyan
   accentBlue: brand.cyan,
   accentSky: 'var(--accent-sky)',
 
-  // Backgrounds follow light/dark CSS variables
   background: 'var(--background)',
   backgroundSoft: 'var(--background-soft)',
-  backgroundDark: brand.royal,
+  backgroundDark: brand.deep,
   surface: 'var(--surface)',
   card: 'var(--card)',
 
-  // Text
   textPrimary: 'var(--text-primary)',
   textSecondary: 'var(--text-secondary)',
   textMuted: 'var(--text-muted)',
-  textLight: '#E8F7FF',
+  textLight: '#F8FAFC',
 
-  // Borders
   borderSoft: 'var(--border-soft)',
   borderLight: 'var(--border-light)',
 
-  // Status
-  success: '#0EA5E9',
-  warning: '#F59E0B',
-  error: '#EF4444',
+  success: brand.success,
+  warning: brand.warning,
+  error: brand.error,
 
-  // Gradients
   gradientPrimary: `linear-gradient(135deg, ${brand.royal} 0%, ${brand.cyan} 100%)`,
   gradientAccent: `linear-gradient(135deg, ${brand.cyan} 0%, ${brand.royal} 100%)`,
+  gradientDeep: `linear-gradient(160deg, ${brand.deep} 0%, #123A66 55%, ${brand.deep} 100%)`,
 } as const;
 
 export type Brand = typeof brand;

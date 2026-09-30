@@ -14,6 +14,9 @@ import Blog from "../components/Blog";
 import PricingPreview from "../components/PricingPreview";
 import FAQ from "../components/FAQ";
 import WhatWeDo from "../components/WhatWeDo";
+import ITServices from "../components/ITServices";
+import TechStacksWeUse from "../components/TechStacksWeUse";
+import IndustriesWeServe from "../components/IndustriesWeServe";
 import TrustMarquee from "../components/TrustMarquee";
 import KeyHighlights from "../components/KeyHighlights";
 import ProductsEcosystem from "../components/ProductsEcosystem";
@@ -27,6 +30,9 @@ export default function HomePage() {
       <TrustMarquee />
       <KeyHighlights />
       <WhatWeDo />
+      <ITServices />
+      <TechStacksWeUse />
+      <IndustriesWeServe />
       <ProductsEcosystem />
       <WhyCodelink />
       <TrustedBy />

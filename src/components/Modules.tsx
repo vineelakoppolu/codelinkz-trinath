@@ -8,13 +8,13 @@ const modules = [
     icon: Utensils,
     title: 'Restaurant OS',
     desc: 'POS, inventory, table management, and kitchen operations.',
-    gradient: `linear-gradient(135deg, ${colors.primary}15 0%, #FF6B6B20 100%)`,
+    gradient: `linear-gradient(135deg, #1863BA22 0%, #F59E0B33 100%)`,
   },
   {
     icon: HeartPulse,
     title: 'Healthcare',
     desc: 'Appointments, EMR, billing, and patient engagement.',
-    gradient: `linear-gradient(135deg, ${colors.primary}15 0%, #FF1493 20%, #FF69B420 100%)`,
+    gradient: `linear-gradient(135deg, #00B2FE22 0%, #10B98133 100%)`,
   },
   {
     icon: Users,
@@ -26,13 +26,13 @@ const modules = [
     icon: Scale,
     title: 'Legal Operations',
     desc: 'Case tracking, contracts, and client management.',
-    gradient: `linear-gradient(135deg, ${colors.primary}15 0%, #10B98120 100%)`,
+    gradient: `linear-gradient(135deg, #0B254522 0%, #1863BA33 100%)`,
   },
   {
     icon: DollarSign,
     title: 'Revenue Platform',
     desc: 'Invoicing, subscriptions, and revenue analytics.',
-    gradient: `linear-gradient(135deg, ${colors.primary}15 0%, #F59E0B20 100%)`,
+    gradient: `linear-gradient(135deg, #F59E0B22 0%, #00B2FE33 100%)`,
   },
   {
     icon: Megaphone,
@@ -64,7 +64,7 @@ const itemVariants = {
 
 export default function Modules() {
   return (
-    <section style={{ padding: '120px 0', background: colors.background }}>
+    <section style={{ padding: '120px 0', background: 'var(--background)' }}>
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         {/* Header */}
         <SectionTitle

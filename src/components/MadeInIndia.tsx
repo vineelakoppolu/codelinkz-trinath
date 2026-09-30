@@ -29,7 +29,7 @@ const statVariants = {
 
 export default function MadeInIndia() {
   return (
-    <section className="section-padding bg-background relative overflow-hidden">
+    <section className="section-padding relative overflow-hidden" style={{ background: 'linear-gradient(160deg, #0B2545 0%, #1863BA 100%)' }}>
       {/* Background accent */}
       <motion.div
         className="absolute top-0 right-0 w-96 h-96 bg-blue-50 rounded-full blur-3xl opacity-40 -z-10"
@@ -46,7 +46,8 @@ export default function MadeInIndia() {
 
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <motion.div
-          className="glass-card rounded-3xl p-12 lg:p-16 text-center"
+          className="rounded-3xl p-12 lg:p-16 text-center"
+          style={{ background: 'rgba(255,255,255,0.08)', border: '1px solid rgba(255,255,255,0.18)', backdropFilter: 'blur(16px)' }}
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6 }}
@@ -78,7 +79,7 @@ export default function MadeInIndia() {
           </motion.div>
 
           <motion.h2
-            className="text-5xl lg:text-6xl font-800 text-text-primary mb-4"
+            className="text-5xl lg:text-6xl font-800 text-white mb-4"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
@@ -87,7 +88,7 @@ export default function MadeInIndia() {
             Made in India.
           </motion.h2>
           <motion.h3
-            className="text-4xl lg:text-5xl font-800 bg-gradient-to-r from-primary to-accent-blue bg-clip-text text-transparent mb-6"
+            className="text-4xl lg:text-5xl font-800 mb-6" style={{ color: '#00B2FE' }}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 }}
@@ -97,7 +98,7 @@ export default function MadeInIndia() {
           </motion.h3>
 
           <motion.p
-            className="text-lg text-text-secondary max-w-2xl mx-auto mb-12 leading-relaxed"
+            className="text-lg max-w-2xl mx-auto mb-12 leading-relaxed" style={{ color: 'rgba(248,250,252,0.8)' }}
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ delay: 0.4 }}
@@ -121,13 +122,13 @@ export default function MadeInIndia() {
                 whileHover={{ scale: 1.05, y: -4 }}
               >
                 <motion.div
-                  className="text-4xl font-800 text-primary mb-1"
+                  className="text-4xl font-800 mb-1" style={{ color: '#00B2FE' }}
                   whileHover={{ scale: 1.1 }}
                   transition={{ type: 'spring', stiffness: 400 }}
                 >
                   {stat.value}
                 </motion.div>
-                <div className="text-sm text-text-muted">{stat.label}</div>
+                <div className="text-sm" style={{ color: 'rgba(248,250,252,0.72)' }}>{stat.label}</div>
               </motion.div>
             ))}
           </motion.div>

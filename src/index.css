@@ -5,45 +5,54 @@
 @tailwind utilities;
 
 :root {
-  /* Official CodeLink SOLUTION brand colors */
-  --brand-cyan: #00AEFE;
-  --brand-royal: #1D68BE;
-  --brand-charcoal: #54595E;
+  /* Official CodeLink SOLUTION brand colors — sampled from the logos */
+  --brand-cyan: #00B2FE;
+  --brand-royal: #1863BA;
+  --brand-logo: #0076CE;
+  --brand-deep: #0B2545;
+  --brand-charcoal: #515254;
+  --brand-slate: #0F172A;
   --brand-white: #FFFFFF;
+  --brand-success: #10B981;
+  --brand-warning: #F59E0B;
 
   --primary-blue: var(--brand-royal);
   --primary-blue-light: var(--brand-cyan);
-  --primary-blue-dark: #155398;
+  --primary-blue-dark: var(--brand-deep);
   --accent-cyan: var(--brand-cyan);
-  --accent-sky: #D6F3FF;
+  --accent-sky: #E7F7FF;
   --background: var(--brand-white);
-  --background-soft: #F3F8FC;
+  --background-soft: #F8FAFC;
   --surface: #FFFFFF;
   --card: #FFFFFF;
-  --text-primary: #3A3E42;
+  --text-primary: var(--brand-slate);
   --text-secondary: var(--brand-charcoal);
-  --text-muted: #8B9096;
-  --border-soft: #D7DEE6;
-  --border-light: rgba(29, 104, 190, 0.08);
-  --toggle-surface: #F3F8FC;
-  --shadow-blue: rgba(29, 104, 190, 0.12);
+  --text-muted: #6B7280;
+  --border-soft: #E2E8F0;
+  --border-light: rgba(24, 99, 186, 0.12);
+  --toggle-surface: #F8FAFC;
+  --shadow-blue: rgba(24, 99, 186, 0.16);
+  --section-wash: linear-gradient(180deg, #E7F7FF 0%, #F8FAFC 100%);
+  --section-fade: linear-gradient(180deg, #F8FAFC 0%, #FFFFFF 100%);
   --radius-xl: 24px;
   --radius-lg: 18px;
 }
 
 .dark {
-  --accent-sky: #16324A;
-  --background: #0B1220;
-  --background-soft: #121A2A;
-  --surface: #162033;
-  --card: #162033;
-  --text-primary: #E8EEF5;
-  --text-secondary: #B4BCC6;
-  --text-muted: #8B93A1;
-  --border-soft: #2A3548;
-  --border-light: rgba(0, 174, 254, 0.16);
-  --toggle-surface: #121A2A;
-  --shadow-blue: rgba(0, 174, 254, 0.12);
+  --accent-sky: #123A66;
+  --background: #07182E;
+  --background-soft: #0B2545;
+  --surface: #123056;
+  --card: #123056;
+  --text-primary: #F8FAFC;
+  --text-secondary: #C5D0DC;
+  --text-muted: #94A3B8;
+  --border-soft: #1E3A5F;
+  --border-light: rgba(0, 178, 254, 0.18);
+  --toggle-surface: #0B2545;
+  --shadow-blue: rgba(0, 178, 254, 0.14);
+  --section-wash: linear-gradient(180deg, #0E2C52 0%, #07182E 100%);
+  --section-fade: linear-gradient(180deg, #0B2545 0%, #07182E 100%);
 }
 
 body {
@@ -72,18 +81,18 @@ body {
 
 /* Soft glow backgrounds */
 .glow-blue-soft {
-  background: radial-gradient(circle at 50% 0%, rgba(29, 104, 190, 0.08) 0%, transparent 70%);
+  background: radial-gradient(circle at 50% 0%, rgba(24, 99, 186, 0.08) 0%, transparent 70%);
 }
 
 .glow-blue-accent {
-  background: radial-gradient(circle at 50% 50%, rgba(0, 174, 254, 0.06) 0%, transparent 80%);
+  background: radial-gradient(circle at 50% 50%, rgba(0, 178, 254, 0.06) 0%, transparent 80%);
 }
 
 /* Grid overlay */
 .grid-overlay {
   background-image:
-    linear-gradient(rgba(29, 104, 190, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(29, 104, 190, 0.03) 1px, transparent 1px);
+    linear-gradient(rgba(24, 99, 186, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(24, 99, 186, 0.03) 1px, transparent 1px);
   background-size: 60px 60px;
 }
 
@@ -175,13 +184,13 @@ body {
 .btn-glass {
   background: rgba(255, 255, 255, 0.6);
   backdrop-filter: blur(12px);
-  border: 1px solid rgba(29, 104, 190, 0.1);
+  border: 1px solid rgba(24, 99, 186, 0.1);
   color: var(--text-primary);
 }
 
 .btn-glass:hover {
   background: rgba(255, 255, 255, 0.9);
-  border-color: rgba(29, 104, 190, 0.2);
+  border-color: rgba(24, 99, 186, 0.2);
 }
 
 /* Gradient text */
@@ -190,6 +199,29 @@ body {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+}
+
+.tech-stack-panel {
+  background: #f1f5f9;
+  border: 1px solid rgba(15, 23, 42, 0.06);
+}
+
+.dark .tech-stack-panel {
+  background: #102844;
+  border-color: rgba(255, 255, 255, 0.06);
+}
+
+.services-title-accent {
+  display: inline-block;
+  background-image: linear-gradient(90deg, #7c3aed 0%, #1863ba 46%, #00b2fe 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+.dark .services-title-accent {
+  background-image: linear-gradient(90deg, #ddd6fe 0%, #93c5fd 42%, #67e8f9 100%);
 }
 
 /* Section spacing */
@@ -206,17 +238,30 @@ body {
 /* Header — glossy brand motion */
 .header-sheen {
   background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.94) 0%, rgba(243, 248, 252, 0.88) 100%);
-  backdrop-filter: blur(22px) saturate(1.35);
+    linear-gradient(180deg, rgba(255, 255, 255, 0.72) 0%, rgba(243, 248, 252, 0.55) 100%);
+  backdrop-filter: blur(18px) saturate(1.45);
+  -webkit-backdrop-filter: blur(18px) saturate(1.45);
+  border-bottom: 1px solid rgba(24, 99, 186, 0.12);
+  box-shadow: 0 8px 28px rgba(24, 99, 186, 0.06);
 }
 
 .dark .header-sheen {
   background:
-    linear-gradient(180deg, rgba(11, 18, 32, 0.96) 0%, rgba(18, 26, 42, 0.94) 100%);
+    linear-gradient(180deg, rgba(7, 24, 46, 0.82) 0%, rgba(11, 37, 69, 0.72) 100%);
+  border-bottom-color: rgba(0, 178, 254, 0.2);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.35);
+}
+
+.header-sheen.is-solid {
+  background: var(--background);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  border-bottom-color: transparent;
+  box-shadow: 0 10px 40px rgba(24, 99, 186, 0.08);
 }
 
 .header-hairline {
-  background: linear-gradient(90deg, transparent, #00AEFE 20%, #1D68BE 50%, #00AEFE 80%, transparent);
+  background: linear-gradient(90deg, transparent, #00B2FE 20%, #1863BA 50%, #00B2FE 80%, transparent);
 }
 
 .nav-link-premium {
@@ -240,7 +285,7 @@ body {
   inset: 0;
   z-index: 0;
   border-radius: inherit;
-  background: linear-gradient(120deg, #1D68BE 0%, #00AEFE 48%, #155398 100%);
+  background: linear-gradient(120deg, #1863BA 0%, #00B2FE 48%, #0B2545 100%);
   background-size: 180% 180%;
   transform: translateY(108%);
   transition: transform 0.48s cubic-bezier(0.22, 1, 0.36, 1);
@@ -318,7 +363,7 @@ body {
 .brand-fill-item .fill-wash {
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, #1D68BE 0%, #00AEFE 100%);
+  background: linear-gradient(135deg, #1863BA 0%, #00B2FE 100%);
   transform: scaleX(0);
   transform-origin: left center;
   transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
@@ -340,8 +385,8 @@ body {
 }
 
 .brand-fill-item .fill-icon {
-  color: #00AEFE;
-  background: rgba(0, 174, 254, 0.1);
+  color: #00B2FE;
+  background: rgba(0, 178, 254, 0.1);
   transition: color 0.3s ease, transform 0.35s ease, background 0.35s ease;
 }
 
