@@ -10,8 +10,9 @@ export default function HomePage() {
     <div>
       <Hero />
       <TrustMarquee />
-      <ITServices />
       <ProductsEcosystem />
+      <ITServices />
+   
       <IndustriesWeServe />
       <TechStacksWeUse />
     </div>
