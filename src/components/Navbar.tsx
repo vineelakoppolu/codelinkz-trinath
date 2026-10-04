@@ -1,27 +1,41 @@
-import { useEffect, useRef, useState, type ReactNode } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
-import { ChevronDown, Menu, X } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Menu, X } from 'lucide-react';
 import { colors, logos, royalAlpha } from '@/theme';
 import { useTheme } from '@/theme/ThemeProvider';
-import { serviceColumns, technologyColumns, companyItems, productCategories } from '@/data/navigation';
+import {
+  serviceColumns,
+  technologyColumns,
+  companyItems,
+  productCategories,
+  type NavColumn,
+  type NavItemLink,
+  type ProductCategory,
+} from '@/data/navigation';
 import { GlowMenuTrack, GlowNavItem } from './ui/glow-menu';
 import { CompanyPanel, ServicesPanel, TechnologyPanel } from './navbar/MegaPanels';
 import { ProductsPanel } from './navbar/ProductsPanel';
 import { FillItem } from './navbar/FillItem';
 
-type MenuKey =  'products' | 'services' | 'technology' | 'company';
+type MenuKey = 'products' | 'services' | 'technology' | 'company';
 
-// const trailingLinks = [
-//   { label: 'Work', href: '/solutions' },
-//   { label: 'Blog', href: '/' },
-//   { label: 'Contact us', href: '/company' },
-// ];
+type MobileLevel =
+  | { view: 'root' }
+  | { view: 'section'; key: MenuKey; title: string }
+  | { view: 'column'; key: MenuKey; title: string; columnTitle: string; index: number };
+
+const mobileRootItems: { key: MenuKey; label: string }[] = [
+  { key: 'products', label: 'Products' },
+  { key: 'services', label: 'Services' },
+  { key: 'technology', label: 'Technology Focus' },
+  { key: 'company', label: 'Company' },
+];
 
 export default function Navbar() {
   const [openMenu, setOpenMenu] = useState<MenuKey | null>(null);
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [mobileSection, setMobileSection] = useState<MenuKey | null>(null);
+  const [mobileLevel, setMobileLevel] = useState<MobileLevel>({ view: 'root' });
   const closeTimer = useRef<number>();
   const navigate = useNavigate();
   const { isDark } = useTheme();
@@ -31,6 +45,7 @@ export default function Navbar() {
       if (event.key === 'Escape') {
         setOpenMenu(null);
         setMobileOpen(false);
+        setMobileLevel({ view: 'root' });
       }
     };
     window.addEventListener('keydown', onKey);
@@ -46,10 +61,35 @@ export default function Navbar() {
     closeTimer.current = window.setTimeout(() => setOpenMenu(null), 160);
   };
 
+  const closeMobile = () => {
+    setMobileOpen(false);
+    setMobileLevel({ view: 'root' });
+  };
+
   const go = (href: string) => {
     setOpenMenu(null);
-    setMobileOpen(false);
+    closeMobile();
     navigate(href);
+  };
+
+  const toggleMobile = () => {
+    setMobileOpen((openNow) => {
+      if (openNow) {
+        setMobileLevel({ view: 'root' });
+        return false;
+      }
+      setMobileLevel({ view: 'root' });
+      return true;
+    });
+  };
+
+  const goMobileBack = () => {
+    setMobileLevel((level) => {
+      if (level.view === 'column') {
+        return { view: 'section', key: level.key, title: sectionTitle(level.key) };
+      }
+      return { view: 'root' };
+    });
   };
 
   return (
@@ -109,7 +149,11 @@ export default function Navbar() {
                   onEnter={() => open('company')}
                   onClick={() => go('/company')}
                 />
-                
+                <GlowNavItem
+                  label="Blog"
+                  onEnter={scheduleClose}
+                  onClick={() => go('/')}
+                />
               </GlowMenuTrack>
             </div>
 
@@ -127,14 +171,14 @@ export default function Navbar() {
             <motion.button
               type="button"
               className="xl:hidden ml-auto p-2 rounded-xl"
-              onClick={() => setMobileOpen((v) => !v)}
+              onClick={toggleMobile}
               whileTap={{ scale: 0.95 }}
               aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
             >
               {mobileOpen ? (
-                <X className="w-6 h-6" style={{ color: colors.primary }} />
+                <X className="w-6 h-6 text-white" />
               ) : (
-                <Menu className="w-6 h-6" style={{ color: colors.primary }} />
+                <Menu className="w-6 h-6 text-white" />
               )}
             </motion.button>
           </div>
@@ -193,78 +237,219 @@ export default function Navbar() {
             style={{ background: 'var(--background)', borderColor: 'rgba(24,99,186,0.1)' }}
           >
             <div className="header-hairline h-[2px] w-full" />
-            <div className="px-5 py-4 max-h-[78vh] overflow-y-auto space-y-2">
-              <MobileAccordion
-                label="Services"
-                open={mobileSection === 'services'}
-                onToggle={() => setMobileSection((s) => (s === 'services' ? null : 'services'))}
-              >
-                {serviceColumns.flatMap((col) =>
-                  col.items.map((item) => <FillItem key={item.title} {...item} compact onClick={() => setMobileOpen(false)} />),
-                )}
-              </MobileAccordion>
+            <div className="px-5 py-4 max-h-[78vh] overflow-y-auto">
+              <AnimatePresence mode="wait" initial={false}>
+                <motion.div
+                  key={mobileLevelKey(mobileLevel)}
+                  initial={{ opacity: 0, x: 18 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: -14 }}
+                  transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
+                  className="space-y-1"
+                >
+                  {mobileLevel.view !== 'root' && (
+                    <MobileBackRow
+                      label={mobileLevel.view === 'column' ? mobileLevel.columnTitle : mobileLevel.title}
+                      onBack={goMobileBack}
+                    />
+                  )}
 
-              <MobileAccordion
-                label="Technology Focus"
-                open={mobileSection === 'technology'}
-                onToggle={() => setMobileSection((s) => (s === 'technology' ? null : 'technology'))}
-              >
-                {technologyColumns.flatMap((col) =>
-                  col.items.map((item) => <FillItem key={item.title} {...item} compact onClick={() => setMobileOpen(false)} />),
-                )}
-              </MobileAccordion>
+                  {mobileLevel.view === 'root' && (
+                    <>
+                      {mobileRootItems.map((item) => (
+                        <MobileNavRow
+                          key={item.key}
+                          label={item.label}
+                          onClick={() =>
+                            setMobileLevel({ view: 'section', key: item.key, title: item.label })
+                          }
+                        />
+                      ))}
+                      <button
+                        type="button"
+                        onClick={() => go('/')}
+                        className="nav-link-premium is-mobile-row w-full flex items-center"
+                      >
+                        <NavFill />
+                        <span className="nav-label w-full">Blog</span>
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => go('/company')}
+                        className="header-cta-shine mt-3 w-full rounded-full px-5 py-3 text-sm font-700 text-white"
+                        style={{ background: colors.gradientPrimary }}
+                      >
+                        Contact Us
+                      </button>
+                    </>
+                  )}
 
-              <MobileAccordion
-                label="Products"
-                open={mobileSection === 'products'}
-                onToggle={() => setMobileSection((s) => (s === 'products' ? null : 'products'))}
-              >
-                {productCategories[0].items.map((item) => (
-                  <FillItem
-                    key={item.title}
-                    title={item.title}
-                    description={item.description}
-                    href={item.href}
-                    compact
-                    onClick={() => setMobileOpen(false)}
-                  />
-                ))}
-              </MobileAccordion>
+                  {mobileLevel.view === 'section' && (
+                    <MobileSectionList
+                      sectionKey={mobileLevel.key}
+                      onOpenColumn={(columnTitle, index) =>
+                        setMobileLevel({
+                          view: 'column',
+                          key: mobileLevel.key,
+                          title: mobileLevel.title,
+                          columnTitle,
+                          index,
+                        })
+                      }
+                      onLeafNavigate={closeMobile}
+                    />
+                  )}
 
-              <button
-                type="button"
-                className="nav-link-premium w-full text-left"
-                onClick={() => go('/company')}
-              >
-                <NavFill />
-                <span className="nav-label">Career</span>
-              </button>
-
-              <MobileAccordion
-                label="Company"
-                open={mobileSection === 'company'}
-                onToggle={() => setMobileSection((s) => (s === 'company' ? null : 'company'))}
-              >
-                {companyItems.map((item) => (
-                  <FillItem key={item.title} {...item} compact onClick={() => setMobileOpen(false)} />
-                ))}
-              </MobileAccordion>
-
-             
-
-              <button
-                type="button"
-                onClick={() => go('/company')}
-                className="header-cta-shine mt-3 w-full rounded-full px-5 py-3 text-sm font-700 text-white"
-                style={{ background: colors.gradientPrimary }}
-              >
-                Get a Quote
-              </button>
+                  {mobileLevel.view === 'column' && (
+                    <MobileColumnItems
+                      sectionKey={mobileLevel.key}
+                      index={mobileLevel.index}
+                      onNavigate={closeMobile}
+                    />
+                  )}
+                </motion.div>
+              </AnimatePresence>
             </div>
           </motion.div>
         )}
       </AnimatePresence>
     </header>
+  );
+}
+
+function sectionTitle(key: MenuKey) {
+  return mobileRootItems.find((item) => item.key === key)?.label ?? key;
+}
+
+function mobileLevelKey(level: MobileLevel) {
+  if (level.view === 'root') return 'root';
+  if (level.view === 'section') return `section-${level.key}`;
+  return `column-${level.key}-${level.index}`;
+}
+
+function columnsFor(key: MenuKey): NavColumn[] | null {
+  if (key === 'services') return serviceColumns;
+  if (key === 'technology') return technologyColumns;
+  return null;
+}
+
+function MobileBackRow({ label, onBack }: { label: string; onBack: () => void }) {
+  return (
+    <button
+      type="button"
+      onClick={onBack}
+      className="nav-link-premium is-mobile-row w-full flex items-center mb-1"
+    >
+      <NavFill />
+      <span className="nav-label w-full gap-2">
+        <ChevronLeft className="h-4 w-4 shrink-0 self-center" />
+        <span className="min-w-0 flex-1 text-left whitespace-normal leading-snug">{label}</span>
+      </span>
+    </button>
+  );
+}
+
+function MobileNavRow({ label, onClick }: { label: string; onClick: () => void }) {
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      className="nav-link-premium is-mobile-row w-full flex items-center"
+    >
+      <NavFill />
+      <span className="nav-label w-full justify-between gap-3">
+        <span className="min-w-0 flex-1 text-left whitespace-normal leading-snug">{label}</span>
+        <ChevronRight className="h-4 w-4 shrink-0 self-center" />
+      </span>
+    </button>
+  );
+}
+
+function MobileSectionList({
+  sectionKey,
+  onOpenColumn,
+  onLeafNavigate,
+}: {
+  sectionKey: MenuKey;
+  onOpenColumn: (columnTitle: string, index: number) => void;
+  onLeafNavigate: () => void;
+}) {
+  if (sectionKey === 'company') {
+    return (
+      <>
+        {companyItems.map((item) => (
+          <FillItem key={item.title} {...item} compact onClick={onLeafNavigate} />
+        ))}
+      </>
+    );
+  }
+
+  if (sectionKey === 'products') {
+    return (
+      <>
+        {productCategories.map((category, index) => (
+          <MobileNavRow
+            key={category.id}
+            label={category.label}
+            onClick={() => onOpenColumn(category.label, index)}
+          />
+        ))}
+      </>
+    );
+  }
+
+  const columns = columnsFor(sectionKey) ?? [];
+  return (
+    <>
+      {columns.map((column, index) => (
+        <MobileNavRow
+          key={`${column.heading}-${index}`}
+          label={column.heading}
+          onClick={() => onOpenColumn(column.heading, index)}
+        />
+      ))}
+    </>
+  );
+}
+
+function MobileColumnItems({
+  sectionKey,
+  index,
+  onNavigate,
+}: {
+  sectionKey: MenuKey;
+  index: number;
+  onNavigate: () => void;
+}) {
+  if (sectionKey === 'products') {
+    const category: ProductCategory | undefined = productCategories[index];
+    if (!category) return null;
+    return (
+      <>
+        {category.items.map((item) => (
+          <FillItem
+            key={item.title}
+            title={item.title}
+            description={item.description}
+            href={item.href}
+            compact
+            onClick={onNavigate}
+          />
+        ))}
+      </>
+    );
+  }
+
+  const columns = columnsFor(sectionKey);
+  const column = columns?.[index];
+  if (!column) return null;
+
+  return (
+    <>
+      {column.items.map((item: NavItemLink) => (
+        <FillItem key={item.title} {...item} compact onClick={onNavigate} />
+      ))}
+    </>
   );
 }
 
@@ -274,45 +459,5 @@ function NavFill() {
       <span className="nav-fill" aria-hidden />
       <span className="nav-shine" aria-hidden />
     </>
-  );
-}
-
-function MobileAccordion({
-  label,
-  open,
-  onToggle,
-  children,
-}: {
-  label: string;
-  open: boolean;
-  onToggle: () => void;
-  children: ReactNode;
-}) {
-  return (
-    <div>
-      <button
-        type="button"
-        onClick={onToggle}
-        className={`nav-link-premium w-full flex items-center justify-between ${open ? 'is-open' : ''}`}
-      >
-        <NavFill />
-        <span className="nav-label w-full justify-between">
-          {label}
-          <ChevronDown className={`h-4 w-4 transition-transform ${open ? 'rotate-180' : ''}`} />
-        </span>
-      </button>
-      <AnimatePresence>
-        {open && (
-          <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: 'auto', opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            className="overflow-hidden"
-          >
-            <div className="pt-2 pb-3 space-y-1">{children}</div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </div>
   );
 }

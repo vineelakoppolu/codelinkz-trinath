@@ -4,16 +4,23 @@
     <script>
       (function () {
         try {
-          if (localStorage.getItem('codelink-theme') === 'dark') {
+          var theme = localStorage.getItem('codelink-theme');
+          if (theme !== 'light') {
             document.documentElement.classList.add('dark');
             document.documentElement.style.colorScheme = 'dark';
           }
-        } catch (e) {}
+        } catch (e) {
+          document.documentElement.classList.add('dark');
+          document.documentElement.style.colorScheme = 'dark';
+        }
       })();
     </script>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Syne:wght@600;700;800&display=swap" rel="stylesheet" />
     <title>code-linkz</title>
   </head>
   <body>

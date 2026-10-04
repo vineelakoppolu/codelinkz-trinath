@@ -36,17 +36,32 @@ const REPULSION_STRENGTH = 1.2;
 
 const randomRange = (min: number, max: number) => Math.random() * (max - min) + min;
 
-export default function ParticleEffectForHero() {
+type ParticleEffectProps = {
+  accentColor?: string;
+  particleColors?: string[];
+  density?: number;
+};
+
+export default function ParticleEffectForHero({
+  accentColor = '#00B2FE',
+  particleColors,
+  density = 1,
+}: ParticleEffectProps = {}) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const particlesRef = useRef<Particle[]>([]);
   const backgroundParticlesRef = useRef<BackgroundParticle[]>([]);
   const mouseRef = useRef<MouseState>({ x: -1000, y: -1000, isActive: false });
   const frameIdRef = useRef<number>(0);
+  const accentRef = useRef(accentColor);
+  const colorsRef = useRef(particleColors ?? ['#ffffff', accentColor]);
+  accentRef.current = accentColor;
+  colorsRef.current = particleColors?.length ? particleColors : ['#ffffff', accentColor];
 
   const initParticles = useCallback((width: number, height: number) => {
-    const particleCount = Math.floor(width * height * PARTICLE_DENSITY);
+    const particleCount = Math.floor(width * height * PARTICLE_DENSITY * density);
     const particles: Particle[] = [];
+    const palette = colorsRef.current;
 
     for (let i = 0; i < particleCount; i++) {
       const x = Math.random() * width;
@@ -59,7 +74,7 @@ export default function ParticleEffectForHero() {
         vx: 0,
         vy: 0,
         size: randomRange(1, 2.5),
-        color: Math.random() > 0.88 ? '#00B2FE' : '#ffffff',
+        color: palette[Math.floor(Math.random() * palette.length)],
       });
     }
     particlesRef.current = particles;
@@ -78,7 +93,7 @@ export default function ParticleEffectForHero() {
       });
     }
     backgroundParticlesRef.current = background;
-  }, []);
+  }, [density]);
 
   const animate = useCallback((time: number) => {
     const canvas = canvasRef.current;
@@ -93,7 +108,11 @@ export default function ParticleEffectForHero() {
     const centerY = height / 2;
     const pulseOpacity = Math.sin(time * 0.0008) * 0.035 + 0.085;
     const gradient = ctx.createRadialGradient(centerX, centerY, 0, centerX, centerY, Math.max(width, height) * 0.7);
-    gradient.addColorStop(0, `rgba(0, 178, 254, ${pulseOpacity})`);
+    const accent = accentRef.current;
+    const r = Number.parseInt(accent.slice(1, 3), 16) || 0;
+    const g = Number.parseInt(accent.slice(3, 5), 16) || 178;
+    const b = Number.parseInt(accent.slice(5, 7), 16) || 254;
+    gradient.addColorStop(0, `rgba(${r}, ${g}, ${b}, ${pulseOpacity})`);
     gradient.addColorStop(1, 'rgba(0, 0, 0, 0)');
     ctx.fillStyle = gradient;
     ctx.fillRect(0, 0, width, height);
@@ -181,8 +200,14 @@ export default function ParticleEffectForHero() {
       const opacity = Math.min(0.35 + velocity * 0.1, 1);
       ctx.beginPath();
       ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-      ctx.fillStyle = p.color === '#ffffff' ? `rgba(255, 255, 255, ${opacity})` : p.color;
+      if (p.color === '#ffffff') {
+        ctx.fillStyle = `rgba(255, 255, 255, ${opacity})`;
+      } else {
+        ctx.globalAlpha = opacity;
+        ctx.fillStyle = p.color;
+      }
       ctx.fill();
+      ctx.globalAlpha = 1;
     }
 
     frameIdRef.current = requestAnimationFrame(animate);
@@ -207,7 +232,7 @@ export default function ParticleEffectForHero() {
     window.addEventListener('resize', handleResize);
     handleResize();
     return () => window.removeEventListener('resize', handleResize);
-  }, [initParticles]);
+  }, [initParticles, density]);
 
   useEffect(() => {
     frameIdRef.current = requestAnimationFrame(animate);

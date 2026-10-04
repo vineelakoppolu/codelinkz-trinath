@@ -52,7 +52,7 @@ export function CompanyPanel({ onNavigate }: { onNavigate: () => void }) {
 
   return (
     <div className="grid grid-cols-1 lg:grid-cols-[1fr_360px] gap-10 items-start">
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-5 gap-y-1">
+      <div className="flex flex-col gap-1 max-w-xl">
         {companyItems.map((item) => (
           <FillItem key={item.title} {...item} onClick={onNavigate} />
         ))}

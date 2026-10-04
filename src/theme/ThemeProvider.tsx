@@ -21,8 +21,11 @@ function applyTheme(theme: ColorMode) {
 
 export function ThemeProvider({ children }: { children: ReactNode }) {
   const [theme, setThemeState] = useState<ColorMode>(() => {
-    if (typeof document === 'undefined') return 'light';
-    return document.documentElement.classList.contains('dark') ? 'dark' : 'light';
+    if (typeof document === 'undefined') return 'dark';
+    const stored = localStorage.getItem(STORAGE_KEY) as ColorMode | null;
+    if (stored === 'light' || stored === 'dark') return stored;
+    applyTheme('dark');
+    return 'dark';
   });
 
   const value = useMemo<ThemeContextValue>(() => {

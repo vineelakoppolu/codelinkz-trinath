@@ -1,55 +1,19 @@
-import CTA from "../components/CTA";
-import Features from "../components/Features";
-import Hero from "../components/Hero";
-import MadeInIndia from "../components/MadeInIndia";
-import Modules from "../components/Modules";
-import Process from "../components/Process";
-import TechStack from "../components/TechStack";
-import Testimonials from "../components/Testimonials";
-import TrustedBy from "../components/TrustedBy";
-import WhyChooseUs from "../components/WhyChooseUs";
-import Statistics from "../components/Statistics";
-import Integrations from "../components/Integrations";
-import Blog from "../components/Blog";
-import PricingPreview from "../components/PricingPreview";
-import FAQ from "../components/FAQ";
-import WhatWeDo from "../components/WhatWeDo";
-import ITServices from "../components/ITServices";
-import TechStacksWeUse from "../components/TechStacksWeUse";
-import IndustriesWeServe from "../components/IndustriesWeServe";
-import TrustMarquee from "../components/TrustMarquee";
-import KeyHighlights from "../components/KeyHighlights";
-import ProductsEcosystem from "../components/ProductsEcosystem";
-import WhyCodelink from "../components/WhyCodelink";
-import CTABanner from "../components/CTABanner";
+import Hero from '../components/Hero';
+import TrustMarquee from '../components/TrustMarquee';
+import ITServices from '../components/ITServices';
+import ProductsEcosystem from '../components/ProductsEcosystem';
+import IndustriesWeServe from '../components/IndustriesWeServe';
+import TechStacksWeUse from '../components/TechStacksWeUse';
 
 export default function HomePage() {
   return (
     <div>
       <Hero />
       <TrustMarquee />
-      <KeyHighlights />
-      <WhatWeDo />
       <ITServices />
-      <TechStacksWeUse />
-      <IndustriesWeServe />
       <ProductsEcosystem />
-      <WhyCodelink />
-      <TrustedBy />
-      <Modules />
-      <WhyChooseUs />
-      <Statistics />
-      <TechStack />
-      <Features />
-      <Process />
-      <Integrations />
-      <PricingPreview />
-      <Testimonials />
-      <Blog />
-      <FAQ />
-      <MadeInIndia />
-      <CTABanner />
-      <CTA />
+      <IndustriesWeServe />
+      <TechStacksWeUse />
     </div>
   );
 }

@@ -1,13 +1,11 @@
 import {
   BarChart3,
-  Blocks,
   Bot,
   Brain,
   Cloud,
   Cpu,
   Database,
   Gem,
-  Infinity,
   Sparkles,
   type LucideIcon,
 } from 'lucide-react';
@@ -34,7 +32,6 @@ const groups: Group[] = [
       { name: 'React', icon: '/tech-icons/react.svg', tint: '#61DAFB' },
       { name: 'Angular', icon: '/tech-icons/angular.svg', tint: '#DD0031' },
       { name: 'Next.js', icon: '/tech-icons/nextdotjs.svg', tint: '#111111' },
-      { name: '.NET', icon: '/tech-icons/dotnet.svg', tint: '#512BD4', wordmark: true },
     ],
   },
   {
@@ -44,6 +41,7 @@ const groups: Group[] = [
       { name: 'Node.js', icon: '/tech-icons/nodedotjs.svg', tint: '#5FA04E' },
       { name: 'Express.js', icon: '/tech-icons/express.svg', tint: '#111111' },
       { name: '.NET', icon: '/tech-icons/dotnet.svg', tint: '#512BD4', wordmark: true },
+      { name: 'PHP', icon: '/tech-icons/php.svg', tint: '#777BB4' },
     ],
   },
   {
@@ -59,9 +57,7 @@ const groups: Group[] = [
     accent: '#7C3AED',
     items: [
       { name: 'Artificial Intelligence (AI)', mark: Brain, tint: '#7C3AED' },
-      { name: 'Blockchain', mark: Blocks, tint: '#F59E0B' },
       { name: 'Internet of Things (IoT)', mark: Cpu, tint: '#0891B2' },
-      { name: 'DevOps', mark: Infinity, tint: '#4F46E5' },
       { name: 'TensorFlow', icon: '/tech-icons/tensorflow.svg', tint: '#FF6F00' },
       { name: 'PyTorch', icon: '/tech-icons/pytorch.svg', tint: '#EE4C2C' },
       { name: 'Scikit-learn', icon: '/tech-icons/scikitlearn.svg', tint: '#F7931E' },
@@ -79,8 +75,7 @@ const groups: Group[] = [
     items: [
       { name: 'Amazon Web Services', mark: Cloud, tint: '#FF9900' },
       { name: 'Microsoft Azure', mark: Cloud, tint: '#0078D4' },
-      { name: 'Google Cloud Platform', icon: '/tech-icons/googlecloud.svg', tint: '#4285F4' },
-      { name: 'Oracle Cloud Infrastructure (OCI)', mark: Database, tint: '#F80000' },
+      { name: 'Google Cloud Platform', icon: '/tech-icons/googlecloud.svg', tint: '#4285F4' }
     ],
   },
   {

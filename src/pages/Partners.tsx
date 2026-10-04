@@ -52,7 +52,6 @@ const partnerBenefits = [
 
 const integrations = [
   'Salesforce',
-  'SAP',
   'Oracle',
   'Stripe',
   'Twilio',
