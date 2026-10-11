@@ -57,10 +57,11 @@ export default function Hero() {
             </motion.p>
 
             <motion.h1 variants={itemVariants} className="hero-headline mb-4 md:mb-5">
-              <span className="block">Transform Your Operations.</span>
-              <span className="block">
-                Across Your <span className="hero-headline-accent">Enterprise.</span>
-              </span>
+              <span className="hero-headline-line">Powering Businesses with</span>{' '}
+              <span className="hero-headline-line">
+                Smarter <span className="hero-headline-accent">Technology &amp;</span>
+              </span>{' '}
+              <span className="hero-headline-line hero-headline-accent">Digital Solutions</span>
             </motion.h1>
 
             <motion.p

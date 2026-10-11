@@ -105,6 +105,15 @@ export const technologyColumns: NavColumn[] = [
       { title: 'React Native development', description: 'Experience fast development & native performance.', href: '/technologies', icon: 'atom' },
     ],
   },
+  {
+    heading: 'AI / ML',
+    items: [
+      { title: 'TensorFlow', description: 'Build and deploy production-grade deep learning models.', href: '/technologies', icon: 'brain' },
+      { title: 'PyTorch', description: 'Research and train flexible neural networks at scale.', href: '/technologies', icon: 'cpu' },
+      { title: 'OpenAI & LLMs', description: 'Power chatbots, copilots and content with large language models.', href: '/technologies', icon: 'sparkles' },
+      { title: 'LangChain', description: 'Orchestrate AI agents, RAG pipelines and tool calling.', href: '/technologies', icon: 'bot' },
+    ],
+  },
 ];
 
 export const companyItems: NavItemLink[] = [

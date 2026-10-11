@@ -420,18 +420,19 @@ body {
   color: #f8fafc;
 }
 
-/* Desktop: keep the headline to 3 lines by fitting the longest line to the column */
-@media (min-width: 1024px) {
-  .hero-copy {
-    container-type: inline-size;
-  }
-
+/* Keep the headline to 3 lines by fitting its longest line to the column */
+.hero-copy {
+  container-type: inline-size;
 }
 
-@container (max-width: 531px) {
+@container (min-width: 0px) {
   .hero-headline {
-    font-size: min(clamp(1.85rem, 3.8vw, 3rem), 8.8cqi);
+    font-size: min(clamp(1.85rem, 3.8vw, 3rem), 8cqi);
   }
+}
+
+.hero-headline-line {
+  display: block;
 }
 
 .hero-headline-accent {

@@ -31,7 +31,7 @@ export function ServicesPanel({ onNavigate }: { onNavigate: () => void }) {
 
 export function TechnologyPanel({ onNavigate }: { onNavigate: () => void }) {
   return (
-    <div className="grid grid-cols-2 xl:grid-cols-4 gap-x-10 gap-y-2 pb-5">
+    <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-x-8 gap-y-2 pb-5">
       {technologyColumns.map((column) => (
         <div key={column.heading}>
           <ColumnHeading>{column.heading}</ColumnHeading>
