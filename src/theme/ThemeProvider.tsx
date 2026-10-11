@@ -13,19 +13,19 @@ type ThemeContextValue = {
 
 const ThemeContext = createContext<ThemeContextValue | null>(null);
 
-function applyTheme(theme: ColorMode) {
+function applyTheme(theme: ColorMode, persist = true) {
   document.documentElement.classList.toggle('dark', theme === 'dark');
   document.documentElement.style.colorScheme = theme;
-  localStorage.setItem(STORAGE_KEY, theme);
+  if (persist) localStorage.setItem(STORAGE_KEY, theme);
 }
 
 export function ThemeProvider({ children }: { children: ReactNode }) {
   const [theme, setThemeState] = useState<ColorMode>(() => {
-    if (typeof document === 'undefined') return 'dark';
+    if (typeof document === 'undefined') return 'light';
     const stored = localStorage.getItem(STORAGE_KEY) as ColorMode | null;
     if (stored === 'light' || stored === 'dark') return stored;
-    applyTheme('dark');
-    return 'dark';
+    applyTheme('light', false);
+    return 'light';
   });
 
   const value = useMemo<ThemeContextValue>(() => {

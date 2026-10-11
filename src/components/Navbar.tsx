@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
-import { ChevronLeft, ChevronRight, Menu, X } from 'lucide-react';
+import { ArrowRight, ChevronLeft, ChevronRight, Menu, X } from 'lucide-react';
 import { colors, logos, royalAlpha } from '@/theme';
 import { useTheme } from '@/theme/ThemeProvider';
 import {
@@ -38,7 +38,18 @@ export default function Navbar() {
   const [mobileLevel, setMobileLevel] = useState<MobileLevel>({ view: 'root' });
   const closeTimer = useRef<number>();
   const navigate = useNavigate();
+  const location = useLocation();
   const { isDark } = useTheme();
+  const isHome = location.pathname === '/';
+  const menuOpen = Boolean(openMenu || mobileOpen);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 16);
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, [location.pathname]);
 
   useEffect(() => {
     const onKey = (event: KeyboardEvent) => {
@@ -93,9 +104,9 @@ export default function Navbar() {
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50">
+    <header className="fixed top-0 left-0 right-0 z-[100]">
       <nav
-        className={`header-sheen transition-[box-shadow,background,backdrop-filter] duration-300 ${openMenu || mobileOpen ? 'is-solid' : ''}`}
+        className={`header-sheen transition-[box-shadow,background,backdrop-filter] duration-300 ${isHome && !scrolled ? 'is-hero-home' : ''} ${scrolled ? 'is-scrolled' : ''} ${menuOpen ? 'is-solid' : ''}`}
         onMouseLeave={scheduleClose}
       >
         <div className="max-w-[1440px] mx-auto px-6 lg:px-10">
@@ -161,10 +172,13 @@ export default function Navbar() {
               <button
                 type="button"
                 onClick={() => go('/company')}
-                className="header-cta-shine rounded-full px-5 py-2.5 text-sm font-700 text-white"
+                className="header-cta-shine hero-header-cta inline-flex items-center gap-2 rounded-full pl-5 pr-2 py-2 text-sm font-700 text-white"
                 style={{ background: colors.gradientPrimary, boxShadow: '0 8px 22px rgba(24,99,186,0.28)' }}
               >
                 Contact Us
+                <span className="hero-cta-pill__icon hero-cta-pill__icon--on-primary" aria-hidden>
+                  <ArrowRight className="h-4 w-4" />
+                </span>
               </button>
             </div>
 
@@ -176,9 +190,9 @@ export default function Navbar() {
               aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
             >
               {mobileOpen ? (
-                <X className="w-6 h-6 text-white" />
+                <X className="w-6 h-6 text-[var(--header-fg,var(--text-primary))]" />
               ) : (
-                <Menu className="w-6 h-6 text-white" />
+                <Menu className="w-6 h-6 text-[var(--header-fg,var(--text-primary))]" />
               )}
             </motion.button>
           </div>

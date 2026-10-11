@@ -237,7 +237,7 @@ export default function ITServices() {
   const Icon = current.icon;
 
   return (
-    <section className="relative overflow-hidden py-20 md:py-24" style={{ background: 'var(--background)' }}>
+    <section className="relative overflow-hidden pb-12 pt-20 md:pb-14 md:pt-24" style={{ background: 'var(--background)' }}>
       <motion.div
         className="pointer-events-none absolute inset-0"
         animate={{
